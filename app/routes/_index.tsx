@@ -1,18 +1,22 @@
 import type { MetaFunction } from "@remix-run/node";
-import MainPanel from "./components/mainPanel";
-import MainIndexContainer from "./components/mainIndexContainer";
-import StaggeredTextLines from "./components/staggeredTextLines";
+import MainPanel from "./components/building/mainPanel";
+import MainIndexContainer from "./components/building/mainIndexContainer";
+import StaggeredTextLines from "./components/building/staggeredTextLines";
 import { ScrollTransition } from "~/buildingBlockComponents/scrollTransition";
 import {
   CenterFull,
   Flex,
   FlexFull,
+  HStack,
   VStack,
 } from "~/buildingBlockComponents/mainContainers";
 import TextWithImageBackground from "~/buildingBlockComponents/textWithImageBackground";
 import Icon from "~/buildingBlockComponents/icon";
 import { TiThMenu } from "react-icons/ti";
 import { IoMenuOutline } from "react-icons/io5";
+import Text from "~/buildingBlockComponents/text";
+import HeroHeading from "./components/design-demos/heroHeading";
+import StaggerMenu from "./components/design-demos/staggerMenu";
 
 export const meta: MetaFunction = () => {
   return [
@@ -32,23 +36,11 @@ export default function Index() {
         <Icon icon={IoMenuOutline} iconClassName="text-4vh" />
       </Flex>
       <MainPanel
-        bg={`bg-gradient-to-b from-sky-200/50 via-sky-300/20 to-transparent`}
+        bg={`bg-gradient-to-b from-sky-100/50 via-sky-200/20 to-transparent`}
         textColor="text-col-100"
       >
-        Panel One
-        <StaggeredTextLines
-          textLines={["Line One", "Line Two", "Line Three"]}
-        />
-        <FlexFull>
-          <VStack align="items-start">
-            <span className="text-6vh">What is</span>
-            <span className="text-6vh">in a</span>
-            <TextWithImageBackground
-              text="Name"
-              imageUrl="/images/ocean-water.webp"
-            />
-          </VStack>
-        </FlexFull>
+        {/* <StaggerMenu /> */}
+        <HeroHeading />
       </MainPanel>
       <MainPanel bg={`${bgGradientBottom}`} textColor="text-col-100">
         <CenterFull className="h-full">
