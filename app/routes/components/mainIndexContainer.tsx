@@ -14,7 +14,7 @@ export default function MainIndexContainer({
 
       <FlexFull
         ref={scrollContainerRef} // Update here if it's not used this way
-        className="fixed inset-0 h-100svh overflow-y-auto overflow-x-hidden hide-scrollbar z-0"
+        className="fixed inset-0 h-100svh overflow-y-auto overflow-x-hidden hide-scrollbar z-0 rounded-none"
       >
         <VStackFull className="h-fit">{children}</VStackFull>
       </FlexFull>

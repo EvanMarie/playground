@@ -51,7 +51,7 @@ const ScrollProgressBar: React.FC<ScrollProgressBarProps> = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className={`${position} ${height} ${className} ${trackColor} ${zIndex} rounded-none`}
+          className={`${position} ${height} ${className} ${trackColor} ${zIndex} rounded-none shadowNarrowLoose`}
         >
           {centered ? (
             // Split the progress bar into left and right expansions
