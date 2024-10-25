@@ -10,11 +10,11 @@ export default function MainIndexContainer({
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   return (
     <>
-      {" "}
-      <ScrollProgressBar containerRef={scrollContainerRef} />
+      <ScrollProgressBar containerRef={scrollContainerRef} centered />
+
       <FlexFull
-        className="fixed inset-0 h-100svh overflow-y-auto overflow-x-hidden rounded-none hide-scrollbar"
-        containerRef={scrollContainerRef}
+        ref={scrollContainerRef} // Update here if it's not used this way
+        className="fixed inset-0 h-100svh overflow-y-auto overflow-x-hidden hide-scrollbar z-0"
       >
         <VStackFull className="h-fit">{children}</VStackFull>
       </FlexFull>
