@@ -1,10 +1,15 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { transitionVariants } from "./mainContainers";
 
 type TextWithImageBackgroundProps = {
   text: string;
   imageUrl: string;
   textSize?: string;
   fontStyle?: string;
+  animationVariants?: keyof typeof transitionVariants;
+  delay?: number;
+  duration?: number;
 };
 
 const TextWithImageBackground: React.FC<TextWithImageBackgroundProps> = ({
@@ -12,9 +17,14 @@ const TextWithImageBackground: React.FC<TextWithImageBackgroundProps> = ({
   imageUrl,
   textSize = "text-6vh",
   fontStyle = "font-semibold",
+  animationVariants = "fade",
+  delay = 0.7,
+  duration = 2,
 }) => {
+  const variants = transitionVariants[animationVariants];
+
   return (
-    <span
+    <motion.span
       className={`${textSize} ${fontStyle} text-transparent bg-clip-text`}
       style={{
         backgroundImage: `url(${imageUrl})`,
@@ -22,9 +32,12 @@ const TextWithImageBackground: React.FC<TextWithImageBackgroundProps> = ({
         backgroundPosition: "center",
         WebkitBackgroundClip: "text",
       }}
+      initial={variants.initial as any}
+      animate={variants.animate as any}
+      transition={{ delay: delay, duration: duration }}
     >
       {text}
-    </span>
+    </motion.span>
   );
 };
 

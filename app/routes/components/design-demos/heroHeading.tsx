@@ -5,11 +5,11 @@ import { motion } from "framer-motion";
 import WordByWordStagger from "../building/wordByWordStagger";
 
 export default function HeroHeading() {
-  const textStyle = "text-30vw md:text-23vw font-semibold";
+  const textStyle = "text-20vw xl:text-16vw";
   return (
     <FlexFull>
       <VStack align="items-start">
-        <WordByWordStagger text="Welcome to Remix!" />
+        <WordByWordStagger text="Someone Cool's" textSize={textStyle} />
         <TextWithImageBackground
           text="Name"
           textSize={textStyle}

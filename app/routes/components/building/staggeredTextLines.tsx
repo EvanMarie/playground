@@ -3,10 +3,12 @@ import { VStack } from "~/buildingBlockComponents/mainContainers";
 
 export default function StaggeredTextLines({
   textLines,
-  alignContent = "items-start",
+  alignContent = "items-end",
+  initialDelay = 1.5,
 }: {
   textLines: string[];
   alignContent?: string;
+  initialDelay?: number;
 }) {
   return (
     <VStack align={alignContent}>
@@ -16,7 +18,7 @@ export default function StaggeredTextLines({
           initial={{ x: "100vw" }}
           animate={{ x: 0 }}
           transition={{
-            delay: (0.5 + index) * 0.3,
+            delay: initialDelay + index * 0.3,
             type: "spring",
             stiffness: 44,
           }}

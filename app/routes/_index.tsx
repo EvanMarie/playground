@@ -1,22 +1,19 @@
 import type { MetaFunction } from "@remix-run/node";
 import MainPanel from "./components/building/mainPanel";
 import MainIndexContainer from "./components/building/mainIndexContainer";
-import StaggeredTextLines from "./components/building/staggeredTextLines";
 import { ScrollTransition } from "~/buildingBlockComponents/scrollTransition";
 import {
   CenterFull,
   Flex,
   FlexFull,
-  HStack,
-  VStack,
+  Transition,
 } from "~/buildingBlockComponents/mainContainers";
 import TextWithImageBackground from "~/buildingBlockComponents/textWithImageBackground";
 import Icon from "~/buildingBlockComponents/icon";
-import { TiThMenu } from "react-icons/ti";
 import { IoMenuOutline } from "react-icons/io5";
-import Text from "~/buildingBlockComponents/text";
 import HeroHeading from "./components/design-demos/heroHeading";
 import StaggerMenu from "./components/design-demos/staggerMenu";
+import Text from "~/buildingBlockComponents/text";
 
 export const meta: MetaFunction = () => {
   return [
@@ -36,11 +33,20 @@ export default function Index() {
         <Icon icon={IoMenuOutline} iconClassName="text-4vh" />
       </Flex>
       <MainPanel
-        bg={`bg-gradient-to-b from-sky-100/50 via-sky-200/20 to-transparent`}
+        bg={`bg-gradient-to-b from-sky-700/50 via-sky-600/30 to-transparent`}
         textColor="text-col-100"
       >
-        {/* <StaggerMenu /> */}
+        <StaggerMenu />
+
         <HeroHeading />
+        <FlexFull>
+          <Flex className="">
+            <Text>
+              This is some really great text about how cool this really cool
+              person is.{" "}
+            </Text>
+          </Flex>
+        </FlexFull>
       </MainPanel>
       <MainPanel bg={`${bgGradientBottom}`} textColor="text-col-100">
         <CenterFull className="h-full">
