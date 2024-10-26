@@ -24,11 +24,11 @@ export default function CourseCard({
   width?: string;
 }) {
   return (
-    <Flex className={`${height} ${width} items-center p-1vh`}>
+    <Flex className={`${width} items-center p-1vh h-full`}>
       <VStackFull
         gap="gap-0.5vh"
         align="items-start"
-        className="p-1vh md:p-2vh border-100-md bg-indigo-800/50"
+        className="p-1vh md:p-2vh border-100-md bg-indigo-800/50 h-full"
       >
         <HStackFull gap="gap-2vh">
           <ScrollTransition delay={0.3}>

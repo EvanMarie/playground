@@ -135,11 +135,17 @@ export default function Index() {
               />
             </VStackFull>
           </FlexFull>
-          <Wrap className="w-full h-fit min-h-60vh">
-            {demoCourses.map((course, index) => (
-              <CourseCard courseData={course} key={index} />
-            ))}
-          </Wrap>
+          <FlexFull className="h-full ">
+            <Wrap className="w-full h-fit items-stretch">
+              {demoCourses.map((course, index) => (
+                <CourseCard
+                  courseData={course}
+                  key={index}
+                  height="h-fit lg:h-full"
+                />
+              ))}
+            </Wrap>
+          </FlexFull>
         </VStackFull>
       </MainPanel>
       {/* *************************** PANEL FOUR *************************** */}
