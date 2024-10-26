@@ -904,6 +904,11 @@ export const transitionVariants: Record<string, Variants> = {
     animate: { rotate: 360, opacity: 1 },
     exit: { rotate: 0, opacity: 0 },
   },
+  spinScale: {
+    initial: { rotate: 0, scale: 0, opacity: 0 },
+    animate: { rotate: 360, scale: 1, opacity: 1 },
+    exit: { rotate: 0, scale: 0, opacity: 0 },
+  },
 };
 
 // -------------------------- TRANSITION COMPONENT -------------------------- //

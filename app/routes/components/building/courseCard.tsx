@@ -1,4 +1,5 @@
 import Transition, {
+  Box,
   Flex,
   FlexFull,
   HStackFull,
@@ -7,6 +8,7 @@ import Transition, {
 import Text from "~/buildingBlockComponents/text";
 import AnimatedIconsButton from "../design-demos/animatedIconsButton";
 import { ScrollTransition } from "~/buildingBlockComponents/scrollTransition";
+import { PiInfo } from "react-icons/pi";
 
 export type CourseData = {
   courseName: string;
@@ -28,7 +30,7 @@ export default function CourseCard({
       <VStackFull
         gap="gap-0.5vh"
         align="items-start"
-        className="p-1vh md:p-2vh border-100-md bg-indigo-800/50 h-full"
+        className="p-1vh md:p-2vh border-100-md bg-indigo-800/50 h-full relative pb-5vh lg:pb-2vh"
       >
         <HStackFull gap="gap-2vh">
           <ScrollTransition delay={0.3}>
@@ -47,14 +49,16 @@ export default function CourseCard({
             <ScrollTransition className="w-full" delay={0.7}>
               <FlexFull>{courseData.courseDescription}</FlexFull>
             </ScrollTransition>
-            <ScrollTransition className="w-full py-2vh" delay={0.9}>
-              <AnimatedIconsButton
-                text={courseData.courseName}
-                textSize="text-lg"
-                bg="bg-indigo-900"
-                padding="px-2.5vh py-1vh"
-              />
-            </ScrollTransition>
+            <Box className="absolute -bottom-2vh">
+              <ScrollTransition className="w-full lg:py-2vh" delay={0.9}>
+                <AnimatedIconsButton
+                  text={courseData.courseName}
+                  textSize="text-lg"
+                  bg="bg-indigo-900"
+                  padding="px-2.5vh py-1vh"
+                />
+              </ScrollTransition>
+            </Box>
           </VStackFull>
         </FlexFull>
       </VStackFull>

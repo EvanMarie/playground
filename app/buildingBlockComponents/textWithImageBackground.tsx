@@ -7,7 +7,7 @@ type TextWithImageBackgroundProps = {
   imageUrl: string;
   textSize?: string;
   fontStyle?: string;
-  animationVariants?: keyof typeof transitionVariants;
+  transition?: keyof typeof transitionVariants;
   delay?: number;
   duration?: number;
   textClassName?: string;
@@ -18,12 +18,12 @@ const TextWithImageBackground: React.FC<TextWithImageBackgroundProps> = ({
   imageUrl,
   textSize = "text-6vh",
   fontStyle = "font-semibold",
-  animationVariants = "fade",
+  transition = "fade",
   delay = 0.7,
-  duration = 3,
+  duration = 1,
   textClassName = "tracking-wider",
 }) => {
-  const variants = transitionVariants[animationVariants];
+  const variants = transitionVariants[transition];
 
   return (
     <motion.span

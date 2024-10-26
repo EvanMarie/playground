@@ -5,8 +5,8 @@ export default function MandalaImage() {
   return (
     <Transition
       className="absolute top-[2svh] w-90vw h-90vw"
-      type="spin"
-      delay={0.5}
+      type="spinScale"
+      delay={0.2}
       duration={2.3}
     >
       <Image

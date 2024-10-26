@@ -40,15 +40,15 @@ export default function AnimatedIconsButton({
           <span className={textSize}>{text}</span>
           <HStack gap="gap-[0px]" className="hover:cursor-pointer">
             <Icon
-              icon={IoIosArrowForward}
+              icon={icon}
               iconClassName={`${iconSize} group-hover:translate-x-[2vh] transition-500`}
             />
             <Icon
-              icon={IoIosArrowForward}
+              icon={icon}
               iconClassName={`${iconSize} group-hover:translate-x-[2vh]  transition-400`}
             />
             <Icon
-              icon={IoIosArrowForward}
+              icon={icon}
               iconClassName={`${iconSize} group-hover:translate-x-[2vh] transition-300`}
             />
           </HStack>

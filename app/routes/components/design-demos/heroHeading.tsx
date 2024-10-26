@@ -11,12 +11,18 @@ export default function HeroHeading() {
   return (
     <FlexFull>
       <VStack align="items-start" gap="gap-[0px]">
-        <WordByWordStagger text="Pippin" textSize={textStyle} />
+        <WordByWordStagger
+          text="Pippin"
+          textSize={textStyle}
+          initialDelay={0.7}
+        />
         <Flex>
           <TextWithImageBackground
+            transition="zoom"
             text="Pawsby"
             textSize={textStyle}
             imageUrl="/images/little-guy-face.webp"
+            delay={0.8}
           />
         </Flex>
       </VStack>
