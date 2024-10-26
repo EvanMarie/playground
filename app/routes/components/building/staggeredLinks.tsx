@@ -18,7 +18,7 @@ export type StaggeredLinkType = {
 export default function StaggeredLinks({
   links,
   direction = "flex-col",
-  initialDelay = 1.5,
+  initialDelay = 0.2,
   textClassName = "transition-300",
   iconClassName,
   gap = "gap-1.5vh",

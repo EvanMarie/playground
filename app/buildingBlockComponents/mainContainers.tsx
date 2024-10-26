@@ -1,5 +1,11 @@
-import React, { CSSProperties, MouseEvent, ReactNode, RefObject } from "react";
-import { motion, Variants } from "framer-motion";
+import React, {
+  CSSProperties,
+  forwardRef,
+  MouseEvent,
+  ReactNode,
+  RefObject,
+} from "react";
+import { HTMLMotionProps, motion, Variants } from "framer-motion";
 
 // -------------------------- BOX COMPONENT -------------------------- //
 interface BoxProps {
@@ -861,55 +867,64 @@ export const transitionVariants: Record<string, Variants> = {
 };
 
 // -------------------------- TRANSITION COMPONENT -------------------------- //
-interface TransitionProps {
+type TransitionVariantType = keyof typeof transitionVariants;
+
+type TransitionProps = {
   children?: ReactNode;
   className?: string;
-  type?: keyof typeof transitionVariants;
+  type?: TransitionVariantType;
   delay?: number;
   duration?: number;
   style?: CSSProperties;
   onClick?: () => void;
-  key?: string;
-}
+} & Omit<
+  HTMLMotionProps<"div">,
+  "transition" | "variants" | "initial" | "animate" | "exit"
+>;
 
-export const Transition = React.forwardRef<
-  HTMLDivElement,
-  TransitionProps & any
->(
+export const Transition = forwardRef<HTMLDivElement, TransitionProps>(
   (
     {
       children,
       type = "fade",
-      delay = 0,
+      delay = 1,
       className = "",
       style = {},
       duration = 0.5,
       onClick,
-      key,
-      ...motionProps
+      ...otherProps
     },
     ref
   ) => {
+    // Separate transition configuration
+    const transitionConfig = {
+      duration,
+      delay,
+      ease: "easeOut", // You can make this configurable if needed
+    };
+
     return (
       <motion.div
+        ref={ref}
         className={`flex justify-center overflow-hidden ${className}`}
-        key={key}
         variants={transitionVariants[type]}
         initial="initial"
         animate="animate"
         exit="exit"
-        transition={{ duration, delay }}
+        transition={transitionConfig}
         style={style}
         onClick={onClick}
-        ref={ref}
-        {...motionProps} // Spread motion props
+        {...otherProps}
       >
         {children}
       </motion.div>
     );
   }
 );
+
 Transition.displayName = "Transition";
+
+export default Transition;
 
 // -------------------------- TRANSITION FULL -------------------------- //
 

@@ -7,6 +7,7 @@ import {
   Flex,
   FlexFull,
   Transition,
+  VStackFull,
 } from "~/buildingBlockComponents/mainContainers";
 import TextWithImageBackground from "~/buildingBlockComponents/textWithImageBackground";
 import Icon from "~/buildingBlockComponents/icon";
@@ -14,6 +15,7 @@ import { IoMenuOutline } from "react-icons/io5";
 import HeroHeading from "./components/design-demos/heroHeading";
 import StaggerMenu from "./components/design-demos/staggerMenu";
 import Text from "~/buildingBlockComponents/text";
+import MandalaImage from "./components/design-demos/mandalaImage";
 
 export const meta: MetaFunction = () => {
   return [
@@ -37,16 +39,19 @@ export default function Index() {
         textColor="text-col-100"
       >
         <StaggerMenu />
-
+        <MandalaImage />
         <HeroHeading />
-        <FlexFull>
-          <Flex className="">
-            <Text>
-              This is some really great text about how cool this really cool
-              person is.{" "}
-            </Text>
-          </Flex>
-        </FlexFull>
+        <VStackFull>
+          <FlexFull className="xl:justify-end xl:text-right py-2vh">
+            <Flex className="px-5vh md:px-10vh">
+              <Text className="font-cursive text-purple-300 text-xl md:text-4vh">
+                This is some really great text about how cool this person is,
+                highlighting what this individual does to make the world an
+                awesome place.
+              </Text>
+            </Flex>
+          </FlexFull>
+        </VStackFull>
       </MainPanel>
       <MainPanel bg={`${bgGradientBottom}`} textColor="text-col-100">
         <CenterFull className="h-full">

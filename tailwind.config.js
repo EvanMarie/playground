@@ -699,7 +699,7 @@ export default {
       },
       fontFamily: {
         sans: ["Afacad Flux", "sans-serif"],
-        cursive: ["Comic Neue", "cursive"],
+        cursive: ["Arsenal SC", "cursive"],
       },
       fontSize: {
         xxs: ["1.2vh", { lineHeight: "1.8vh" }],
