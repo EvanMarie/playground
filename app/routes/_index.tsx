@@ -136,7 +136,7 @@ export default function Index() {
             </VStackFull>
           </FlexFull>
           <FlexFull className="h-full ">
-            <Wrap className="w-full h-fit items-stretch">
+            <Wrap className="w-full h-fit items-stretch gap-2vh lg:gap-0">
               {demoCourses.map((course, index) => (
                 <CourseCard
                   courseData={course}

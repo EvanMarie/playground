@@ -26,31 +26,31 @@ export default function CourseCard({
   width?: string;
 }) {
   return (
-    <Flex className={`${width} items-center p-1vh h-full`}>
+    <Flex className={`${width} items-center p-1.5vh h-full`}>
       <VStackFull
         gap="gap-0.5vh"
         align="items-start"
-        className="p-1vh md:p-2vh border-100-md bg-indigo-800/50 h-full relative pb-5vh lg:pb-2vh"
+        className="p-1vh md:p-3vh md:pb-4vh border-100-md bg-indigo-800/50 h-full relative pb-5vh lg:pb-2vh"
       >
         <HStackFull gap="gap-2vh">
-          <ScrollTransition delay={0.3}>
-            <Text className="font-cursive text-xl">
+          <ScrollTransition delay={0.2}>
+            <Text className="font-cursive text-xl text-cyan-300">
               {courseData.courseNumber}
             </Text>
           </ScrollTransition>
-          <ScrollTransition delay={0.5}>
-            <Text className="font-cursive text-xl">
+          <ScrollTransition delay={0.3}>
+            <Text className="font-cursive text-xl text-cyan-300">
               {courseData.courseName}
             </Text>
           </ScrollTransition>
         </HStackFull>
         <FlexFull>
           <VStackFull align="items-start">
-            <ScrollTransition className="w-full" delay={0.7}>
+            <ScrollTransition className="w-full" delay={0.4}>
               <FlexFull>{courseData.courseDescription}</FlexFull>
             </ScrollTransition>
-            <Box className="absolute -bottom-2vh">
-              <ScrollTransition className="w-full lg:py-2vh" delay={0.9}>
+            <Box className="absolute -bottom-2.5vh -right-1.5vh">
+              <ScrollTransition className="w-full lg:py-2vh" delay={0.5}>
                 <AnimatedIconsButton
                   text={courseData.courseName}
                   textSize="text-lg"

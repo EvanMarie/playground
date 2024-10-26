@@ -15,7 +15,8 @@ export default function AnimatedIconsButton({
   gap = "gap-1.5vh",
   textSize = "text-xl",
   iconSize = "text-xl",
-  hoverAnimation = "group-hover:translate-x-[2vh]",
+  iconHoverAnimation = "group-hover:translate-x-[2vh]",
+  buttonHoverAnimation = "hover:-translate-x-[2vh]",
   icon = IoIosArrowForward,
 }: {
   text: string;
@@ -28,28 +29,29 @@ export default function AnimatedIconsButton({
   gap?: string;
   textSize?: string;
   iconSize?: string;
-  hoverAnimation?: string;
+  iconHoverAnimation?: string;
+  buttonHoverAnimation?: string;
   icon?: any;
 }) {
   return (
-    <ScrollTransition>
+    <ScrollTransition className="overflow-visible">
       <motion.button
-        className={`${textColor} ${border} ${bg} ${padding} ${rounded} ${hoverScale} transition-300 z-10 group`}
+        className={`${textColor} ${border} ${bg} ${padding} ${rounded} ${hoverScale} ${buttonHoverAnimation} transition-300 z-10 group`}
       >
         <HStack className="items-center hover:cursor-pointer" gap={gap}>
           <span className={textSize}>{text}</span>
           <HStack gap="gap-[0px]" className="hover:cursor-pointer">
             <Icon
               icon={icon}
-              iconClassName={`${iconSize} group-hover:translate-x-[2vh] transition-500`}
+              iconClassName={`${iconSize} ${iconHoverAnimation} transition-500`}
             />
             <Icon
               icon={icon}
-              iconClassName={`${iconSize} group-hover:translate-x-[2vh]  transition-400`}
+              iconClassName={`${iconSize} ${iconHoverAnimation}  transition-400`}
             />
             <Icon
               icon={icon}
-              iconClassName={`${iconSize} group-hover:translate-x-[2vh] transition-300`}
+              iconClassName={`${iconSize} ${iconHoverAnimation} transition-300`}
             />
           </HStack>
         </HStack>
