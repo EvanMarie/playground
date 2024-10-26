@@ -66,7 +66,7 @@ export default function Index() {
       </MainPanel>
       <MainPanel bg={`${bgGradientBottom}`} textColor="text-col-100">
         <CenterFull className="h-full bg-col-940 relative">
-          <Box className="h-80svh absolute left-5vh -top-5vh">
+          <Box className="h-65svh md:h-80svh absolute left-1vh md:left-5vh -top-5vh">
             <Image
               src="/images/little-guy.webp"
               alt="Little Guy"
