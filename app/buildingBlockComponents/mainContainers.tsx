@@ -816,6 +816,46 @@ export const transitionVariants: Record<string, Variants> = {
     animate: { opacity: 1 },
     exit: { opacity: 0 },
   },
+  fade10: {
+    initial: { opacity: 0.1 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
+  },
+  fade20: {
+    initial: { opacity: 0.2 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
+  },
+  fade30: {
+    initial: { opacity: 0.3 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
+  },
+  fade40: {
+    initial: { opacity: 0.4 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
+  },
+  fade50: {
+    initial: { opacity: 0.5 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
+  },
+  fade60: {
+    initial: { opacity: 0.6 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
+  },
+  fade70: {
+    initial: { opacity: 0.7 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
+  },
+  fade80: {
+    initial: { opacity: 0.8 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
+  },
   scale: {
     initial: { scale: 0 },
     animate: { scale: 1 },

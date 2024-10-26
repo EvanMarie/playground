@@ -1,8 +1,8 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import {
+  Flex,
   transitionVariants,
-  VStack,
 } from "~/buildingBlockComponents/mainContainers";
 
 export default function StaggeredTextLines({
@@ -19,6 +19,7 @@ export default function StaggeredTextLines({
   singleItemClassName,
   linesVStackClassName,
   outerContainerClassName,
+  flexDirection = "flex-col",
 }: {
   textLines: string[];
   alignContent?: string;
@@ -33,6 +34,7 @@ export default function StaggeredTextLines({
   singleItemClassName?: string;
   linesVStackClassName?: string;
   outerContainerClassName?: string;
+  flexDirection?: string;
 }) {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, {
@@ -80,7 +82,10 @@ export default function StaggeredTextLines({
       variants={containerVariants}
       className={outerContainerClassName}
     >
-      <VStack align={alignContent} gap={gap} className={linesVStackClassName}>
+      <Flex
+        align={alignContent}
+        className={`${flexDirection} ${linesVStackClassName} ${gap}`}
+      >
         {textLines.map((textLine, index) => (
           <motion.div
             key={index}
@@ -90,7 +95,7 @@ export default function StaggeredTextLines({
             {textLine}
           </motion.div>
         ))}
-      </VStack>
+      </Flex>
     </motion.div>
   );
 }

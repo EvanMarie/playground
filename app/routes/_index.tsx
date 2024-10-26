@@ -1,10 +1,8 @@
 import type { MetaFunction } from "@remix-run/node";
 import MainPanel from "./components/building/mainPanel";
 import MainIndexContainer from "./components/building/mainIndexContainer";
-import { ScrollTransition } from "~/buildingBlockComponents/scrollTransition";
 import Transition, {
   Box,
-  CenterFull,
   Flex,
   FlexFull,
   VStackFull,
@@ -107,7 +105,7 @@ export default function Index() {
                 />
               </Flex>
               <FlexFull className="justify-center">
-                <AnimatedArrowsButton text="Join The Pip's Posts Newsletter" />
+                <AnimatedArrowsButton text="Get The Newsletter" />
               </FlexFull>
             </VStackFull>
           </FlexFull>
@@ -116,12 +114,22 @@ export default function Index() {
 
       {/* *************************** PANEL THREE: PIPPIN'S COURSES *************************** */}
       <MainPanel
-        bg={`${bgGradientTop}`}
+        bg={`bg-gradient-to-b from-indigo-900/90 via-indigo-500/40 to-indigo-900/90 relative`}
         textColor="text-col-100"
         height="h-fit min-h-100svh"
+        bgImage="bg-[url('/images/courses-background.webp')]"
       >
-        <FlexFull className="h-50svh">HEADING</FlexFull>
-        <FlexFull className="h-50svh">INFO</FlexFull>
+        <VStackFull className="h-full absolute inset-0 z-20">
+          <FlexFull className="h-fit min-h-40svh">
+            <VStackFull>
+              <StaggeredTextLines
+                textLines={["Explore", "Pip's", "Courses"]}
+                flexDirection="flex-row"
+              />
+            </VStackFull>
+          </FlexFull>
+          <FlexFull className="h-fit min-h-60svh">INFO</FlexFull>
+        </VStackFull>
       </MainPanel>
       {/* *************************** PANEL FOUR *************************** */}
       <MainPanel
