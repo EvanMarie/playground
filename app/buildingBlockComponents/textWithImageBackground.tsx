@@ -27,6 +27,7 @@ const TextWithImageBackground: React.FC<TextWithImageBackgroundProps> = ({
     <motion.span
       className={`${textSize} ${fontStyle} text-transparent bg-clip-text`}
       style={{
+        lineHeight: 1.2,
         backgroundImage: `url(${imageUrl})`,
         backgroundSize: "cover",
         backgroundPosition: "center",

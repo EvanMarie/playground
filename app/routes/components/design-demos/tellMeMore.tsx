@@ -3,11 +3,11 @@ import { IoIosArrowForward } from "react-icons/io";
 import Icon from "~/buildingBlockComponents/icon";
 import { HStack } from "~/buildingBlockComponents/mainContainers";
 
-export default function TellMeMoreButton() {
+export default function AnimatedArrowsButton({ text }: { text: string }) {
   return (
     <motion.button className="text-cyan-300 group border-cyan-300 border-[0.2vh] px-4vh py-1.5vh rounded-4vh hover:scale-102 transition-300 z-10 ">
       <HStack className="items-center hover:cursor-pointer" gap="gap-1.5vh">
-        <span className="text-xl">Tell Me More</span>
+        <span className="text-xl">{text}</span>
         <HStack gap="gap-[0px]" className="hover:cursor-pointer">
           <Icon
             icon={IoIosArrowForward}

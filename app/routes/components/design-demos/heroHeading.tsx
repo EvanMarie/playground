@@ -1,30 +1,22 @@
 import {
   Flex,
   FlexFull,
-  HStack,
   VStack,
 } from "~/buildingBlockComponents/mainContainers";
-import Text from "~/buildingBlockComponents/text";
 import TextWithImageBackground from "~/buildingBlockComponents/textWithImageBackground";
-import { motion } from "framer-motion";
 import WordByWordStagger from "../building/wordByWordStagger";
 
 export default function HeroHeading() {
-  const textStyle = "text-21vw md:text-15vw xl:text-16vw xxl:text-14.4vw";
+  const textStyle = "text-25vw md:text-20vw xxl:text-16vw";
   return (
     <FlexFull className="py-3vh">
       <VStack align="items-start">
-        <WordByWordStagger text="Someone" textSize={textStyle} />
+        <WordByWordStagger text="Pippin" textSize={textStyle} />
         <Flex className="flex-col md:flex-row md:gap-2vh">
-          <WordByWordStagger
-            text="Cool's"
-            textSize={textStyle}
-            initialDelay={0.8}
-          />
           <TextWithImageBackground
-            text="Name"
+            text="Pawsby"
             textSize={textStyle}
-            imageUrl="/images/ocean-water2.webp"
+            imageUrl="/images/little-guy-face.webp"
           />
         </Flex>
       </VStack>
