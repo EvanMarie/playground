@@ -20,7 +20,7 @@ export default function StaggeredLinks({
   direction = "flex-col",
   initialDelay = 1.5,
   textClassName = "transition-300",
-  iconClassName = "group-hover:text-cyan-300",
+  iconClassName,
   gap = "gap-1.5vh",
   animationVariants = "fadeSlideInRightQuarter",
   staggerDelay = 0.1,

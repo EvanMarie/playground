@@ -7,6 +7,7 @@ export default function StaggerMenu() {
     <Transition className="hidden md:flex absolute top-23vh lg:top-30vh right-1.5vh overflow-visible">
       <StaggeredLinks
         textClassName="text-2.5vh lg:text-3vh xl:text-3.5vh xxl:text-4vh"
+        iconClassName="text-2.5vh lg:text-3vh xl:text-3.5vh xxl:text-4vh group-hover:text-cyan-300"
         links={[
           { text: "Home", link: "/" },
           { text: "About", link: "/about" },
