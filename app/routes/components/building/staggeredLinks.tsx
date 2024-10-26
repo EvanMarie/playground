@@ -19,7 +19,7 @@ export default function StaggeredLinks({
   links,
   direction = "flex-col",
   initialDelay = 0.2,
-  textClassName = "transition-300",
+  textClassName = "transition-300 textShadow",
   iconClassName,
   gap = "gap-1.5vh",
   animationVariants = "fadeSlideInRightQuarter",
@@ -48,7 +48,7 @@ export default function StaggeredLinks({
 }) {
   const variants = transitionVariants[animationVariants];
   return (
-    <Flex className={`${gap} ${direction} ${containerClassName} `}>
+    <Flex className={`${gap} ${direction} ${containerClassName} z-10`}>
       {links.map((link, index) => (
         <motion.button
           key={index}

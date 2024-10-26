@@ -2,11 +2,11 @@ import type { MetaFunction } from "@remix-run/node";
 import MainPanel from "./components/building/mainPanel";
 import MainIndexContainer from "./components/building/mainIndexContainer";
 import { ScrollTransition } from "~/buildingBlockComponents/scrollTransition";
-import {
+import Transition, {
   CenterFull,
   Flex,
   FlexFull,
-  Transition,
+  HStack,
   VStackFull,
 } from "~/buildingBlockComponents/mainContainers";
 import TextWithImageBackground from "~/buildingBlockComponents/textWithImageBackground";
@@ -16,6 +16,9 @@ import HeroHeading from "./components/design-demos/heroHeading";
 import StaggerMenu from "./components/design-demos/staggerMenu";
 import Text from "~/buildingBlockComponents/text";
 import MandalaImage from "./components/design-demos/mandalaImage";
+import { motion } from "framer-motion";
+import { IoIosArrowForward } from "react-icons/io";
+import TellMeMoreButton from "./components/design-demos/tellMeMore";
 
 export const meta: MetaFunction = () => {
   return [
@@ -37,24 +40,27 @@ export default function Index() {
       <MainPanel
         bg={`bg-gradient-to-b from-sky-700/50 via-sky-600/30 to-transparent`}
         textColor="text-col-100"
+        height="h-fit md:h-70svh"
       >
         <StaggerMenu />
         <MandalaImage />
         <HeroHeading />
         <VStackFull>
-          <FlexFull className="xl:justify-end xl:text-right py-2vh">
-            <Flex className="px-5vh md:px-10vh">
-              <Text className="font-cursive text-purple-300 text-xl md:text-4vh">
+          <Transition className="py-2vh w-full">
+            <Flex className="p-3vh md:pr-20vw xl:pl-10vw">
+              <Text className="font-cursive text-purple-300 text-3.3vh md:text-2.5vh lg:text-3vh xl:text-4vh leading-normal textShadow">
                 This is some really great text about how cool this person is,
-                highlighting what this individual does to make the world an
-                awesome place.
+                highlighting what they do to make the world an awesome place.
               </Text>
             </Flex>
+          </Transition>
+          <FlexFull className="justify-center pb-4vh">
+            <TellMeMoreButton />
           </FlexFull>
         </VStackFull>
       </MainPanel>
       <MainPanel bg={`${bgGradientBottom}`} textColor="text-col-100">
-        <CenterFull className="h-full">
+        <CenterFull className="h-full bg-col-930">
           <TextWithImageBackground
             text="Panel Two"
             imageUrl="/images/ocean-water.webp"

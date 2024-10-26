@@ -10,6 +10,7 @@ export default function WordByWordStagger({
   animationVariants = "zoom",
   staggerDelay = 0.3,
   duration = 0.6,
+  initialDelay = 0.2,
 }: {
   text: string;
   textColor?: string;
@@ -19,6 +20,7 @@ export default function WordByWordStagger({
   animationVariants?: keyof typeof transitionVariants;
   staggerDelay?: number;
   duration?: number;
+  initialDelay?: number;
 }) {
   const variants = transitionVariants[animationVariants];
   const words = text.split(" ");
@@ -31,7 +33,10 @@ export default function WordByWordStagger({
           //   animate={{ opacity: 1 }}
           initial={variants.initial as any}
           animate={variants.animate as any}
-          transition={{ delay: index * staggerDelay, duration: duration }}
+          transition={{
+            delay: initialDelay * staggerDelay,
+            duration: duration,
+          }}
           className={`${textColor} ${textSize} ${textShadow} ${className}`}
         >
           {word}{" "}
