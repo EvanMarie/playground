@@ -8,7 +8,6 @@ import Transition, {
 import Text from "~/buildingBlockComponents/text";
 import AnimatedIconsButton from "../design-demos/animatedIconsButton";
 import { ScrollTransition } from "~/buildingBlockComponents/scrollTransition";
-import { PiInfo } from "react-icons/pi";
 
 export type CourseData = {
   courseName: string;
@@ -26,27 +25,34 @@ export default function CourseCard({
   return (
     <Flex className={`${width} items-center p-1.5vh sm:p-2.5vh h-full`}>
       <VStackFull
-        gap="gap-0.5vh"
+        gap="gap-0.5vh sm:gap-1vh md:gap-2vh"
         align="items-start"
-        className="p-1vh md:p-3vh md:pb-4vh border-100-md bg-indigo-800/50 h-full relative pb-5vh lg:pb-2vh shadowNarrowNormal"
+        className="border-100-md bg-indigo-800/50 h-full relative lg:pb-3vh shadowNarrowNormal rounded-none"
       >
-        <HStackFull gap="gap-2vh">
+        <HStackFull
+          gap="gap-2vh"
+          className="items-center border-b-100-md rounded-none"
+        >
           <ScrollTransition delay={0.2}>
-            <Text className="font-cursive text-xxl text-cyan-300">
-              {courseData.courseNumber}
-            </Text>
+            <Flex className="border-r-col-100 border-r-[0.2vh] rounded-none">
+              <Text className="font-cursive font-bold text-xxxl sm:text-5vw lg:text-4.3vw xxl:text-3.8vw text-cyan-300 px-2vh py-1vh">
+                {courseData.courseNumber}
+              </Text>
+            </Flex>
           </ScrollTransition>
           <ScrollTransition delay={0.3}>
-            <Text className="font-cursive text-xxl text-cyan-300">
+            <Text className="font-cursive text-xxl sm:text-4vw lg:text-3.3vw xxl:text-2.8vw text-cyan-300">
               {courseData.courseName}
             </Text>
           </ScrollTransition>
         </HStackFull>
-        <FlexFull>
+        <FlexFull className="p-2vh sm:p-3vh md:p-4vh pb-4vh ">
           <VStackFull align="items-start">
             <ScrollTransition className="w-full" delay={0.4}>
               <FlexFull>
-                <Text className="text-lg">{courseData.courseDescription}</Text>
+                <Text className="text-lg lg:text-xl">
+                  {courseData.courseDescription}
+                </Text>
               </FlexFull>
             </ScrollTransition>
             <Box className="absolute -bottom-2.5vh -right-1.5vh lg:-bottom-6vh">

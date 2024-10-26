@@ -19,6 +19,7 @@ import StaggeredTextLines from "./components/building/staggeredTextLines";
 import AnimatedIconsButton from "./components/design-demos/animatedIconsButton";
 import { demoCourses } from "./components/design-demos/demo-data";
 import CourseCard from "./components/building/courseCard";
+import PostCastTitle from "./components/design-demos/podcastTitle";
 
 export const meta: MetaFunction = () => {
   return [
@@ -85,11 +86,10 @@ export default function Index() {
               gap="gap-4vh"
             >
               <StaggeredTextLines
-                textClassName="textShadow"
                 textLines={["Tell", "Me", "About", "Pippin"]}
                 alignContent="items-start"
                 gap="gap-1vh"
-                textClassName="text-5vh md:text-6vh lg:text-7vh xl:text-8vh xxl:text-9vh"
+                textClassName="text-5vh md:text-6vh lg:text-7vh xl:text-8vh xxl:text-9vh textShadow"
                 singleItemClassName="w-full border-b-150-md rounded-none"
                 itemsContainerClassName="w-full rounded-none"
                 outerContainerClassName="w-full rounded-none"
@@ -123,7 +123,7 @@ export default function Index() {
         bgImage="bg-[url('/images/courses-background.webp')]"
         className="pb-4vh"
       >
-        <VStackFull className="h-fit">
+        <VStackFull className="h-fit" gap="gap-3vh xl:gap-5vh xxl:gap-6vh">
           <FlexFull className="h-fit p-1vh">
             <VStackFull>
               <StaggeredTextLines
@@ -137,7 +137,7 @@ export default function Index() {
             </VStackFull>
           </FlexFull>
           <FlexFull className="h-full ">
-            <Wrap className="w-full h-fit items-stretch gap-2vh lg:gap-0">
+            <Wrap className="w-full h-fit items-stretch gap-4vh lg:gap-0">
               {demoCourses.map((course, index) => (
                 <CourseCard courseData={course} key={index} />
               ))}
@@ -145,13 +145,22 @@ export default function Index() {
           </FlexFull>
         </VStackFull>
       </MainPanel>
-      {/* *************************** PANEL FOUR *************************** */}
+      {/* *************************** PANEL FOUR: PODCAST INFO *************************** */}
       <MainPanel
         bg={`${bgGradientBottom}`}
         textColor="text-col-100"
         height="h-100svh"
       >
-        Panel Four
+        <FlexFull className="flex-col md:flex-row">
+          <PostCastTitle />
+          <Box className="h-60vh">
+            <Image
+              src="/images/soft-talks-with-pip.webp"
+              alt="soft talks with Pip"
+              className="h-full"
+            />
+          </Box>
+        </FlexFull>
       </MainPanel>
 
       {/* *************************** PANEL FIVE *************************** */}

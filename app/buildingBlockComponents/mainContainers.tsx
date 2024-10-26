@@ -912,7 +912,7 @@ export const transitionVariants: Record<string, Variants> = {
 };
 
 // -------------------------- TRANSITION COMPONENT -------------------------- //
-type TransitionVariantType = keyof typeof transitionVariants;
+export type TransitionVariantType = keyof typeof transitionVariants;
 
 type TransitionProps = {
   children?: ReactNode;
