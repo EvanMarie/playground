@@ -21,6 +21,7 @@ import { motion } from "framer-motion";
 import { IoIosArrowForward } from "react-icons/io";
 import TellMeMoreButton from "./components/design-demos/tellMeMore";
 import Image from "~/buildingBlockComponents/image";
+import StaggeredTextLines from "./components/building/staggeredTextLines";
 
 export const meta: MetaFunction = () => {
   return [
@@ -65,33 +66,56 @@ export default function Index() {
         </VStackFull>
       </MainPanel>
       <MainPanel bg={`${bgGradientBottom}`} textColor="text-col-100">
-        <CenterFull className="h-full bg-col-940 relative">
+        <CenterFull className="h-full bg-col-940 relative min-h-65svh pt-50svh">
           <Box className="h-65svh md:h-80svh absolute left-1vh md:left-5vh -top-5vh">
             <Image
               src="/images/little-guy.webp"
               alt="Little Guy"
-              className="h-full"
+              className="h-full fade-bottom"
             />
           </Box>
-          <TextWithImageBackground
-            text="Panel Two"
-            imageUrl="/images/ocean-water.webp"
-          />
+
+          <VStackFull align="items-start pl-4vh">
+            <StaggeredTextLines
+              textLines={["More", "About", "This", "Person"]}
+              alignContent="items-start"
+              gap="gap-1vh"
+              textClassName="text-5vh md:text-6vh lg:text-7vh xl:text-8vh xxl:text-9vh"
+              singleItemClassName="w-full border-b-150-md rounded-none"
+              linesVStackClassName="w-full rounded-none"
+              outerContainerClassName="w-full rounded-none"
+              animationVariants="rotate3D"
+            />
+          </VStackFull>
         </CenterFull>
       </MainPanel>
-      <MainPanel bg={`${bgGradientTop}`} textColor="text-col-100">
+      <MainPanel
+        bg={`${bgGradientTop}`}
+        textColor="text-col-100"
+        height="h-100svh"
+      >
         <CenterFull className="h-full">
           <ScrollTransition type="zoom">
             <h2 className="textShadow">Panel Three</h2>
           </ScrollTransition>
         </CenterFull>
       </MainPanel>
-      <MainPanel bg={`${bgGradientBottom}`} textColor="text-col-100">
+      <MainPanel
+        bg={`${bgGradientBottom}`}
+        textColor="text-col-100"
+        height="h-100svh"
+      >
         Panel Four
       </MainPanel>
-      <MainPanel bg={`${bgGradientTop}`}>Panel Five</MainPanel>
-      <MainPanel bg={`${bgGradientBottom}`}>Panel Six</MainPanel>
-      <MainPanel bg={`${bgGradientTop}`}>Panel Seven</MainPanel>
+      <MainPanel bg={`${bgGradientTop}`} height="h-100svh">
+        Panel Five
+      </MainPanel>
+      <MainPanel bg={`${bgGradientBottom}`} height="h-100svh">
+        Panel Six
+      </MainPanel>
+      <MainPanel bg={`${bgGradientTop}`} height="h-100svh">
+        Panel Seven
+      </MainPanel>
     </MainIndexContainer>
   );
 }

@@ -2,7 +2,7 @@ import { FlexFull, VStackFull } from "~/buildingBlockComponents/mainContainers";
 
 export default function MainPanel({
   children,
-  height = "h-100svh",
+  height = "h-fit",
   bg,
   textColor,
   className,
