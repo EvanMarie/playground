@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 import WordByWordStagger from "../building/wordByWordStagger";
 
 export default function HeroHeading() {
-  const textStyle = "text-21vw md:text-15vw xl:text-16vw xxl:text-13.5vw";
+  const textStyle = "text-21vw md:text-15vw xl:text-16vw xxl:text-14.4vw";
   return (
     <FlexFull className="py-3vh">
       <VStack align="items-start">
