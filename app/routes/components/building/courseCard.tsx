@@ -18,28 +18,26 @@ export type CourseData = {
 
 export default function CourseCard({
   courseData,
-  height,
   width = "w-full lg:w-1/2",
 }: {
   courseData: CourseData;
-  height?: string;
   width?: string;
 }) {
   return (
-    <Flex className={`${width} items-center p-1.5vh h-full`}>
+    <Flex className={`${width} items-center p-1.5vh sm:p-2.5vh h-full`}>
       <VStackFull
         gap="gap-0.5vh"
         align="items-start"
-        className="p-1vh md:p-3vh md:pb-4vh border-100-md bg-indigo-800/50 h-full relative pb-5vh lg:pb-2vh"
+        className="p-1vh md:p-3vh md:pb-4vh border-100-md bg-indigo-800/50 h-full relative pb-5vh lg:pb-2vh shadowNarrowNormal"
       >
         <HStackFull gap="gap-2vh">
           <ScrollTransition delay={0.2}>
-            <Text className="font-cursive text-xl text-cyan-300">
+            <Text className="font-cursive text-xxl text-cyan-300">
               {courseData.courseNumber}
             </Text>
           </ScrollTransition>
           <ScrollTransition delay={0.3}>
-            <Text className="font-cursive text-xl text-cyan-300">
+            <Text className="font-cursive text-xxl text-cyan-300">
               {courseData.courseName}
             </Text>
           </ScrollTransition>
@@ -47,9 +45,11 @@ export default function CourseCard({
         <FlexFull>
           <VStackFull align="items-start">
             <ScrollTransition className="w-full" delay={0.4}>
-              <FlexFull>{courseData.courseDescription}</FlexFull>
+              <FlexFull>
+                <Text className="text-lg">{courseData.courseDescription}</Text>
+              </FlexFull>
             </ScrollTransition>
-            <Box className="absolute -bottom-2.5vh -right-1.5vh">
+            <Box className="absolute -bottom-2.5vh -right-1.5vh lg:-bottom-6vh">
               <ScrollTransition className="w-full lg:py-2vh" delay={0.5}>
                 <AnimatedIconsButton
                   text={courseData.courseName}

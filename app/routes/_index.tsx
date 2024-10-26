@@ -50,7 +50,7 @@ export default function Index() {
           <Transition className="w-full">
             <Flex className="p-3vh md:pr-20vw xl:pl-10vw">
               <Text
-                className="font-cursive text-purple-300 text-3.3vh md:text-2.8vh lg:text-3vh xl:text-4vh  textShadow"
+                className="font-cursive text-purple-300 text-3.3vh md:text-2.8vh lg:text-3vh xl:text-4vh textShadow"
                 style={{ lineHeight: 1.5 }}
               >
                 Bringing light and laughter to those who wander, guiding hearts
@@ -85,6 +85,7 @@ export default function Index() {
               gap="gap-4vh"
             >
               <StaggeredTextLines
+                textClassName="textShadow"
                 textLines={["Tell", "Me", "About", "Pippin"]}
                 alignContent="items-start"
                 gap="gap-1vh"
@@ -119,17 +120,17 @@ export default function Index() {
       <MainPanel
         bg={`bg-gradient-to-b from-indigo-900/90 via-indigo-500/40 to-indigo-900/90 relative`}
         textColor="text-col-100"
-        height="h-fit min-h-99.5svh"
         bgImage="bg-[url('/images/courses-background.webp')]"
+        className="pb-4vh"
       >
-        <VStackFull className="h-full absolute inset-0 z-20">
+        <VStackFull className="h-fit">
           <FlexFull className="h-fit p-1vh">
             <VStackFull>
               <StaggeredTextLines
                 textLines={["Explore", "Pip's", "Courses"]}
                 flexDirection="flex-row"
                 itemsContainerClassName="flex-wrap"
-                textClassName="text-cyan-300 text-16vw lg:text-16vh tracking-wide"
+                textClassName="text-cyan-300 text-16vw lg:text-16vh xl:text-20vh tracking-wide textShadow"
                 transition="rotate3D"
                 threshold={0.8}
               />
@@ -138,11 +139,7 @@ export default function Index() {
           <FlexFull className="h-full ">
             <Wrap className="w-full h-fit items-stretch gap-2vh lg:gap-0">
               {demoCourses.map((course, index) => (
-                <CourseCard
-                  courseData={course}
-                  key={index}
-                  height="h-fit lg:h-full"
-                />
+                <CourseCard courseData={course} key={index} />
               ))}
             </Wrap>
           </FlexFull>

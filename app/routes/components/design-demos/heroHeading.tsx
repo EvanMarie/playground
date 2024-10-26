@@ -15,6 +15,7 @@ export default function HeroHeading() {
           text="Pippin"
           textSize={textStyle}
           initialDelay={0.7}
+          textShadow="textShadow"
         />
         <Flex>
           <TextWithImageBackground

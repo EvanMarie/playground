@@ -36,7 +36,7 @@ export default function AnimatedIconsButton({
   return (
     <ScrollTransition className="overflow-visible">
       <motion.button
-        className={`${textColor} ${border} ${bg} ${padding} ${rounded} ${hoverScale} ${buttonHoverAnimation} transition-300 z-10 group`}
+        className={`${textColor} ${border} ${bg} ${padding} ${rounded} ${hoverScale} ${buttonHoverAnimation} transition-300 z-10 group shadowNarrowNormal`}
       >
         <HStack className="items-center hover:cursor-pointer" gap={gap}>
           <span className={textSize}>{text}</span>
