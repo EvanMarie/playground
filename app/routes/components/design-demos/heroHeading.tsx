@@ -7,12 +7,12 @@ import TextWithImageBackground from "~/buildingBlockComponents/textWithImageBack
 import WordByWordStagger from "../building/wordByWordStagger";
 
 export default function HeroHeading() {
-  const textStyle = "text-25vw md:text-20vw xxl:text-16vw";
+  const textStyle = "text-25vw md:text-20vw xl:text-33vh";
   return (
-    <FlexFull className="py-3vh">
-      <VStack align="items-start">
+    <FlexFull>
+      <VStack align="items-start" gap="gap-[0px]">
         <WordByWordStagger text="Pippin" textSize={textStyle} />
-        <Flex className="flex-col md:flex-row md:gap-2vh">
+        <Flex>
           <TextWithImageBackground
             text="Pawsby"
             textSize={textStyle}

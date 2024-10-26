@@ -49,7 +49,7 @@ export default function Index() {
           <Transition className="w-full">
             <Flex className="p-3vh md:pr-20vw xl:pl-10vw">
               <Text
-                className="font-cursive text-purple-300 text-3.3vh md:text-2.8vh lg:text-3vh xl:text-4vh xxl:text-4.2vh  textShadow"
+                className="font-cursive text-purple-300 text-3.3vh md:text-2.8vh lg:text-3vh xl:text-4vh  textShadow"
                 style={{ lineHeight: 1.5 }}
               >
                 Bringing light and laughter to those who wander, guiding hearts
@@ -118,7 +118,7 @@ export default function Index() {
       <MainPanel
         bg={`${bgGradientTop}`}
         textColor="text-col-100"
-        height="h-100svh"
+        height="h-fit min-h-100svh"
       >
         <FlexFull className="h-50svh">HEADING</FlexFull>
         <FlexFull className="h-50svh">INFO</FlexFull>

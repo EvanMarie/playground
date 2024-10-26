@@ -14,10 +14,12 @@ export default function MainPanel({
   className?: string;
 }) {
   return (
-    <FlexFull
-      className={`${height} ${bg} ${textColor} ${className} justify-center rounded-none`}
-    >
-      <VStackFull>{children}</VStackFull>
+    <FlexFull>
+      <FlexFull
+        className={`${height} ${bg} ${textColor} ${className} justify-center rounded-none`}
+      >
+        <VStackFull>{children}</VStackFull>
+      </FlexFull>
     </FlexFull>
   );
 }
