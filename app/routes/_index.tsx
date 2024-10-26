@@ -6,6 +6,7 @@ import Transition, {
   Flex,
   FlexFull,
   VStackFull,
+  Wrap,
 } from "~/buildingBlockComponents/mainContainers";
 import Icon from "~/buildingBlockComponents/icon";
 import { IoMenuOutline } from "react-icons/io5";
@@ -15,7 +16,9 @@ import Text from "~/buildingBlockComponents/text";
 import MandalaImage from "./components/design-demos/mandalaImage";
 import Image from "~/buildingBlockComponents/image";
 import StaggeredTextLines from "./components/building/staggeredTextLines";
-import AnimatedArrowsButton from "./components/design-demos/tellMeMore";
+import AnimatedIconsButton from "./components/design-demos/animatedIconsButton";
+import { demoCourses } from "./components/design-demos/demo-data";
+import CourseCard from "./components/building/courseCard";
 
 export const meta: MetaFunction = () => {
   return [
@@ -56,7 +59,7 @@ export default function Index() {
             </Flex>
           </Transition>
           <Transition className="justify-center pb-10vh w-full" delay={1.8}>
-            <AnimatedArrowsButton text="Tell Me More" />
+            <AnimatedIconsButton text="Tell Me More" />
           </Transition>
         </VStackFull>
       </MainPanel>
@@ -87,9 +90,9 @@ export default function Index() {
                 gap="gap-1vh"
                 textClassName="text-5vh md:text-6vh lg:text-7vh xl:text-8vh xxl:text-9vh"
                 singleItemClassName="w-full border-b-150-md rounded-none"
-                linesVStackClassName="w-full rounded-none"
+                itemsContainerClassName="w-full rounded-none"
                 outerContainerClassName="w-full rounded-none"
-                animationVariants="rotate3D"
+                transition="rotate3D"
               />
               <Flex className="md:pr-2vh">
                 <StaggeredTextLines
@@ -101,11 +104,11 @@ export default function Index() {
                   alignContent="items-start"
                   gap="gap-1vh"
                   textClassName="text-2vh xl:text-2.5vh xxl:text-3vh leading-normal md:leading-normal lg:leading-relaxed xl:leading-relaxed xxl:leading-relaxed"
-                  animationVariants="rotate3D"
+                  transition="rotate3D"
                 />
               </Flex>
-              <FlexFull className="justify-center">
-                <AnimatedArrowsButton text="Get The Newsletter" />
+              <FlexFull className="justify-center pb-3vh">
+                <AnimatedIconsButton text="The Newsletter" />
               </FlexFull>
             </VStackFull>
           </FlexFull>
@@ -116,19 +119,27 @@ export default function Index() {
       <MainPanel
         bg={`bg-gradient-to-b from-indigo-900/90 via-indigo-500/40 to-indigo-900/90 relative`}
         textColor="text-col-100"
-        height="h-fit min-h-100svh"
+        height="h-fit min-h-99.5svh"
         bgImage="bg-[url('/images/courses-background.webp')]"
       >
         <VStackFull className="h-full absolute inset-0 z-20">
-          <FlexFull className="h-fit min-h-40svh">
+          <FlexFull className="h-fit p-1vh">
             <VStackFull>
               <StaggeredTextLines
                 textLines={["Explore", "Pip's", "Courses"]}
                 flexDirection="flex-row"
+                itemsContainerClassName="flex-wrap"
+                textClassName="text-cyan-300 text-16vw lg:text-16vh tracking-wide"
+                transition="rotate3D"
+                threshold={0.8}
               />
             </VStackFull>
           </FlexFull>
-          <FlexFull className="h-fit min-h-60svh">INFO</FlexFull>
+          <Wrap className="w-full h-fit min-h-60vh">
+            {demoCourses.map((course, index) => (
+              <CourseCard courseData={course} key={index} />
+            ))}
+          </Wrap>
         </VStackFull>
       </MainPanel>
       {/* *************************** PANEL FOUR *************************** */}

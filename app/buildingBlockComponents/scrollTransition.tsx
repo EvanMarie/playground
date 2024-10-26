@@ -34,7 +34,7 @@ export const ScrollTransition = React.forwardRef<
       key,
       overflow = "overflow-hidden",
       once = true,
-      amount = "all",
+      amount = 0.8,
       ...motionProps
     },
     ref

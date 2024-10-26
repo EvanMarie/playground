@@ -12,12 +12,12 @@ export default function StaggeredTextLines({
   textClassName,
   gap = "gap-1.5vh",
   hoverClassName,
-  animationVariants = "fadeSlideInRightQuarter",
+  transition = "fadeSlideInRightQuarter",
   staggerDelay = 0.2,
-  threshold = 0.2,
+  threshold = 0.6,
   once = true,
   singleItemClassName,
-  linesVStackClassName,
+  itemsContainerClassName,
   outerContainerClassName,
   flexDirection = "flex-col",
 }: {
@@ -28,11 +28,11 @@ export default function StaggeredTextLines({
   gap?: string;
   hoverClassName?: string;
   staggerDelay?: number;
-  animationVariants?: keyof typeof transitionVariants;
+  transition?: keyof typeof transitionVariants;
   threshold?: number;
   once?: boolean;
   singleItemClassName?: string;
-  linesVStackClassName?: string;
+  itemsContainerClassName?: string;
   outerContainerClassName?: string;
   flexDirection?: string;
 }) {
@@ -42,7 +42,7 @@ export default function StaggeredTextLines({
     once: once,
   });
 
-  const variants = transitionVariants[animationVariants];
+  const variants = transitionVariants[transition];
 
   // Create container variants for staggered children
   const containerVariants = {
@@ -84,7 +84,7 @@ export default function StaggeredTextLines({
     >
       <Flex
         align={alignContent}
-        className={`${flexDirection} ${linesVStackClassName} ${gap}`}
+        className={`${flexDirection} ${itemsContainerClassName} ${gap}`}
       >
         {textLines.map((textLine, index) => (
           <motion.div
