@@ -111,7 +111,7 @@ export default function Index() {
                 outerContainerClassName="w-full rounded-none"
                 transition="rotate3D"
               />
-              <Flex className="md:pr-2vh">
+              <Flex className="px-1vh md:pr-2vh">
                 <StaggeredTextLines
                   textLines={[
                     "Pippin Pawsby is a creature of mystery and kindness, hailing from a dimension of fluff and warmth.",
@@ -162,7 +162,11 @@ export default function Index() {
         </VStackFull>
       </MainPanel>
       {/* *************************** PANEL FOUR: PODCAST INFO *************************** */}
-      <MainPanel bg={`${bgGradientBottom}`} textColor="text-col-100">
+      <MainPanel
+        bg={`${bgGradientBottom}`}
+        textColor="text-col-100"
+        className="pb-2vh"
+      >
         <SmallPodCastTitle />
         <MediumScreensUpPodcastTitle />
         <VStackFull className="py-2vh" gap="gap-2vh px-2vh sm:px-3vh md:px-4vh">
@@ -187,7 +191,7 @@ export default function Index() {
           </ScrollTransition>
         </VStackFull>
         <VStackFull gap="gap-0px">
-          <ScrollTransition>
+          <ScrollTransition delay={0.6} type="rotate3D">
             <ScrollingMarquee>
               <Text className="px-2vh text-lg text-cyan-300 textShadow">
                 Top Episodes{" "}
@@ -204,14 +208,14 @@ export default function Index() {
 
       {/* *************************** PANEL FIVE *************************** */}
       <MainPanel bg={`${bgGradientTop}`}>
-        <FlexFull className="bg-cyan-800/50 flex-col lg:flex-row gap-5vh rounded-none">
-          <Flex className="w-100vw lg:w-50vw">
-            <StaggeredGradientTextLines
+        <FlexFull className="bg-cyan-800/50 flex-col xl:flex-row md:gap-5vh xl:items-center rounded-none pt-5vh xl:py-8vh xxl:py-10vh lg:gap-0px xl:gap-4vh">
+          <Flex className="w-100vw xl:w-50vw xxl:w-40vw px-1vh xl:pr-0px xl:justify-end">
+            <StaggeredTextLines
               textLines={["What", "the fans", "are saying:"]}
-              textClassName="font-cursive font-bold text-cyan-300 textShadow text-10vh"
+              textClassName="font-cursive font-bold text-cyan-300 textShadow text-6.5vh md:text-10vh lg:text-13vh xl:text-10vh xl:text-right"
             />
           </Flex>
-          <Flex className="w-full items-center justify-center">
+          <Flex className="w-full items-center justify-center xl:w-50vw xxl:w-60vw h-full lg:items-center xl:pr-3vh">
             <TestimonialCarousel testimonials={testimonials} />
           </Flex>
         </FlexFull>

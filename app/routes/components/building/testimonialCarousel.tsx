@@ -4,7 +4,7 @@ import {
   HStack,
   VStackFull,
 } from "~/buildingBlockComponents/mainContainers";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Icon from "~/buildingBlockComponents/icon";
 import {
   IoChevronBackCircleOutline,
@@ -22,9 +22,9 @@ export function TestimonialCard({
   testimonial: TestimonialType;
 }) {
   return (
-    <VStackFull className="p-1vh">
+    <VStackFull className="p-1vh" gap="gap-1vh">
       <FlexFull className="text-xl font-bold">{testimonial.name}</FlexFull>
-      <FlexFull className="text-lg italic text-cyan-300 textShadow">
+      <FlexFull className="text-lg lg:text-xl italic text-cyan-300 textShadow pl-2vh xl:text-xxl ">
         {testimonial.testimonial}
       </FlexFull>
     </VStackFull>
@@ -66,24 +66,10 @@ export default function TestimonialCarousel({
   }, [autoCycle, numTestimonials]);
 
   return (
-    <FlexFull className="py-5vh">
-      <VStackFull className="relative px-1vh" gap="gap-0px">
-        {/* Testimonial Display with Fade Transition */}
-        <FlexFull className="p-1vh md:p-2vh xl:p-3vh border-[0.3vh] border-col-230 rounded-lg bg-col-950 insetShadow5xl">
-          <motion.div
-            key={currentIndex} // Change key to trigger re-render on index change
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.6 }} // Adjust duration as needed
-            className="w-full"
-          >
-            <TestimonialCard testimonial={testimonials[currentIndex]} />
-          </motion.div>
-        </FlexFull>
-
+    <FlexFull className="pt-5vh xl:pb-10vh">
+      <VStackFull className="relative xl:pr-1vh" gap="gap-0px">
         {/* Navigation Controls */}
-        <FlexFull className="justify-between items-center p-2vh">
+        <FlexFull className="justify-between items-center px-2vh py-1vh xl:px-6vh">
           <button
             onClick={goToPrev}
             className="p-0.5vh hover:cursor-pointer hover:scale-102 transition-300 hover:-translate-x-0.5vh"
@@ -115,6 +101,21 @@ export default function TestimonialCarousel({
               iconClassName="text-cyan-300 text-4vh bg-slate-800/50 rounded-3vh hover:bg-slate-800/90 shadowNarrowNormal"
             />
           </button>
+        </FlexFull>
+        {/* Testimonial Display with Fade Transition */}
+        <FlexFull className="p-1vh pb-4vh md:p-2vh md:pb-5vh xl:p-3vh xl:border-[0.3vh] xl:border-col-230 rounded-none xl:rounded-lg bg-col-960 insetShadow5xl">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentIndex} // Change key to trigger re-render on index change
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1 }} // Adjust duration as needed
+              className="w-full overflow-hidden"
+            >
+              <TestimonialCard testimonial={testimonials[currentIndex]} />
+            </motion.div>
+          </AnimatePresence>
         </FlexFull>
       </VStackFull>
     </FlexFull>
