@@ -21,6 +21,7 @@ import { demoCourses } from "./components/design-demos/demo-data";
 import CourseCard from "./components/building/courseCard";
 import PostCastTitle from "./components/design-demos/podcastTitle";
 import PodCastTitle from "./components/design-demos/podcastTitle";
+import { ScrollTransition } from "~/buildingBlockComponents/scrollTransition";
 
 export const meta: MetaFunction = () => {
   return [
@@ -150,14 +151,14 @@ export default function Index() {
       <MainPanel bg={`${bgGradientBottom}`} textColor="text-col-100">
         <PodCastTitle />
         <VStackFull className="py-2vh" gap="gap-2vh px-2vh sm:px-3vh md:px-4vh">
-          <FlexFull>
+          <ScrollTransition type="fadeSlideInBottomQuarter">
             <Text>
               In his weekly podcast, Pip shares tales of kindness, laughter, and
               little bits of his fluffy wisdom. Tune in for uplifting chats with
               special guests, meditative moments, and reflections on finding
               light in everyday life.
             </Text>
-          </FlexFull>
+          </ScrollTransition>
           <FlexFull className="justify-center">
             <AnimatedIconsButton text="Tune In" />
           </FlexFull>

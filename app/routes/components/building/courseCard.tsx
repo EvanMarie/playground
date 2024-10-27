@@ -23,7 +23,7 @@ export default function CourseCard({
   width?: string;
 }) {
   return (
-    <Flex className={`${width} items-center p-1.5vh sm:p-2.5vh h-full`}>
+    <Flex className={`${width} items-center p-1.5vh sm:p-2.5vh h-stretch`}>
       <VStackFull
         gap="gap-0.5vh sm:gap-1vh md:gap-2vh"
         align="items-start"
@@ -34,16 +34,18 @@ export default function CourseCard({
           className="items-center border-b-100-md rounded-none"
         >
           <ScrollTransition delay={0.2}>
-            <Flex className="border-r-col-100 border-r-[0.2vh] rounded-none">
+            <FlexFull className="justify-center pl-1.5vh">
               <Text className="font-cursive font-bold text-xxxl sm:text-5vw lg:text-4.3vw xxl:text-4.6vh text-cyan-300 px-2vh py-1vh">
                 {courseData.courseNumber}
               </Text>
-            </Flex>
+            </FlexFull>
           </ScrollTransition>
           <ScrollTransition delay={0.3}>
-            <Text className="font-cursive text-xxl sm:text-4vw lg:text-3.3vw xxl:text-2.5vw text-cyan-300">
-              {courseData.courseName}
-            </Text>
+            <Flex className="border-l-col-100 border-l-[0.2vh] rounded-none pl-1.5vh py-1.5vh">
+              <Text className="font-cursive text-xxl sm:text-4vw lg:text-3.3vw xxl:text-2.5vw text-cyan-300">
+                {courseData.courseName}
+              </Text>
+            </Flex>
           </ScrollTransition>
         </HStackFull>
         <FlexFull className="p-2vh sm:p-3vh md:p-4vh pb-4vh ">
