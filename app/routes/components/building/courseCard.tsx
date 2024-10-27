@@ -23,7 +23,10 @@ export default function CourseCard({
   width?: string;
 }) {
   return (
-    <Flex className={`${width} items-center p-1.5vh sm:p-2.5vh h-stretch`}>
+    <ScrollTransition
+      className={`${width} items-center p-1.5vh sm:p-2.5vh h-stretch`}
+      type="fadeSlideInBottomQuarter"
+    >
       <VStackFull
         gap="gap-0.5vh sm:gap-1vh md:gap-2vh"
         align="items-start"
@@ -70,6 +73,6 @@ export default function CourseCard({
           </VStackFull>
         </FlexFull>
       </VStackFull>
-    </Flex>
+    </ScrollTransition>
   );
 }
