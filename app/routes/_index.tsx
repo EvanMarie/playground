@@ -80,7 +80,8 @@ export default function Index() {
         <FlexFull className="h-full bg-col-940 relative min-h-65svh pt-50svh md:py-2vh">
           <ScrollTransition
             className="h-65svh md:h-80svh xl:h-90svh absolute left-1vh md:left-5vh -top-5vh xl:left-10vh"
-            amount={0.2}
+            amount={0.1}
+            type="fadeSlideInBottomQuarter"
           >
             <Image
               src="/images/little-guy.webp"
@@ -171,7 +172,7 @@ export default function Index() {
             </Text>
           </ScrollTransition>
           <ScrollTransition
-            className="justify-center"
+            className="justify-center py-2vh"
             type="fadeSlideInBottomQuarter"
           >
             <AnimatedIconsButton text="Tune In" />
@@ -180,7 +181,9 @@ export default function Index() {
         <VStackFull gap="gap-0px">
           <ScrollTransition>
             <ScrollingMarquee>
-              <Text className="px-1vh">Top Episodes </Text>
+              <Text className="px-2vh text-lg text-cyan-300 textShadow">
+                Top Episodes{" "}
+              </Text>
             </ScrollingMarquee>
           </ScrollTransition>
           <Wrap className="w-full">
@@ -193,7 +196,10 @@ export default function Index() {
 
       {/* *************************** PANEL FIVE *************************** */}
       <MainPanel bg={`${bgGradientTop}`} height="h-100svh">
-        Panel Five
+        <FlexFull>
+          <FlexFull>HEADER</FlexFull>
+          <FlexFull>Testimonial Component</FlexFull>
+        </FlexFull>
       </MainPanel>
 
       {/* *************************** PANEL SIX *************************** */}

@@ -5,6 +5,8 @@ import {
   VStackFull,
 } from "~/buildingBlockComponents/mainContainers";
 import { EpisodeType } from "../design-demos/demo-data";
+import AnimatedIconButton from "~/buildingBlockComponents/animatedIconButton";
+import AnimatedIconsButton from "../design-demos/animatedIconsButton";
 
 export default function EpisodeCard({
   episode,
@@ -16,12 +18,12 @@ export default function EpisodeCard({
   const isOdd = index === 0 || index % 2 === 0;
   return (
     <FlexFull
-      className={`w-100vw lg:w-50vw xl:w-25vw rounded-none p-1vh xl:p-2vh lg:text-lg xl:text-md ${
+      className={`w-100vw lg:w-50vw xxl:w-25vw rounded-none p-1vh lg:p-2vh xxl:p-3vh lg:text-lg xxl:text-md ${
         isOdd ? "bg-col-840" : "bg-col-940"
       }`}
     >
       <VStackFull>
-        <VStackFull gap="gap-1vh xl:gap-2vh">
+        <VStackFull gap="gap-1vh xl:gap-2vh h-full justify-between">
           <FlexFull className="px-1vh justify-between">
             {" "}
             <Flex className="text-nowrap text-cyan-300 textShadow">
@@ -35,6 +37,15 @@ export default function EpisodeCard({
             </Flex>
           </FlexFull>
           <FlexFull>{episode.episodeDescription}</FlexFull>
+          <FlexFull className="justify-center">
+            <AnimatedIconsButton
+              text="listen"
+              textSize="text-md"
+              iconSize="text-md"
+              padding="px-3vh py-0.6vh"
+              bg="bg-slate-800/50"
+            />
+          </FlexFull>
         </VStackFull>
       </VStackFull>
     </FlexFull>

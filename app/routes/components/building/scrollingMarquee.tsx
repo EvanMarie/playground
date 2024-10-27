@@ -14,7 +14,7 @@ interface MarqueeProps {
 
 export default function ScrollingMarquee({
   children,
-  speed = 30,
+  speed = 40,
   direction = "left",
   width = "w-screen",
   trackColor = "bg-slate-900/40",
