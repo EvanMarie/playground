@@ -35,13 +35,13 @@ export default function CourseCard({
         >
           <ScrollTransition delay={0.2}>
             <Flex className="border-r-col-100 border-r-[0.2vh] rounded-none">
-              <Text className="font-cursive font-bold text-xxxl sm:text-5vw lg:text-4.3vw xxl:text-3.8vw text-cyan-300 px-2vh py-1vh">
+              <Text className="font-cursive font-bold text-xxxl sm:text-5vw lg:text-4.3vw xxl:text-4.6vh text-cyan-300 px-2vh py-1vh">
                 {courseData.courseNumber}
               </Text>
             </Flex>
           </ScrollTransition>
           <ScrollTransition delay={0.3}>
-            <Text className="font-cursive text-xxl sm:text-4vw lg:text-3.3vw xxl:text-2.8vw text-cyan-300">
+            <Text className="font-cursive text-xxl sm:text-4vw lg:text-3.3vw xxl:text-2.5vw text-cyan-300">
               {courseData.courseName}
             </Text>
           </ScrollTransition>

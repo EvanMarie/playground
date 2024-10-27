@@ -1,6 +1,7 @@
 import {
   Flex,
   FlexFull,
+  HStack,
   TransitionVariantType,
   VStack,
 } from "~/buildingBlockComponents/mainContainers";
@@ -13,7 +14,7 @@ export default function ImageWithTextOverlay({
   height = "h-80vw",
   textLines = ["Soft", "Talks", "with", "Pip"],
   bgImage = "bg-[url('/images/mandala.webp')]",
-  textClassName = "text-9vh font-cursive text-center textShadow ",
+  textClassName = "text-9vh font-cursive text-center textShadow md:text-left",
   textTransitionType = "fade20",
   tagline = "The Podcast",
   textInitialDelay = 0.5,
@@ -54,13 +55,15 @@ export default function ImageWithTextOverlay({
         delay={imageDelay}
       />
       <VStack gap={textTagLineGap} className="absolute">
-        <StaggeredTextLines
-          textLines={textLines}
-          textClassName={textClassName}
-          transition={textTransitionType}
-          initialDelay={textInitialDelay}
-          staggerDelay={textStaggerDelay}
-        />
+        <HStack>
+          <StaggeredTextLines
+            textLines={textLines}
+            textClassName={textClassName}
+            transition={textTransitionType}
+            initialDelay={textInitialDelay}
+            staggerDelay={textStaggerDelay}
+          />
+        </HStack>
         <FlexFull className="justify-center ">
           <ScrollTransition className={taglineClassName} delay={taglineDelay}>
             <Text>{tagline}</Text>

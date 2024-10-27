@@ -15,8 +15,9 @@ import ImageWithTextOverlay from "../components/building/imageWithTextOverlay";
 export default function Test() {
   const dimensions = "w-80vw h-80vw ";
   return (
-    <FlexFull className={`h-100svh justify-center relative`}>
-      <ImageWithTextOverlay />
+    <FlexFull className={`h-100svh flex-col relative overflow-y-auto`}>
+      <PodCastTitle />
+      <FlexFull className="py-2vh">This is a text</FlexFull>
     </FlexFull>
   );
 }
