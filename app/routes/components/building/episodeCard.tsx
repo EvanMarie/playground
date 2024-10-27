@@ -7,6 +7,7 @@ import {
 import { EpisodeType } from "../design-demos/demo-data";
 import AnimatedIconButton from "~/buildingBlockComponents/animatedIconButton";
 import AnimatedIconsButton from "../design-demos/animatedIconsButton";
+import { ScrollTransition } from "~/buildingBlockComponents/scrollTransition";
 
 export default function EpisodeCard({
   episode,
@@ -17,10 +18,11 @@ export default function EpisodeCard({
 }) {
   const isOdd = index === 0 || index % 2 === 0;
   return (
-    <FlexFull
+    <ScrollTransition
       className={`w-100vw lg:w-50vw xxl:w-25vw rounded-none p-1vh lg:p-2vh xxl:p-3vh lg:text-lg xxl:text-md ${
         isOdd ? "bg-col-840" : "bg-col-940"
       }`}
+      type="rotate3D"
     >
       <VStackFull>
         <VStackFull gap="gap-1vh xl:gap-2vh h-full justify-between">
@@ -48,6 +50,6 @@ export default function EpisodeCard({
           </FlexFull>
         </VStackFull>
       </VStackFull>
-    </FlexFull>
+    </ScrollTransition>
   );
 }

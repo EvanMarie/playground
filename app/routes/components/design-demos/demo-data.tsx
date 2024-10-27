@@ -50,3 +50,26 @@ export const episodes = [
       "A gentle exploration of finding wonder in life’s small, often overlooked moments with Pip’s soft wisdom.",
   },
 ];
+
+export const testimonials = [
+  {
+    name: "Lily",
+    testimonial:
+      "Pip’s podcast has been a source of light and comfort for me. His gentle wisdom and soothing voice always leave me feeling uplifted.",
+  },
+  {
+    name: "Sam",
+    testimonial:
+      "I love listening to Pip’s podcast on my morning walks. His stories and reflections help me start my day with a sense of calm and joy.",
+  },
+  {
+    name: "Alex",
+    testimonial:
+      "Pip’s podcast is like a warm hug for the soul. His words are a reminder to slow down and savor the beauty of everyday life.",
+  },
+  {
+    name: "Jess",
+    testimonial:
+      "Listening to Pip’s podcast is like taking a deep breath of fresh air. His gentle reminders to be kind to ourselves are a balm for the heart.",
+  },
+];

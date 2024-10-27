@@ -18,7 +18,11 @@ import MandalaImage from "./components/design-demos/mandalaImage";
 import Image from "~/buildingBlockComponents/image";
 import StaggeredTextLines from "./components/building/staggeredTextLines";
 import AnimatedIconsButton from "./components/design-demos/animatedIconsButton";
-import { demoCourses, episodes } from "./components/design-demos/demo-data";
+import {
+  demoCourses,
+  episodes,
+  testimonials,
+} from "./components/design-demos/demo-data";
 import CourseCard from "./components/building/courseCard";
 import PostCastTitle from "./components/design-demos/smallPodcastTitle";
 import SmallPodCastTitle from "./components/design-demos/smallPodcastTitle";
@@ -26,6 +30,7 @@ import { ScrollTransition } from "~/buildingBlockComponents/scrollTransition";
 import MediumScreensUpPodcastTitle from "./components/building/mediumScreensUpPodcastTitle";
 import ScrollingMarquee from "./components/building/scrollingMarquee";
 import EpisodeCard from "./components/building/episodeCard";
+import TestimonialCarousel from "./components/building/testimonialCarousel";
 
 export const meta: MetaFunction = () => {
   return [
@@ -163,6 +168,7 @@ export default function Index() {
           <ScrollTransition
             type="fadeSlideInBottomQuarter"
             className="max-w-[120vh]"
+            amount={0.2}
           >
             <Text>
               In his weekly podcast, Pip shares tales of kindness, laughter, and
@@ -174,6 +180,7 @@ export default function Index() {
           <ScrollTransition
             className="justify-center py-2vh"
             type="fadeSlideInBottomQuarter"
+            amount={0.2}
           >
             <AnimatedIconsButton text="Tune In" />
           </ScrollTransition>
@@ -196,9 +203,16 @@ export default function Index() {
 
       {/* *************************** PANEL FIVE *************************** */}
       <MainPanel bg={`${bgGradientTop}`} height="h-100svh">
-        <FlexFull>
-          <FlexFull>HEADER</FlexFull>
-          <FlexFull>Testimonial Component</FlexFull>
+        <FlexFull className="bg-slate-800/50 flex-col lg:flex-row">
+          <Flex className="w-100vw lg:w-50vw">
+            <StaggeredTextLines
+              textLines={["What", "the fans", "are saying:"]}
+              textClassName="font-cursive font-bold text-cyan-300 textShadow text-10vh"
+            />
+          </Flex>
+          <Flex className="w-full h-50vh items-center justify-center">
+            <TestimonialCarousel testimonials={testimonials} />
+          </Flex>
         </FlexFull>
       </MainPanel>
 
