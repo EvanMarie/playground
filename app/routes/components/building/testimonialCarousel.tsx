@@ -23,8 +23,8 @@ export function TestimonialCard({
 }) {
   return (
     <VStackFull>
-      <FlexFull className="text-lg font-bold">{testimonial.name}</FlexFull>
-      <FlexFull className="text-md italic text-cyan-300">
+      <FlexFull className="text-xl font-bold">{testimonial.name}</FlexFull>
+      <FlexFull className="text-lg italic text-cyan-300">
         {testimonial.testimonial}
       </FlexFull>
     </VStackFull>
@@ -69,7 +69,7 @@ export default function TestimonialCarousel({
     <FlexFull className="py-5vh">
       <VStackFull className="relative px-1vh">
         {/* Testimonial Display with Fade Transition */}
-        <FlexFull className="p-1vh md:p-2vh xl:p-3vh border-[0.3vh] border-gray-300 rounded-lg insetShadow5xl">
+        <FlexFull className="p-1vh md:p-2vh xl:p-3vh border-[0.3vh] border-col-230 rounded-lg insetShadow5xl">
           <motion.div
             key={currentIndex} // Change key to trigger re-render on index change
             initial={{ opacity: 0 }}
@@ -86,7 +86,7 @@ export default function TestimonialCarousel({
         <FlexFull className="justify-between items-center p-2vh">
           <button
             onClick={goToPrev}
-            className="p-0.5vh hover:cursor-pointer hover:scale-102 transition-300 hover:-translate-x-1.5vh"
+            className="p-0.5vh hover:cursor-pointer hover:scale-102 transition-300 hover:-translate-x-0.5vh"
           >
             <Icon
               icon={IoChevronBackCircleOutline}
@@ -108,7 +108,7 @@ export default function TestimonialCarousel({
           </HStack>
           <button
             onClick={goToNext}
-            className="p-0.5vh hover:cursor-pointer hover:scale-102 hover:translate-x-1.5vh transition-300"
+            className="p-0.5vh hover:cursor-pointer hover:scale-102 hover:translate-x-0.5vh transition-300"
           >
             <Icon
               icon={IoChevronForwardCircleOutline}
