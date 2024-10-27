@@ -17,7 +17,7 @@ export default function MediumScreensUpPodcastTitle({
   height = "h-80svh xl:h-90vh",
   textLines = ["Soft", "Talks", "with", "Pip"],
   bgImage = "bg-[url('/images/mandala.webp')]",
-  textClassName = "text-9vh font-cursive text-center textShadow md:text-left",
+  textClassName = "text-9vh xl:text-11vh xxl:text-13vh font-cursive text-center textShadow md:text-left",
   textTransitionType = "fade20",
   tagline = "The Podcast",
   textInitialDelay = 0.5,
