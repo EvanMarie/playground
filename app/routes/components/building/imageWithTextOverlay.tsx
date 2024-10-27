@@ -53,6 +53,7 @@ export default function ImageWithTextOverlay({
         type={imageTransitionType}
         duration={imageDuration}
         delay={imageDelay}
+        amount={0.3}
       />
       <VStack gap={textTagLineGap} className="absolute">
         <HStack>

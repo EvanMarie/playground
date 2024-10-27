@@ -7,6 +7,9 @@ interface MarqueeProps {
   speed?: number;
   direction?: "left" | "right";
   width?: string;
+  trackColor?: string;
+  py?: string;
+  trackClassName?: string;
 }
 
 export default function ScrollingMarquee({
@@ -14,6 +17,9 @@ export default function ScrollingMarquee({
   speed = 30,
   direction = "left",
   width = "w-screen",
+  trackColor = "bg-slate-900/40",
+  py = "py-1vh",
+  trackClassName = "shadowNarrowTight rounded-none",
 }: MarqueeProps) {
   const [contentWidth, setContentWidth] = useState(0);
   const [repeatCount, setRepeatCount] = useState(2);
@@ -47,7 +53,10 @@ export default function ScrollingMarquee({
   }, [contentWidth, speed, direction, controls]);
 
   return (
-    <div ref={containerRef} className={`${width} m-auto overflow-hidden`}>
+    <div
+      ref={containerRef}
+      className={`${width} ${trackColor} ${py} ${trackClassName} m-auto overflow-hidden`}
+    >
       <motion.div className="flex whitespace-nowrap" animate={controls}>
         {[...Array(repeatCount)].map((_, index) => (
           <div

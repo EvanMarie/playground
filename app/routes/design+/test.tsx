@@ -11,7 +11,7 @@ export default function Test() {
     >
       <MainPanel bg={`bg-col-740`} textColor="text-col-100" height="h-100svh">
         <ScrollingMarquee>
-          <Text className="px-1vh">Check Out The Podcast. </Text>
+          <Text className="px-1vh">Top episodes. </Text>
         </ScrollingMarquee>
       </MainPanel>
     </FlexFull>

@@ -5,6 +5,7 @@ import Transition, {
   Box,
   Flex,
   FlexFull,
+  HStackFull,
   VStackFull,
   Wrap,
 } from "~/buildingBlockComponents/mainContainers";
@@ -17,12 +18,14 @@ import MandalaImage from "./components/design-demos/mandalaImage";
 import Image from "~/buildingBlockComponents/image";
 import StaggeredTextLines from "./components/building/staggeredTextLines";
 import AnimatedIconsButton from "./components/design-demos/animatedIconsButton";
-import { demoCourses } from "./components/design-demos/demo-data";
+import { demoCourses, episodes } from "./components/design-demos/demo-data";
 import CourseCard from "./components/building/courseCard";
-import PostCastTitle from "./components/design-demos/podcastTitle";
-import PodCastTitle from "./components/design-demos/podcastTitle";
+import PostCastTitle from "./components/design-demos/smallPodcastTitle";
+import SmallPodCastTitle from "./components/design-demos/smallPodcastTitle";
 import { ScrollTransition } from "~/buildingBlockComponents/scrollTransition";
 import MediumScreensUpPodcastTitle from "./components/building/mediumScreensUpPodcastTitle";
+import ScrollingMarquee from "./components/building/scrollingMarquee";
+import EpisodeCard from "./components/building/episodeCard";
 
 export const meta: MetaFunction = () => {
   return [
@@ -75,13 +78,16 @@ export default function Index() {
         height="min-h-75svh xl:min-h-85svh xl:h-95svh"
       >
         <FlexFull className="h-full bg-col-940 relative min-h-65svh pt-50svh md:py-2vh">
-          <Box className="h-65svh md:h-80svh xl:h-90svh absolute left-1vh md:left-5vh -top-5vh xl:left-10vh">
+          <ScrollTransition
+            className="h-65svh md:h-80svh xl:h-90svh absolute left-1vh md:left-5vh -top-5vh xl:left-10vh"
+            amount={0.2}
+          >
             <Image
               src="/images/little-guy.webp"
               alt="Little Guy"
               className="h-full fade-bottom"
             />
-          </Box>
+          </ScrollTransition>
 
           <FlexFull className="md:justify-end">
             <VStackFull
@@ -150,7 +156,7 @@ export default function Index() {
       </MainPanel>
       {/* *************************** PANEL FOUR: PODCAST INFO *************************** */}
       <MainPanel bg={`${bgGradientBottom}`} textColor="text-col-100">
-        <PodCastTitle />
+        <SmallPodCastTitle />
         <MediumScreensUpPodcastTitle />
         <VStackFull className="py-2vh" gap="gap-2vh px-2vh sm:px-3vh md:px-4vh">
           <ScrollTransition
@@ -170,6 +176,18 @@ export default function Index() {
           >
             <AnimatedIconsButton text="Tune In" />
           </ScrollTransition>
+        </VStackFull>
+        <VStackFull gap="gap-0px">
+          <ScrollTransition>
+            <ScrollingMarquee>
+              <Text className="px-1vh">Top Episodes </Text>
+            </ScrollingMarquee>
+          </ScrollTransition>
+          <Wrap className="w-full">
+            {episodes.map((episode, index) => (
+              <EpisodeCard episode={episode} key={index} index={index} />
+            ))}
+          </Wrap>
         </VStackFull>
       </MainPanel>
 

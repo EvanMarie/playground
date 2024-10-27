@@ -56,6 +56,7 @@ export default function MediumScreensUpPodcastTitle({
         type={imageTransitionType}
         duration={imageDuration}
         delay={imageDelay}
+        amount={0.3}
       />
       <VStack gap={textTagLineGap} className="absolute">
         <HStack className="items-center" gap="gap-1vh">
