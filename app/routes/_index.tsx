@@ -20,6 +20,7 @@ import AnimatedIconsButton from "./components/design-demos/animatedIconsButton";
 import { demoCourses } from "./components/design-demos/demo-data";
 import CourseCard from "./components/building/courseCard";
 import PostCastTitle from "./components/design-demos/podcastTitle";
+import PodCastTitle from "./components/design-demos/podcastTitle";
 
 export const meta: MetaFunction = () => {
   return [
@@ -146,21 +147,21 @@ export default function Index() {
         </VStackFull>
       </MainPanel>
       {/* *************************** PANEL FOUR: PODCAST INFO *************************** */}
-      <MainPanel
-        bg={`${bgGradientBottom}`}
-        textColor="text-col-100"
-        height="h-100svh"
-      >
-        <FlexFull className="flex-col md:flex-row">
-          <PostCastTitle />
-          <Box className="h-60vh">
-            <Image
-              src="/images/soft-talks-with-pip.webp"
-              alt="soft talks with Pip"
-              className="h-full"
-            />
-          </Box>
-        </FlexFull>
+      <MainPanel bg={`${bgGradientBottom}`} textColor="text-col-100">
+        <PodCastTitle />
+        <VStackFull className="py-2vh" gap="gap-2vh px-2vh sm:px-3vh md:px-4vh">
+          <FlexFull>
+            <Text>
+              In his weekly podcast, Pip shares tales of kindness, laughter, and
+              little bits of his fluffy wisdom. Tune in for uplifting chats with
+              special guests, meditative moments, and reflections on finding
+              light in everyday life.
+            </Text>
+          </FlexFull>
+          <FlexFull className="justify-center">
+            <AnimatedIconsButton text="Tune In" />
+          </FlexFull>
+        </VStackFull>
       </MainPanel>
 
       {/* *************************** PANEL FIVE *************************** */}

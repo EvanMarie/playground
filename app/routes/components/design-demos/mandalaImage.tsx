@@ -3,6 +3,7 @@ import {
   Transition,
   TransitionVariantType,
 } from "~/buildingBlockComponents/mainContainers";
+import { ScrollTransition } from "~/buildingBlockComponents/scrollTransition";
 
 export default function MandalaImage({
   position = "absolute top-[2svh]",
@@ -20,7 +21,7 @@ export default function MandalaImage({
   transition?: TransitionVariantType;
 }) {
   return (
-    <Transition
+    <ScrollTransition
       className={`${position} ${size}`}
       type={transition}
       delay={delay}
@@ -32,6 +33,6 @@ export default function MandalaImage({
         className="w-full h-full"
         style={{ opacity: opacity }}
       />
-    </Transition>
+    </ScrollTransition>
   );
 }
