@@ -22,9 +22,9 @@ export function TestimonialCard({
   testimonial: TestimonialType;
 }) {
   return (
-    <VStackFull>
+    <VStackFull className="p-1vh">
       <FlexFull className="text-xl font-bold">{testimonial.name}</FlexFull>
-      <FlexFull className="text-lg italic text-cyan-300">
+      <FlexFull className="text-lg italic text-cyan-300 textShadow">
         {testimonial.testimonial}
       </FlexFull>
     </VStackFull>
@@ -67,9 +67,9 @@ export default function TestimonialCarousel({
 
   return (
     <FlexFull className="py-5vh">
-      <VStackFull className="relative px-1vh">
+      <VStackFull className="relative px-1vh" gap="gap-0px">
         {/* Testimonial Display with Fade Transition */}
-        <FlexFull className="p-1vh md:p-2vh xl:p-3vh border-[0.3vh] border-col-230 rounded-lg insetShadow5xl">
+        <FlexFull className="p-1vh md:p-2vh xl:p-3vh border-[0.3vh] border-col-230 rounded-lg bg-col-950 insetShadow5xl">
           <motion.div
             key={currentIndex} // Change key to trigger re-render on index change
             initial={{ opacity: 0 }}

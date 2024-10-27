@@ -72,4 +72,9 @@ export const testimonials = [
     testimonial:
       "Listening to Pip’s podcast is like taking a deep breath of fresh air. His gentle reminders to be kind to ourselves are a balm for the heart.",
   },
+  {
+    name: "Ella",
+    testimonial:
+      "Pip’s podcast has become a cherished part of my self-care routine. His stories and reflections always leave me feeling inspired and uplifted.",
+  },
 ];

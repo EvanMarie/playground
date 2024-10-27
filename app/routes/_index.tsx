@@ -31,6 +31,7 @@ import MediumScreensUpPodcastTitle from "./components/building/mediumScreensUpPo
 import ScrollingMarquee from "./components/building/scrollingMarquee";
 import EpisodeCard from "./components/building/episodeCard";
 import TestimonialCarousel from "./components/building/testimonialCarousel";
+import StaggeredGradientTextLines from "./components/building/staggeredGradientTextLines";
 
 export const meta: MetaFunction = () => {
   return [
@@ -202,15 +203,15 @@ export default function Index() {
       </MainPanel>
 
       {/* *************************** PANEL FIVE *************************** */}
-      <MainPanel bg={`${bgGradientTop}`} height="h-100svh">
-        <FlexFull className="bg-slate-800/50 flex-col lg:flex-row">
+      <MainPanel bg={`${bgGradientTop}`}>
+        <FlexFull className="bg-cyan-800/50 flex-col lg:flex-row gap-5vh rounded-none">
           <Flex className="w-100vw lg:w-50vw">
-            <StaggeredTextLines
+            <StaggeredGradientTextLines
               textLines={["What", "the fans", "are saying:"]}
               textClassName="font-cursive font-bold text-cyan-300 textShadow text-10vh"
             />
           </Flex>
-          <Flex className="w-full h-50vh items-center justify-center">
+          <Flex className="w-full items-center justify-center">
             <TestimonialCarousel testimonials={testimonials} />
           </Flex>
         </FlexFull>

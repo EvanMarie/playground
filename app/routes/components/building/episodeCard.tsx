@@ -38,7 +38,7 @@ export default function EpisodeCard({
               {episode.episodeLength}
             </Flex>
           </FlexFull>
-          <FlexFull>{episode.episodeDescription}</FlexFull>
+          <FlexFull className="px-1vh">{episode.episodeDescription}</FlexFull>
           <FlexFull className="justify-center">
             <AnimatedIconsButton
               text="listen"
