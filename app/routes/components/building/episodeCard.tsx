@@ -23,7 +23,7 @@ export default function EpisodeCard({
       className="px-1vh py-0.5vh w-100vw lg:w-50vw xxl:w-25vw "
     >
       <FlexFull
-        className={`rounded-none lg:text-lg xxl:text-md border-100-md ${
+        className={`rounded-none lg:text-lg xxl:text-md border-150-sm ${
           isOdd ? "bg-col-840" : "bg-col-940"
         }`}
       >
@@ -32,11 +32,11 @@ export default function EpisodeCard({
             gap="gap-1vh xl:gap-2vh"
             className="h-full justify-between text-lg md:text-xl lg:text-lg xl:text-md"
           >
-            <FlexFull className="justify-between rounded-none border-b-100-md">
+            <FlexFull className="justify-between rounded-none border-b-150-sm">
               <Flex className="text-nowrap text-cyan-300 textShadow p-1.5vh w-fit flex-shrink-0">
                 {episode.episodeNumber}
               </Flex>
-              <FlexFull className="text-violet-300 textShadow border-x-[0.2vh] border-col-100 rounded-none py-1.5vh justify-center">
+              <FlexFull className="text-violet-300 textShadow border-x-[0.15vh] border-col-150 rounded-none py-1.5vh justify-center px-1vh">
                 {episode.episodeTitle}
               </FlexFull>
               <Flex className="text-cyan-300 textShadow p-1.5vh w-fit flex-shrink-0">
