@@ -235,40 +235,39 @@ export default function Index() {
       <MainPanel bg={`relative`}>
         <FlexFull className="shadowNarrowNormal bg-[url('/images/schedule-background.webp')] text-col-100 rounded-none md:border-900-md">
           <FlexFull className="bg-gradient-to-bl from-indigo-900/80 via-sky-900/80 to-indigo-900/80 rounded-none">
-            <ScrollTransition className="w-full" amount={0.2}>
-              <FlexFull className="flex-col items-center py-5vh gap-2.5vh">
-                <VStackFull className="relative overflow-hidden">
-                  <FlexFull className="pl-3vh md:pl-5vh xl:pl-10vh xxl:pl-20vh">
-                    <StaggeredTextLines
-                      textLines={["Catch", "Pippin", "Live!"]}
-                      textClassName="font-cursive font-bold text-cyan-300 textShadow text-5.5vh sm:text-6.5vh md:text-10vh lg:text-13vh xl:text-10vh"
-                      transition="zoom"
-                    />
-                  </FlexFull>
-                  <ScrollTransition
-                    className="h-16svh sm:h-20svh md:h-23vh lg:h-30vh absolute -bottom-5vh right-2vh sm:right-3vh md:right-5vh xl:right-10vh xxl:right-20vh"
-                    type="zoom"
-                    duration={1.5}
-                  >
-                    <Image
-                      src="/images/pip-face.webp"
-                      alt="Little Guy"
-                      className="h-full fade-bottom"
-                    />
-                  </ScrollTransition>{" "}
-                  <Divider m="mt-3vh" />
-                </VStackFull>
-                <VStackFull className="xl:max-w-[110svh]" gap="gap-2vh">
-                  {upcomingEvents.map((upcomingEvent, index) => (
-                    <EventCard
-                      upcomingEvent={upcomingEvent}
-                      key={index}
-                      index={index}
-                    />
-                  ))}
-                </VStackFull>
-              </FlexFull>
-            </ScrollTransition>
+            <FlexFull className="flex-col items-center py-5vh gap-2.5vh">
+              <VStackFull className="relative overflow-hidden">
+                <FlexFull className="pl-3vh md:pl-5vh xl:pl-10vh xxl:pl-20vh">
+                  <StaggeredTextLines
+                    alignContent="items-start"
+                    textLines={["Catch", "Pippin", "Live!"]}
+                    textClassName="font-cursive font-bold text-cyan-300 textShadow text-5.5vh sm:text-6.5vh md:text-10vh lg:text-13vh xl:text-10vh text-left"
+                    transition="zoom"
+                  />
+                </FlexFull>
+                <ScrollTransition
+                  className="h-16svh sm:h-20svh md:h-23vh lg:h-30vh absolute -bottom-4vh right-2vh sm:right-3vh md:right-5vh xl:right-10vh xxl:right-20vh"
+                  type="zoom"
+                  duration={1.5}
+                >
+                  <Image
+                    src="/images/pip-face.webp"
+                    alt="Little Guy"
+                    className="h-full fade-bottom"
+                  />
+                </ScrollTransition>{" "}
+                <Divider m="mt-3vh" />
+              </VStackFull>
+              <VStackFull className="xl:max-w-[110svh]" gap="gap-2vh">
+                {upcomingEvents.map((upcomingEvent, index) => (
+                  <EventCard
+                    upcomingEvent={upcomingEvent}
+                    key={index}
+                    index={index}
+                  />
+                ))}
+              </VStackFull>
+            </FlexFull>
           </FlexFull>
         </FlexFull>
       </MainPanel>
@@ -294,6 +293,7 @@ export default function Index() {
           </ScrollTransition>{" "}
           <StaggeredTextLines
             flexDirection="flex-col sm:flex-row"
+            alignContent="justify-start"
             textLines={["Stay", "Connected"]}
             textClassName="font-cursive font-bold text-cyan-300 textShadow text-6.5vh md:text-10vh lg:text-13vh xl:text-10vh xl:text-right"
           />

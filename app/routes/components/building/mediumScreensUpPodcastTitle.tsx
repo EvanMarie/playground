@@ -75,6 +75,7 @@ export default function MediumScreensUpPodcastTitle({
               transition={textTransitionType}
               initialDelay={textInitialDelay}
               staggerDelay={textStaggerDelay}
+              alignContent="items-start"
             />
             <FlexFull className="justify-center ">
               <ScrollTransition

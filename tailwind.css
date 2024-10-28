@@ -15,6 +15,11 @@ svg {
   border-radius: none;
 }
 
+.svg-round {
+  border-radius: 100%; /* Or any desired value */
+  overflow: hidden; /* Ensures rounded corners if SVG content goes outside */
+}
+
 ol {
   padding: 1rem;
 }

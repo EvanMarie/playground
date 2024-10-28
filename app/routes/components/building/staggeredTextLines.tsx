@@ -7,7 +7,7 @@ import {
 
 export default function StaggeredTextLines({
   textLines,
-  alignContent = "items-end",
+  alignContent = "items-center",
   initialDelay = 0.2, // Reduced default delay since we're triggering on view
   textClassName,
   gap = "gap-1.5vh",

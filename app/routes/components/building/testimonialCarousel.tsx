@@ -77,7 +77,7 @@ export default function TestimonialCarousel({
             >
               <Icon
                 icon={IoChevronBackCircleOutline}
-                iconClassName="text-cyan-300 text-4vh bg-slate-800/50 rounded-3vh hover:bg-slate-800/90 transition-300 shadowNarrowNormal"
+                iconClassName="text-cyan-300 text-4vh bg-slate-800/50 hover:bg-slate-800/90 transition-300 svg-round shadowNarrowNormal"
               />
             </button>
             <HStack className="items-center">
@@ -104,7 +104,7 @@ export default function TestimonialCarousel({
             >
               <Icon
                 icon={IoChevronForwardCircleOutline}
-                iconClassName="text-cyan-300 text-4vh bg-slate-800/50 rounded-3vh hover:bg-slate-800/90 shadowNarrowNormal"
+                iconClassName="text-cyan-300 text-4vh bg-slate-800/50 rounded-3vh hover:bg-slate-800/90 shadowNarrowNormal svg-round"
               />
             </button>
           </FlexFull>
