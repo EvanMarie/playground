@@ -259,12 +259,12 @@ export default function Index() {
       {/* *************************** PANEL SEVEN *************************** */}
       <MainPanel
         bg={`${bgGradientBottom}`}
-        height="h-60svh"
-        className="relative overflow-hidden"
+        height="h-100svh"
+        className="relative overflow-hidden py-5vh"
       >
-        <FlexFull className="h-60svh relative">
+        <VStackFull className="h-100svh relative">
           <ScrollTransition
-            className="h-55svh absolute -bottom-20vh right-0"
+            className="h-70svh absolute -bottom-35vh -right-18vh"
             amount={0.1}
             type="fadeSlideInBottomQuarter"
           >
@@ -279,7 +279,15 @@ export default function Index() {
             textLines={["Stay", "Connected"]}
             textClassName="font-cursive font-bold text-cyan-300 textShadow text-6.5vh md:text-10vh lg:text-13vh xl:text-10vh xl:text-right"
           />
-        </FlexFull>
+          <FlexFull className="p-5vh">
+            <Text className="text-lg">
+              Join Pip’s cozy corner of the universe! Sign up for gentle updates
+              on upcoming events, fresh podcast episodes, and exclusive fluffy
+              wisdom to brighten your day. Let Pip’s soft whispers and joyful
+              insights be a part of your journey.
+            </Text>
+          </FlexFull>
+        </VStackFull>
       </MainPanel>
     </MainIndexContainer>
   );
