@@ -257,12 +257,29 @@ export default function Index() {
       </MainPanel>
 
       {/* *************************** PANEL SEVEN *************************** */}
-      <MainPanel bg={`${bgGradientBottom}`}>
-        <StaggeredTextLines
-          flexDirection="flex-row"
-          textLines={["Stay", "Connected"]}
-          textClassName="font-cursive font-bold text-cyan-300 textShadow text-6.5vh md:text-10vh lg:text-13vh xl:text-10vh xl:text-right"
-        />
+      <MainPanel
+        bg={`${bgGradientBottom}`}
+        height="h-60svh"
+        className="relative overflow-hidden"
+      >
+        <FlexFull className="h-60svh relative">
+          <ScrollTransition
+            className="h-55svh absolute -bottom-20vh right-0"
+            amount={0.1}
+            type="fadeSlideInBottomQuarter"
+          >
+            <Image
+              src="/images/little-guy.webp"
+              alt="Little Guy"
+              className="h-full fade-bottom"
+            />
+          </ScrollTransition>{" "}
+          <StaggeredTextLines
+            flexDirection="flex-row"
+            textLines={["Stay", "Connected"]}
+            textClassName="font-cursive font-bold text-cyan-300 textShadow text-6.5vh md:text-10vh lg:text-13vh xl:text-10vh xl:text-right"
+          />
+        </FlexFull>
       </MainPanel>
     </MainIndexContainer>
   );
