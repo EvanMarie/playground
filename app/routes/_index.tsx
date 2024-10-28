@@ -25,16 +25,15 @@ import {
   upcomingEvents,
 } from "./components/design-demos/demo-data";
 import CourseCard from "./components/building/courseCard";
-import PostCastTitle from "./components/design-demos/smallPodcastTitle";
 import SmallPodCastTitle from "./components/design-demos/smallPodcastTitle";
 import { ScrollTransition } from "~/buildingBlockComponents/scrollTransition";
 import MediumScreensUpPodcastTitle from "./components/building/mediumScreensUpPodcastTitle";
 import ScrollingMarquee from "./components/building/scrollingMarquee";
 import EpisodeCard from "./components/building/episodeCard";
 import TestimonialCarousel from "./components/building/testimonialCarousel";
-import StaggeredGradientTextLines from "./components/building/staggeredGradientTextLines";
 import EventCard from "./components/building/eventCard";
 import Divider from "~/buildingBlockComponents/divider";
+import Input from "~/buildingBlockComponents/input";
 
 export const meta: MetaFunction = () => {
   return [
@@ -278,9 +277,9 @@ export default function Index() {
         // height="h-100svh"
         className="relative overflow-hidden py-5vh"
       >
-        <VStackFull className="h-100svh relative">
+        <VStackFull className="h-[105svh] sm:h-90svh md:h-90svh relative">
           <ScrollTransition
-            className="h-70svh absolute -bottom-5vh -right-18vh"
+            className="h-70svh absolute -bottom-13vh -right-25vh sm:-bottom-10vh"
             amount={0.1}
             type="fadeSlideInBottomQuarter"
           >
@@ -295,7 +294,7 @@ export default function Index() {
             textLines={["Stay", "Connected"]}
             textClassName="font-cursive font-bold text-cyan-300 textShadow text-6.5vh md:text-10vh lg:text-13vh xl:text-10vh xl:text-right"
           />
-          <FlexFull className="p-5vh">
+          <FlexFull className="p-5vh max-w-90svh">
             <Text className="text-lg">
               Join Pip’s cozy corner of the universe! Sign up for gentle updates
               on upcoming events, fresh podcast episodes, and exclusive fluffy
@@ -303,7 +302,22 @@ export default function Index() {
               insights be a part of your journey.
             </Text>
           </FlexFull>
+          <VStackFull className="p-4vh max-w-80svh" gap="gap-3vh">
+            <Input type="text" placeholder="Enter your name" />
+            <Input type="text" placeholder="Enter your email" />
+            <FlexFull className="justify-end">
+              <AnimatedIconsButton
+                text="join the gang"
+                textSize="text-lg"
+                padding="px-3vh py-0.6vh"
+              />
+            </FlexFull>
+          </VStackFull>
+          <FlexFull className="fixed bottom-0 right-0 left-0 h-3svh text-xs text-cyan-300 justify-center items-end">
+            Copyright 2024 Pippin Pawsby
+          </FlexFull>
         </VStackFull>
+        
       </MainPanel>
     </MainIndexContainer>
   );

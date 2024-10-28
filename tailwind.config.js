@@ -1777,7 +1777,7 @@ export default {
           outline: "none",
           "&:focus": {
             borderBottomWidth: "0.2vh",
-            borderBottomColor: theme("colors.col.300"),
+            borderBottomColor: theme("colors.cyan.300"),
           },
           transition: "all 0.4s ease-in-out",
         },
