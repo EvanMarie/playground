@@ -34,6 +34,8 @@ import TestimonialCarousel from "./components/building/testimonialCarousel";
 import EventCard from "./components/building/eventCard";
 import Divider from "~/buildingBlockComponents/divider";
 import Input from "~/buildingBlockComponents/input";
+import FloatingUpAndOutImages from "./components/building/floatingUpImages";
+import BottomScrollTrigger from "./components/building/bottomScrollTrigger";
 
 export const meta: MetaFunction = () => {
   return [
@@ -317,7 +319,9 @@ export default function Index() {
             Copyright 2024 Pippin Pawsby
           </FlexFull>
         </VStackFull>
-        
+        <BottomScrollTrigger>
+          <FloatingUpAndOutImages />
+        </BottomScrollTrigger>
       </MainPanel>
     </MainIndexContainer>
   );
