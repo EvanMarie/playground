@@ -196,7 +196,7 @@ export default function Index() {
           </ScrollTransition>
         </VStackFull>
         <VStackFull gap="gap-0px">
-          <ScrollTransition delay={0.5} type="rotate3D">
+          <ScrollTransition delay={0.7} type="rotate3D">
             <ScrollingMarquee>
               <Text className="px-2vh text-lg text-cyan-300 textShadow">
                 Soft Talks with Pippin Pawsby

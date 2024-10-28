@@ -26,6 +26,11 @@ export default function StaggeredLinks({
   containerClassName = "items-end",
   textContainerClassName,
   hoverIcon = PiFlowerLotus,
+  transitionType = "spring",
+  stiffness = 44,
+  ease,
+  transitionDuration,
+  iconGap = "gap-1vh",
   buttonClassName = "hover:border-b-cyan-300 rounded-none transition-300 hover:text-cyan-300",
 }: {
   links: StaggeredLinkType[];
@@ -33,9 +38,14 @@ export default function StaggeredLinks({
   initialDelay?: number;
   textClassName?: string;
   iconClassName?: string;
+  iconGap?: string;
   textContainerClassName?: string;
   gap?: string;
   staggerDelay?: number;
+  transitionType?: string;
+  stiffness?: number;
+  ease?: string;
+  transitionDuration?: number;
   containerClassName?: string;
   animationVariants?: keyof typeof transitionVariants;
   buttonClassName?: string;
@@ -55,12 +65,14 @@ export default function StaggeredLinks({
           animate={variants.animate as any}
           transition={{
             delay: initialDelay + index * staggerDelay,
-            type: "spring",
-            stiffness: 44,
+            type: transitionType,
+            stiffness: stiffness,
+            ease: ease ? ease : undefined,
+            duration: transitionDuration ? transitionDuration : undefined,
           }}
           className={`${buttonClassName} group hover:cursor-pointer border-transparent border-[0.2vh]`}
         >
-          <HStack className="items-center hover:cursor-pointer" gap="gap-1vh">
+          <HStack className="items-center hover:cursor-pointer" gap={iconGap}>
             {hoverIcon && (
               <Icon
                 icon={hoverIcon}
