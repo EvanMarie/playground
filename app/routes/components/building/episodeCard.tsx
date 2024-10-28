@@ -19,7 +19,7 @@ export default function EpisodeCard({
   const isOdd = index === 0 || index % 2 === 0;
   return (
     <ScrollTransition
-      className={`w-100vw lg:w-50vw xxl:w-25vw rounded-none p-1vh lg:p-2vh xxl:p-3vh lg:text-lg xxl:text-md ${
+      className={`w-100vw lg:w-50vw xxl:w-25vw rounded-none p-2vh lg:p-2vh xxl:p-3vh lg:text-lg xxl:text-md ${
         isOdd ? "bg-col-840" : "bg-col-940"
       }`}
       type="rotate3D"

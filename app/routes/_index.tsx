@@ -22,6 +22,7 @@ import {
   demoCourses,
   episodes,
   testimonials,
+  upcomingEvents,
 } from "./components/design-demos/demo-data";
 import CourseCard from "./components/building/courseCard";
 import PostCastTitle from "./components/design-demos/smallPodcastTitle";
@@ -162,11 +163,7 @@ export default function Index() {
         </VStackFull>
       </MainPanel>
       {/* *************************** PANEL FOUR: PODCAST INFO *************************** */}
-      <MainPanel
-        bg={`${bgGradientBottom}`}
-        textColor="text-col-100"
-        className="pb-2vh"
-      >
+      <MainPanel bg={`${bgGradientBottom}`} textColor="text-col-100">
         <SmallPodCastTitle />
         <MediumScreensUpPodcastTitle />
         <VStackFull className="py-2vh" gap="gap-2vh px-2vh sm:px-3vh md:px-4vh">
@@ -206,7 +203,7 @@ export default function Index() {
         </VStackFull>
       </MainPanel>
 
-      {/* *************************** PANEL FIVE *************************** */}
+      {/* *************************** PANEL FIVE: TESTIMONIALS *************************** */}
       <MainPanel bg={`${bgGradientTop}`}>
         <FlexFull className="bg-cyan-800/50 flex-col xl:flex-row md:gap-5vh xl:items-center rounded-none pt-5vh xl:py-8vh xxl:py-10vh lg:gap-0px xl:gap-4vh">
           <Flex className="w-100vw xl:w-50vw xxl:w-40vw px-1vh xl:pr-0px xl:justify-end">
@@ -221,13 +218,22 @@ export default function Index() {
         </FlexFull>
       </MainPanel>
 
-      {/* *************************** PANEL SIX *************************** */}
-      <MainPanel bg={`${bgGradientBottom}`} height="h-100svh">
-        Panel Six
+      {/* *************************** PANEL SIX: SCHEDULE *************************** */}
+      <MainPanel
+        bg={`bg-gradient-to-b from-indigo-900/90 via-indigo-500/40 to-indigo-900/90 relative`}
+        textColor="text-col-100"
+        bgImage="bg-[url('/images/schedule-background.webp')]"
+        className="pb-4vh"
+      >
+        <StaggeredTextLines
+          textLines={["Catch", "Pippin", "Live!"]}
+          textClassName="font-cursive font-bold text-cyan-300 textShadow text-6.5vh md:text-10vh lg:text-13vh xl:text-10vh xl:text-right"
+        />
+        <VStackFull>{upcomingEvents.map((event)=> {})} </VStackFull>
       </MainPanel>
 
       {/* *************************** PANEL SEVEN *************************** */}
-      <MainPanel bg={`${bgGradientTop}`} height="h-100svh">
+      <MainPanel bg={`${bgGradientBottom}`} height="h-100svh">
         Panel Seven
       </MainPanel>
     </MainIndexContainer>
