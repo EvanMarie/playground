@@ -19,37 +19,50 @@ export default function EpisodeCard({
   const isOdd = index === 0 || index % 2 === 0;
   return (
     <ScrollTransition
-      className={`w-100vw lg:w-50vw xxl:w-25vw rounded-none p-2vh lg:p-2vh xxl:p-3vh lg:text-lg xxl:text-md ${
-        isOdd ? "bg-col-840" : "bg-col-940"
-      }`}
       type="rotate3D"
+      className="px-1vh py-0.5vh w-100vw lg:w-50vw xxl:w-25vw "
     >
-      <VStackFull>
-        <VStackFull gap="gap-1vh xl:gap-2vh h-full justify-between">
-          <FlexFull className="px-1vh justify-between">
-            {" "}
-            <Flex className="text-nowrap text-cyan-300 textShadow">
-              {episode.episodeNumber}
-            </Flex>
-            <Flex className="text-violet-300 textShadow">
-              {episode.episodeTitle}
-            </Flex>
-            <Flex className="text-cyan-300 textShadow">
-              {episode.episodeLength}
-            </Flex>
-          </FlexFull>
-          <FlexFull className="px-1vh">{episode.episodeDescription}</FlexFull>
-          <FlexFull className="justify-center">
-            <AnimatedIconsButton
-              text="listen"
-              textSize="text-md"
-              iconSize="text-md"
-              padding="px-3vh py-0.6vh"
-              bg="bg-slate-800/50"
-            />
-          </FlexFull>
+      <FlexFull
+        className={`rounded-none lg:text-lg xxl:text-md border-100-md ${
+          isOdd ? "bg-col-840" : "bg-col-940"
+        }`}
+      >
+        <VStackFull>
+          <VStackFull
+            gap="gap-1vh xl:gap-2vh"
+            className="h-full justify-between text-lg md:text-xl lg:text-lg xl:text-md"
+          >
+            <FlexFull className="justify-between rounded-none border-b-100-md">
+              <Flex className="text-nowrap text-cyan-300 textShadow p-1.5vh w-fit flex-shrink-0">
+                {episode.episodeNumber}
+              </Flex>
+              <FlexFull className="text-violet-300 textShadow border-x-[0.2vh] border-col-100 rounded-none py-1.5vh justify-center">
+                {episode.episodeTitle}
+              </FlexFull>
+              <Flex className="text-cyan-300 textShadow p-1.5vh w-fit flex-shrink-0">
+                {episode.episodeLength}
+              </Flex>
+            </FlexFull>
+            <VStackFull
+              className="p-2vh lg:p-2vh xxl:p-3vh h-full"
+              gap="gap-2vh"
+            >
+              <FlexFull className="px-1vh h-full items-center">
+                {episode.episodeDescription}
+              </FlexFull>
+              <FlexFull className="justify-center">
+                <AnimatedIconsButton
+                  text="listen"
+                  textSize="text-md"
+                  iconSize="text-md"
+                  padding="px-3vh py-0.6vh"
+                  bg="bg-slate-800/50"
+                />
+              </FlexFull>{" "}
+            </VStackFull>
+          </VStackFull>
         </VStackFull>
-      </VStackFull>
+      </FlexFull>{" "}
     </ScrollTransition>
   );
 }

@@ -79,6 +79,12 @@ export const testimonials = [
   },
 ];
 
+export type UpcomingEvent = {
+  title: string;
+  date: string;
+  description: string;
+};
+
 export const upcomingEvents = [
   {
     title: "Fluff 'n' Focus: A Mindfulness Meet-Up",

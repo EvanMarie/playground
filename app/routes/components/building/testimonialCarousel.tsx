@@ -24,7 +24,7 @@ export function TestimonialCard({
   return (
     <VStackFull className="p-1vh" gap="gap-1vh">
       <FlexFull className="text-xl font-bold">{testimonial.name}</FlexFull>
-      <FlexFull className="text-lg lg:text-xl italic text-cyan-300 textShadow pl-2vh xl:text-xxl min-h-12.5svh items-center">
+      <FlexFull className="text-lg lg:text-xl italic text-cyan-300 textShadow pl-2vh xl:text-xxl min-h-12.5svh xl:min-h-23vh items-center ">
         {testimonial.testimonial}
       </FlexFull>
     </VStackFull>
@@ -66,11 +66,11 @@ export default function TestimonialCarousel({
   }, [autoCycle, numTestimonials]);
 
   return (
-    <FlexFull className="pt-5vh xl:pb-10vh">
-      <FlexFull className="p-1vh pb-4vh md:p-2vh md:pb-5vh xl:p-3vh xl:border-[0.3vh] xl:border-col-230 rounded-none xl:rounded-lg bg-col-960 insetShadow5xl">
-        <VStackFull className="relative xl:pr-1vh" gap="gap-1vh">
+    <FlexFull>
+      <FlexFull className="p-1vh py-4vh md:px-2vh md:pb-5vh xl:p-3vh xl:border-[0.3vh] xl:border-col-230 rounded-none xl:rounded-lg bg-col-960 insetShadow5xl">
+        <VStackFull className="relative xl:pr-1vh" gap="gap-2vh">
           {/* Navigation Controls */}
-          <FlexFull className="justify-between items-center px-2vh py-1vh xl:px-6vh">
+          <FlexFull className="justify-between items-center px-2vh pb-1vh xl:px-6vh">
             <button
               onClick={goToPrev}
               className="p-0.5vh hover:cursor-pointer hover:scale-102 transition-300 hover:-translate-x-0.5vh"
@@ -80,17 +80,21 @@ export default function TestimonialCarousel({
                 iconClassName="text-cyan-300 text-4vh bg-slate-800/50 rounded-3vh hover:bg-slate-800/90 transition-300 shadowNarrowNormal"
               />
             </button>
-            <HStack className="gap-2vh items-center">
+            <HStack className="items-center">
               {testimonials.map((_, index) => (
                 <motion.div
-                  key={index}
                   onClick={() => goToIndex(index)}
-                  className={`rounded-full cursor-pointer shadowNarrowNormal ${
-                    index === currentIndex
-                      ? "bg-cyan-300 w-1.8vh h-1.8vh "
-                      : "bg-slate-300/50 w-1.3vh h-1.3vh "
-                  } transition-300 hover:scale-110`}
-                />
+                  className="p-1vh hover:cursor-pointer"
+                >
+                  <motion.div
+                    key={index}
+                    className={`rounded-full cursor-pointer shadowNarrowNormal ${
+                      index === currentIndex
+                        ? "bg-cyan-300 w-1.8vh h-1.8vh "
+                        : "bg-slate-300/50 w-1.3vh h-1.3vh "
+                    } transition-300 hover:scale-110`}
+                  />
+                </motion.div>
               ))}
             </HStack>
             <button
@@ -112,7 +116,7 @@ export default function TestimonialCarousel({
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 1 }} // Adjust duration as needed
+                  transition={{ duration: 0.4 }} // Adjust duration as needed
                   className="w-full overflow-hidden"
                 >
                   <TestimonialCard testimonial={testimonials[currentIndex]} />

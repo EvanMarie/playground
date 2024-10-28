@@ -33,6 +33,7 @@ import ScrollingMarquee from "./components/building/scrollingMarquee";
 import EpisodeCard from "./components/building/episodeCard";
 import TestimonialCarousel from "./components/building/testimonialCarousel";
 import StaggeredGradientTextLines from "./components/building/staggeredGradientTextLines";
+import EventCard from "./components/building/eventCard";
 
 export const meta: MetaFunction = () => {
   return [
@@ -83,8 +84,9 @@ export default function Index() {
         bg={`${bgGradientBottom}`}
         textColor="text-col-100"
         height="min-h-75svh xl:min-h-85svh xl:h-95svh"
+        className="shadowNarrowNormal"
       >
-        <FlexFull className="h-full bg-col-940 relative min-h-65svh pt-50svh md:py-2vh">
+        <FlexFull className="h-full bg-col-940 relative min-h-65svh pt-50svh md:py-2vh shadowNarrowNormal">
           <ScrollTransition
             className="h-65svh md:h-80svh xl:h-90svh absolute left-1vh md:left-5vh -top-5vh xl:left-10vh"
             amount={0.1}
@@ -138,7 +140,7 @@ export default function Index() {
         bg={`bg-gradient-to-b from-indigo-900/90 via-indigo-500/40 to-indigo-900/90 relative`}
         textColor="text-col-100"
         bgImage="bg-[url('/images/courses-background.webp')]"
-        className="pb-4vh"
+        className="pb-4vh shadowNarrowNormal"
       >
         <VStackFull className="h-fit" gap="gap-3vh xl:gap-5vh xxl:gap-6vh">
           <FlexFull className="h-fit p-1vh">
@@ -163,7 +165,11 @@ export default function Index() {
         </VStackFull>
       </MainPanel>
       {/* *************************** PANEL FOUR: PODCAST INFO *************************** */}
-      <MainPanel bg={`${bgGradientBottom}`} textColor="text-col-100">
+      <MainPanel
+        bg={`${bgGradientBottom}`}
+        textColor="text-col-100"
+        className="shadowNarrowNormal"
+      >
         <SmallPodCastTitle />
         <MediumScreensUpPodcastTitle />
         <VStackFull className="py-2vh" gap="gap-2vh px-2vh sm:px-3vh md:px-4vh">
@@ -195,7 +201,7 @@ export default function Index() {
               </Text>
             </ScrollingMarquee>
           </ScrollTransition>
-          <Wrap className="w-full">
+          <Wrap className="w-full py-2vh">
             {episodes.map((episode, index) => (
               <EpisodeCard episode={episode} key={index} index={index} />
             ))}
@@ -204,15 +210,15 @@ export default function Index() {
       </MainPanel>
 
       {/* *************************** PANEL FIVE: TESTIMONIALS *************************** */}
-      <MainPanel bg={`${bgGradientTop}`}>
-        <FlexFull className="bg-cyan-800/50 flex-col xl:flex-row md:gap-5vh xl:items-center rounded-none pt-5vh xl:py-8vh xxl:py-10vh lg:gap-0px xl:gap-4vh">
-          <Flex className="w-100vw xl:w-50vw xxl:w-40vw px-1vh xl:pr-0px xl:justify-end">
+      <MainPanel bg={`${bgGradientTop}`} className="shadowNarrowNormal">
+        <FlexFull className="bg-cyan-800/50 flex-col xl:flex-row xl:items-center rounded-none py-8vh xl:py-10vh xxl:py-13vh lg:gap-0px xl:gap-4vh shadowNarrowNormal overflow-visible">
+          <Flex className="w-100vw xl:w-50vw xxl:w-40vw px-1vh xl:pr-0px xl:justify-end ">
             <StaggeredTextLines
               textLines={["What", "the fans", "are saying:"]}
               textClassName="font-cursive font-bold text-cyan-300 textShadow text-6.5vh md:text-10vh lg:text-13vh xl:text-10vh xl:text-right"
             />
           </Flex>
-          <Flex className="w-full items-center justify-center xl:w-50vw xxl:w-60vw h-full lg:items-center xl:pr-3vh">
+          <Flex className="w-full items-center justify-center xl:w-50vw xxl:w-60vw lg:items-center xl:pr-3vh ">
             <TestimonialCarousel testimonials={testimonials} />
           </Flex>
         </FlexFull>
@@ -223,13 +229,24 @@ export default function Index() {
         bg={`bg-gradient-to-b from-indigo-900/90 via-indigo-500/40 to-indigo-900/90 relative`}
         textColor="text-col-100"
         bgImage="bg-[url('/images/schedule-background.webp')]"
-        className="pb-4vh"
+        className="py-4vh shadowNarrowNormal"
       >
-        <StaggeredTextLines
-          textLines={["Catch", "Pippin", "Live!"]}
-          textClassName="font-cursive font-bold text-cyan-300 textShadow text-6.5vh md:text-10vh lg:text-13vh xl:text-10vh xl:text-right"
-        />
-        <VStackFull>{upcomingEvents.map((event)=> {})} </VStackFull>
+        <FlexFull className="flex-col items-center">
+          <StaggeredTextLines
+            textLines={["Catch", "Pippin", "Live!"]}
+            textClassName="font-cursive font-bold text-cyan-300 textShadow text-6.5vh md:text-10vh lg:text-13vh xl:text-10vh xl:text-right"
+          />
+          <VStackFull>
+            This
+            {upcomingEvents.map((upcomingEvent, index) => (
+              <EventCard
+                upcomingEvent={upcomingEvent}
+                key={index}
+                index={index}
+              />
+            ))}
+          </VStackFull>
+        </FlexFull>
       </MainPanel>
 
       {/* *************************** PANEL SEVEN *************************** */}
