@@ -198,7 +198,7 @@ export default function Index() {
           <ScrollTransition delay={0.6} type="rotate3D">
             <ScrollingMarquee>
               <Text className="px-2vh text-lg text-cyan-300 textShadow">
-                Top Episodes{" "}
+                Soft Talks with Pippin Pawsby
               </Text>
             </ScrollingMarquee>
           </ScrollTransition>
@@ -257,8 +257,12 @@ export default function Index() {
       </MainPanel>
 
       {/* *************************** PANEL SEVEN *************************** */}
-      <MainPanel bg={`${bgGradientBottom}`} height="h-100svh">
-        Panel Seven
+      <MainPanel bg={`${bgGradientBottom}`}>
+        <StaggeredTextLines
+          flexDirection="flex-row"
+          textLines={["Stay", "Connected"]}
+          textClassName="font-cursive font-bold text-cyan-300 textShadow text-6.5vh md:text-10vh lg:text-13vh xl:text-10vh xl:text-right"
+        />
       </MainPanel>
     </MainIndexContainer>
   );
