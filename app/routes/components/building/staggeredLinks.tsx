@@ -6,7 +6,6 @@ import {
   Flex,
   HStack,
   transitionVariants,
-  VStack,
 } from "~/buildingBlockComponents/mainContainers";
 
 export type StaggeredLinkType = {

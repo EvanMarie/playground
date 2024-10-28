@@ -36,6 +36,7 @@ import Divider from "~/buildingBlockComponents/divider";
 import Input from "~/buildingBlockComponents/input";
 import FloatingUpAndOutImages from "./components/building/floatingUpImages";
 import BottomScrollTrigger from "./components/building/bottomScrollTrigger";
+import PippinMenuDrawer from "./components/design-demos/menuDrawer";
 
 export const meta: MetaFunction = () => {
   return [
@@ -51,9 +52,7 @@ export default function Index() {
     "bg-gradient-to-t from-sky-800/30 via-sky-800/20 to-transparent";
   return (
     <MainIndexContainer>
-      <Flex className="absolute top-0.3vh right-1vh md:hidden">
-        <Icon icon={IoMenuOutline} iconClassName="text-4vh" />
-      </Flex>
+      <PippinMenuDrawer />
       {/* *************************** PANEL ONE: HERO HEADER *************************** */}
       <MainPanel
         bg={`bg-gradient-to-b from-sky-700/50 via-sky-600/30 to-transparent`}
@@ -93,6 +92,7 @@ export default function Index() {
             className="h-65svh md:h-80svh xl:h-90svh absolute left-1vh md:left-5vh -top-5vh xl:left-10vh"
             amount={0.1}
             type="fadeSlideInBottomQuarter"
+            duration={1}
           >
             <Image
               src="/images/little-guy.webp"
@@ -160,7 +160,7 @@ export default function Index() {
           <FlexFull className="h-full ">
             <Wrap className="w-full h-fit items-stretch gap-4vh lg:gap-0">
               {demoCourses.map((course, index) => (
-                <CourseCard courseData={course} key={index} />
+                <CourseCard courseData={course} key={index} index={index} />
               ))}
             </Wrap>
           </FlexFull>
@@ -217,7 +217,8 @@ export default function Index() {
           <Flex className="w-100vw xl:w-50vw xxl:w-40vw px-1vh xl:pr-0px xl:justify-end ">
             <StaggeredTextLines
               textLines={["What", "the fans", "are saying:"]}
-              textClassName="font-cursive font-bold text-cyan-300 textShadow text-6.5vh md:text-10vh lg:text-13vh xl:text-10vh xl:text-right"
+              textClassName="font-cursive font-bold text-cyan-300 textShadow text-6.5vh md:text-10vh lg:text-13vh xl:text-10vh"
+              alignContent="items-start xl:items-end"
             />
           </Flex>
           <ScrollTransition
@@ -237,7 +238,7 @@ export default function Index() {
             <ScrollTransition className="w-full" amount={0.2}>
               <FlexFull className="flex-col items-center py-5vh gap-2.5vh">
                 <VStackFull className="relative overflow-hidden">
-                  <FlexFull className="pl-3vh md:pl-5vh">
+                  <FlexFull className="pl-3vh md:pl-5vh xl:pl-10vh xxl:pl-20vh">
                     <StaggeredTextLines
                       textLines={["Catch", "Pippin", "Live!"]}
                       textClassName="font-cursive font-bold text-cyan-300 textShadow text-5.5vh sm:text-6.5vh md:text-10vh lg:text-13vh xl:text-10vh"
@@ -245,8 +246,9 @@ export default function Index() {
                     />
                   </FlexFull>
                   <ScrollTransition
-                    className="h-16svh absolute -bottom-5vh right-2vh sm:right-3vh md:right-10vh"
+                    className="h-16svh sm:h-20svh md:h-23vh lg:h-30vh absolute -bottom-5vh right-2vh sm:right-3vh md:right-5vh xl:right-10vh xxl:right-20vh"
                     type="zoom"
+                    duration={1.5}
                   >
                     <Image
                       src="/images/pip-face.webp"
@@ -282,6 +284,7 @@ export default function Index() {
             className="h-70svh absolute -bottom-13vh -right-25vh sm:-bottom-10vh"
             amount={0.1}
             type="fadeSlideInBottomQuarter"
+            duration={1.5}
           >
             <Image
               src="/images/little-guy.webp"
@@ -294,14 +297,16 @@ export default function Index() {
             textLines={["Stay", "Connected"]}
             textClassName="font-cursive font-bold text-cyan-300 textShadow text-6.5vh md:text-10vh lg:text-13vh xl:text-10vh xl:text-right"
           />
-          <FlexFull className="p-5vh max-w-90svh">
-            <Text className="text-lg">
-              Join Pip’s cozy corner of the universe! Sign up for gentle updates
-              on upcoming events, fresh podcast episodes, and exclusive fluffy
-              wisdom to brighten your day. Let Pip’s soft whispers and joyful
-              insights be a part of your journey.
-            </Text>
-          </FlexFull>
+          <ScrollTransition>
+            <FlexFull className="p-5vh max-w-90svh">
+              <Text className="text-lg xl:text-xl">
+                Join Pip’s cozy corner of the universe! Sign up for gentle
+                updates on upcoming events, fresh podcast episodes, and
+                exclusive fluffy wisdom to brighten your day. Let Pip’s soft
+                whispers and joyful insights be a part of your journey.
+              </Text>
+            </FlexFull>
+          </ScrollTransition>
           <VStackFull className="p-4vh max-w-80svh z-10" gap="gap-3vh">
             <ScrollTransition type="rotate3D" className="w-full">
               <Input type="text" placeholder="Enter your name" />
@@ -317,7 +322,7 @@ export default function Index() {
               />
             </FlexFull>
           </VStackFull>
-          <FlexFull className="fixed bottom-0 right-0 left-0 h-3svh text-xs text-cyan-300 justify-center items-end">
+          <FlexFull className="absolute -bottom-5vh right-0 left-0 h-3svh text-xs text-cyan-300 justify-center items-end">
             Copyright 2024 Pippin Pawsby
           </FlexFull>
         </VStackFull>

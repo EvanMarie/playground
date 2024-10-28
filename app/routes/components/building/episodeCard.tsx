@@ -21,6 +21,7 @@ export default function EpisodeCard({
     <ScrollTransition
       type="rotate3D"
       className="px-1vh py-0.5vh w-100vw lg:w-50vw xxl:w-25vw "
+      delay={0.5 + index * 0.1}
     >
       <FlexFull
         className={`rounded-none lg:text-lg xxl:text-md border-150-sm ${

@@ -15,7 +15,7 @@ interface ScrollProgressBarProps {
 const ScrollProgressBar: React.FC<ScrollProgressBarProps> = ({
   containerRef,
   position = "fixed top-0 right-0 left-0",
-  color = "bg-gradient-to-r from-col-200 via-col-300 to-col-200",
+  color = "bg-gradient-to-r from-cyan-200 via-cyan-300 to-cyan-200",
   trackColor = "bg-col-930",
   height = "h-0.7vh",
   className,

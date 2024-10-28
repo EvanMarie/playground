@@ -83,7 +83,7 @@ export default function StaggeredTextLines({
       className={outerContainerClassName}
     >
       <Flex
-        className={`${flexDirection} ${itemsContainerClassName} ${gap}${alignContent}`}
+        className={`${flexDirection} ${itemsContainerClassName} ${gap} ${alignContent}`}
       >
         {textLines.map((textLine, index) => (
           <motion.div

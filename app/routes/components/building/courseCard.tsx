@@ -18,15 +18,18 @@ export type CourseData = {
 export default function CourseCard({
   courseData,
   width = "w-full lg:w-1/2",
+  index,
 }: {
   courseData: CourseData;
   width?: string;
+  index: number;
 }) {
   return (
     <ScrollTransition
       className={`${width} items-center p-1.5vh sm:p-2.5vh h-stretch`}
       type="fadeSlideInBottomQuarter"
       amount={0.2}
+      delay={0.2 + index * 0.2}
     >
       <VStackFull
         gap="gap-0.5vh sm:gap-1vh md:gap-2vh"
