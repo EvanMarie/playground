@@ -1767,19 +1767,17 @@ export default {
       const newComponents = {
         ".inputStyles": {
           width: "100%", // Full width
-          backgroundColor: theme("colors.col.200"),
-          backgroundImage: theme("backgroundImage.diagonal1op25"),
-          boxShadow: theme("boxShadow.insetShadowMd"),
-          color: theme("colors.col.900"),
+          backgroundColor: "transparent",
+          color: theme("colors.col.100"),
           padding: `0.4vh 1vh`,
-          borderWidth: "0.2vh",
-          borderStyle: "solid",
-          borderColor: theme("colors.col.400"),
+          borderBottomWidth: "0.2vh",
+          borderBottomStyle: "solid",
+          borderBottomColor: theme("colors.col.470"),
+          borderRadius: 0,
           outline: "none",
           "&:focus": {
-            boxShadow: theme("boxShadow.insetShadowLg"),
-            borderWidth: "0.2vh",
-            borderColor: theme("colors.col.300"),
+            borderBottomWidth: "0.2vh",
+            borderBottomColor: theme("colors.col.300"),
           },
           transition: "all 0.4s ease-in-out",
         },
