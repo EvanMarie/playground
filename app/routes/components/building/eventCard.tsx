@@ -14,7 +14,7 @@ export default function EventCard({
   return (
     <>
       {" "}
-      <ScrollTransition amount={0.4} type="zoom">
+      <ScrollTransition amount={0.4} type="zoom" className="w-full">
         <VStackFull key={index}>
           <VStackFull align="items-start" className="px-2vh md:px-3vh">
             <Text className="text-cyan-300 textShadow">

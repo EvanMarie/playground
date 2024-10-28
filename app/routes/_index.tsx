@@ -235,13 +235,29 @@ export default function Index() {
           <FlexFull className="bg-gradient-to-bl from-indigo-900/80 via-sky-900/80 to-indigo-900/80 rounded-none">
             <ScrollTransition className="w-full" amount={0.2}>
               <FlexFull className="flex-col items-center py-5vh gap-2.5vh">
-                <StaggeredTextLines
-                  textLines={["Catch", "Pippin", "Live!"]}
-                  textClassName="font-cursive font-bold text-cyan-300 textShadow text-6.5vh md:text-10vh lg:text-13vh xl:text-10vh xl:text-right"
-                  transition="rotate3D"
-                />
-                <Divider m="mt-3vh" />
-                <VStackFull className="" gap="gap-2vh">
+                <VStackFull className="relative overflow-hidden">
+                  <FlexFull className="pl-3vh md:pl-5vh">
+                    <StaggeredTextLines
+                      textLines={["Catch", "Pippin", "Live!"]}
+                      textClassName="font-cursive font-bold text-cyan-300 textShadow text-5.5vh sm:text-6.5vh md:text-10vh lg:text-13vh xl:text-10vh"
+                      transition="zoom"
+                    />
+                  </FlexFull>
+                  <ScrollTransition
+                    className="h-16svh absolute -bottom-5vh right-1vh"
+                    amount={0.1}
+                    type="fadeSlideInRightQuarter"
+                    delay={0.8}
+                  >
+                    <Image
+                      src="/images/pip-face.webp"
+                      alt="Little Guy"
+                      className="h-full fade-bottom"
+                    />
+                  </ScrollTransition>{" "}
+                  <Divider m="mt-3vh" />
+                </VStackFull>
+                <VStackFull className="xl:max-w-[110svh]" gap="gap-2vh">
                   {upcomingEvents.map((upcomingEvent, index) => (
                     <EventCard
                       upcomingEvent={upcomingEvent}
@@ -259,23 +275,23 @@ export default function Index() {
       {/* *************************** PANEL SEVEN *************************** */}
       <MainPanel
         bg={`${bgGradientBottom}`}
-        height="h-100svh"
+        // height="h-100svh"
         className="relative overflow-hidden py-5vh"
       >
         <VStackFull className="h-100svh relative">
           <ScrollTransition
-            className="h-70svh absolute -bottom-35vh -right-18vh"
+            className="h-70svh absolute -bottom-5vh -right-18vh"
             amount={0.1}
             type="fadeSlideInBottomQuarter"
           >
             <Image
               src="/images/little-guy.webp"
               alt="Little Guy"
-              className="h-full fade-bottom"
+              className="h-full fade-bottom -rotate-90 "
             />
           </ScrollTransition>{" "}
           <StaggeredTextLines
-            flexDirection="flex-row"
+            flexDirection="flex-col sm:flex-row"
             textLines={["Stay", "Connected"]}
             textClassName="font-cursive font-bold text-cyan-300 textShadow text-6.5vh md:text-10vh lg:text-13vh xl:text-10vh xl:text-right"
           />
