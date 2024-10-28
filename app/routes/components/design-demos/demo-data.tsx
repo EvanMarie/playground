@@ -88,31 +88,31 @@ export type UpcomingEvent = {
 export const upcomingEvents = [
   {
     title: "Fluff 'n' Focus: A Mindfulness Meet-Up",
-    date: "Nov 1, 2024",
+    date: "November 1, 2024",
     description:
       "Learn techniques to stay grounded and focused through playful exercises and guided meditations led by Pip.",
   },
   {
     title: "Furry Fest: A Celebration of Your Inner Softness",
-    date: "Nov 15, 2024",
+    date: "November 15, 2024",
     description:
       "This workshop helps participants embrace self-kindness and discover their 'inner fluff' through unique exercises designed by Pip.",
   },
   {
     title: "Whimsical Wander: Finding Joy in Small Moments",
-    date: "Dec 5, 2024",
+    date: "December 5, 2024",
     description:
       "Join Pip in a cozy journey to uncover the magic in everyday life through small, mindful practices.",
   },
   {
     title: "Gentle Connections: Mindful Communication Workshop",
-    date: "Dec 20, 2024",
+    date: "December 20, 2024",
     description:
       "A workshop focused on cultivating warmth and openness in communication, fostering kindness and empathy.",
   },
   {
     title: "Fluffy Reflections: A Year-End Gathering",
-    date: "Dec 29, 2024",
+    date: "December 29, 2024",
     description:
       "Reflect on the past year with Pip, using gentle exercises to celebrate growth and set soft intentions for the new year.",
   },

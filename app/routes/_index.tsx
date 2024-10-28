@@ -34,6 +34,7 @@ import EpisodeCard from "./components/building/episodeCard";
 import TestimonialCarousel from "./components/building/testimonialCarousel";
 import StaggeredGradientTextLines from "./components/building/staggeredGradientTextLines";
 import EventCard from "./components/building/eventCard";
+import Divider from "~/buildingBlockComponents/divider";
 
 export const meta: MetaFunction = () => {
   return [
@@ -218,35 +219,38 @@ export default function Index() {
               textClassName="font-cursive font-bold text-cyan-300 textShadow text-6.5vh md:text-10vh lg:text-13vh xl:text-10vh xl:text-right"
             />
           </Flex>
-          <Flex className="w-full items-center justify-center xl:w-50vw xxl:w-60vw lg:items-center xl:pr-3vh ">
+          <ScrollTransition
+            className="w-full items-center justify-center xl:w-50vw xxl:w-60vw lg:items-center xl:pr-3vh "
+            delay={0.5}
+          >
             <TestimonialCarousel testimonials={testimonials} />
-          </Flex>
+          </ScrollTransition>
         </FlexFull>
       </MainPanel>
 
       {/* *************************** PANEL SIX: SCHEDULE *************************** */}
-      <MainPanel
-        bg={`bg-gradient-to-b from-indigo-900/90 via-indigo-500/40 to-indigo-900/90 relative`}
-        textColor="text-col-100"
-        bgImage="bg-[url('/images/schedule-background.webp')]"
-        className="py-4vh shadowNarrowNormal"
-      >
-        <FlexFull className="flex-col items-center">
-          <StaggeredTextLines
-            textLines={["Catch", "Pippin", "Live!"]}
-            textClassName="font-cursive font-bold text-cyan-300 textShadow text-6.5vh md:text-10vh lg:text-13vh xl:text-10vh xl:text-right"
-          />
-          <VStackFull>
-            This
-            {upcomingEvents.map((upcomingEvent, index) => (
-              <EventCard
-                upcomingEvent={upcomingEvent}
-                key={index}
-                index={index}
+      <MainPanel bg={`relative`}>
+        <ScrollTransition className="w-full" amount={0.2}>
+          <FlexFull className="shadowNarrowNormal bg-[url('/images/schedule-background.webp')] text-col-100 rounded-none md:border-900-md">
+            <FlexFull className="flex-col items-center bg-gradient-to-bl from-indigo-900/80 via-sky-900/80 to-indigo-900/80 py-5vh gap-2.5vh rounded-none">
+              <StaggeredTextLines
+                textLines={["Catch", "Pippin", "Live!"]}
+                textClassName="font-cursive font-bold text-cyan-300 textShadow text-6.5vh md:text-10vh lg:text-13vh xl:text-10vh xl:text-right"
+                transition="rotate3D"
               />
-            ))}
-          </VStackFull>
-        </FlexFull>
+              <Divider m="mt-3vh" />
+              <VStackFull className="" gap="gap-2vh">
+                {upcomingEvents.map((upcomingEvent, index) => (
+                  <EventCard
+                    upcomingEvent={upcomingEvent}
+                    key={index}
+                    index={index}
+                  />
+                ))}
+              </VStackFull>
+            </FlexFull>
+          </FlexFull>
+        </ScrollTransition>
       </MainPanel>
 
       {/* *************************** PANEL SEVEN *************************** */}
