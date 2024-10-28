@@ -196,7 +196,7 @@ export default function Index() {
           </ScrollTransition>
         </VStackFull>
         <VStackFull gap="gap-0px">
-          <ScrollTransition delay={0.6} type="rotate3D">
+          <ScrollTransition delay={0.5} type="rotate3D">
             <ScrollingMarquee>
               <Text className="px-2vh text-lg text-cyan-300 textShadow">
                 Soft Talks with Pippin Pawsby
@@ -245,10 +245,8 @@ export default function Index() {
                     />
                   </FlexFull>
                   <ScrollTransition
-                    className="h-16svh absolute -bottom-5vh right-1vh"
-                    amount={0.1}
-                    type="fadeSlideInRightQuarter"
-                    delay={0.8}
+                    className="h-16svh absolute -bottom-5vh right-2vh sm:right-3vh md:right-10vh"
+                    type="zoom"
                   >
                     <Image
                       src="/images/pip-face.webp"
@@ -304,9 +302,13 @@ export default function Index() {
               insights be a part of your journey.
             </Text>
           </FlexFull>
-          <VStackFull className="p-4vh max-w-80svh" gap="gap-3vh">
-            <Input type="text" placeholder="Enter your name" />
-            <Input type="text" placeholder="Enter your email" />
+          <VStackFull className="p-4vh max-w-80svh z-10" gap="gap-3vh">
+            <ScrollTransition type="rotate3D" className="w-full">
+              <Input type="text" placeholder="Enter your name" />
+            </ScrollTransition>
+            <ScrollTransition type="rotate3D" className="w-full">
+              <Input type="text" placeholder="Enter your email" />
+            </ScrollTransition>
             <FlexFull className="justify-end">
               <AnimatedIconsButton
                 text="join the gang"

@@ -21,14 +21,14 @@ const getRandomValue = (min: number, max: number) =>
 
 export default function FloatingUpAndOutImages({
   imageSrc = "/images/bubble.webp",
-  numImages = 53,
+  numImages = 33,
   maxImageSize = 5,
   minImageSize = 1,
   maxImageRotation = 75,
   minImageRotation = -75,
   maxDuration = 30,
   minDuration = 6,
-  maxDelay = 4,
+  maxDelay = 3,
   minDelay = 0,
   landingAreaStart = -50,
   landingAreaEnd = -100,

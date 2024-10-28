@@ -85,6 +85,7 @@ export default function TestimonialCarousel({
                 <motion.div
                   onClick={() => goToIndex(index)}
                   className="p-1vh hover:cursor-pointer"
+                  key={index}
                 >
                   <motion.div
                     key={index}

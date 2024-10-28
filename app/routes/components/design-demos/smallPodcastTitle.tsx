@@ -6,10 +6,7 @@ import ImageWithTextOverlay from "../building/imageWithTextOverlay";
 export default function SmallPodCastTitle() {
   return (
     <Box className="w-full relative py-5vh h-fit">
-      <FlexFull
-        className="flex-col items-center gap-2vh h-full md:hidden"
-        gap="gap-3vh"
-      >
+      <FlexFull className="flex-col items-center h-full md:hidden gap-3vh">
         <Flex className="md:hidden">
           <ImageWithTextOverlay width="w-80vw" height="h-80vw" />
         </Flex>
