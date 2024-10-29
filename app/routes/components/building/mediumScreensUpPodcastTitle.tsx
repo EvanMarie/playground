@@ -53,7 +53,7 @@ export default function MediumScreensUpPodcastTitle({
     >
       <ScrollTransition
         className={`${width} ${height} ${bgImage} bg-contain ${bgImageOpacity} bg-no-repeat`}
-        type={imageTransitionType}
+        animation={imageTransitionType}
         duration={imageDuration}
         delay={imageDelay}
         amount={0.3}

@@ -14,7 +14,7 @@ export default function SmallPodCastTitle() {
           className="h-50svh lg:h-60vh pt-2vh"
           delay={0}
           duration={1}
-          type="zoom"
+          animation="zoom"
         >
           <Image
             src="/images/soft-talks-with-pip.webp"
