@@ -49,10 +49,10 @@ export default function MediumScreensUpPodcastTitle({
 }) {
   return (
     <Flex
-      className={`${height} ${width} overflow-hidden justify-center items-center hidden md:flex`}
+      className={`${height} ${width} overflow-visible justify-center items-center hidden md:flex`}
     >
       <ScrollTransition
-        className={`${width} ${height} ${bgImage} bg-contain ${bgImageOpacity} bg-no-repeat`}
+        className={`${width} ${height} ${bgImage} bg-contain ${bgImageOpacity} bg-no-repeat overflow-visible`}
         animation={imageTransitionType}
         duration={imageDuration}
         delay={imageDelay}
@@ -60,7 +60,12 @@ export default function MediumScreensUpPodcastTitle({
       />
       <VStack gap={textTagLineGap} className="absolute">
         <HStack className="items-center" gap="gap-1vh">
-          <ScrollTransition delay={0.5} duration={0.5} type="rotate3D">
+          <ScrollTransition
+            delay={0.5}
+            duration={0.5}
+            animation="rotate3D"
+            className="w-fit overflow-visible"
+          >
             <Image
               src="/images/soft-talks-with-pip.webp"
               alt="soft talks with pip"
