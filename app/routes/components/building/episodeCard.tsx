@@ -19,7 +19,7 @@ export default function EpisodeCard({
   const isOdd = index === 0 || index % 2 === 0;
   return (
     <ScrollTransition
-      type="rotate3D"
+      animation="rotate3D"
       className="px-1vh py-0.5vh w-100vw lg:w-50vw xxl:w-25vw "
       delay={0.5 + index * 0.1}
     >

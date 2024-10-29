@@ -58,7 +58,7 @@ export default function PippinMenuDrawer() {
                 <FlexFull className="h-full bg-purple-800/40 backdrop-blur-sm bg-gradient-to-bl from-indigo-700/30 via-purple-700/30 to-indigo-700/30 items-end pb-2vh relative rounded-none">
                   <ScrollTransition
                     className="h-44vh absolute -top-6vh right-10vw "
-                    type="fadeSlideInTop"
+                    animation="fadeSlideInTop"
                     duration={1}
                     delay={0.5}
                   >
