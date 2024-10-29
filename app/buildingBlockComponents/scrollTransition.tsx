@@ -270,7 +270,7 @@ export const ScrollTransition = React.forwardRef<
       mass = 1,
       onClick,
       key,
-      overflow = "overflow-hidden",
+      overflow = "overflow-visible",
       once = true,
       amount = 0.5,
       type = "spring",

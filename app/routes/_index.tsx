@@ -187,7 +187,7 @@ export default function Index() {
             </Text>
           </ScrollTransition>
           <ScrollTransition
-            className="justify-center py-2vh"
+            className="justify-center py-2vh overflow-visible"
             animation="slideInBottomQuarter"
             amount={0.2}
           >

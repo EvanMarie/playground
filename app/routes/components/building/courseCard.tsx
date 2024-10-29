@@ -27,7 +27,7 @@ export default function CourseCard({
   return (
     <ScrollTransition
       className={`${width} items-center p-1.5vh sm:p-2.5vh h-stretch`}
-      type="fadeSlideInBottomQuarter"
+      animation="slideInBottom"
       amount={0.2}
       delay={0.2 + index * 0.2}
     >
