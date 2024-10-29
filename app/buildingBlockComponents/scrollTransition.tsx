@@ -19,7 +19,7 @@ export const createResponsiveVariants = (
   const distance = parseFloat(getSizeValue(size));
 
   return {
-    zigZagScaleFade: {
+    zigZagZoom: {
       initial: { x: `-${distance / 2}vw`, opacity: 0, scale: 0 },
       animate: {
         x: [
@@ -39,37 +39,53 @@ export const createResponsiveVariants = (
       },
       exit: { x: `${distance / 2}vw`, opacity: 0, scale: 0.5 },
     },
-    rollBackAndForth: {
-      initial: { x: "0vw", rotate: 0, opacity: 0 },
+    zigZagSpinZoom: {
+      initial: { x: `-${distance / 2}vw`, opacity: 0, scale: 0, rotate: 0 },
       animate: {
         x: [
-          "0vw", // Start position
-          "20vw", // Roll to the right
-          "0vw", // Roll back to start
-          "-20vw", // Roll to the left
-          "0vw", // Roll back to start
-          "10vw", // Smaller roll to the right
-          "0vw", // Return to start
+          `-${distance / 2}vw`,
+          `${distance / 2}vw`,
+          `-${distance / 2}vw`,
+          `${distance / 2}vw`,
+          "0vw",
         ],
-        rotate: [
-          0, // Initial rotation
-          180, // Half turn while moving to the right
-          360, // Full rotation back to start
-          -180, // Half turn to the left
-          0, // Full rotation back to start
-          90, // Smaller roll to the right
-          0, // Back to original rotation
-        ],
-        opacity: 1, // Fade in as it starts
+        opacity: 1,
+        scale: 1,
+        rotate: 360, // Smooth continuous rotation over the animation
         transition: {
-          x: { type: "tween", duration: 2.5, ease: "easeInOut" }, // Smooth back-and-forth motion
-          rotate: { type: "tween", duration: 2.5, ease: "easeInOut" }, // Synchronized rotation
-          opacity: { duration: 0.5 }, // Quick fade-in at start
+          x: { type: "tween", duration: 2, ease: "easeInOut" }, // Slightly longer duration for smoothness
+          scale: { type: "tween", duration: 2, ease: "easeInOut" },
+          rotate: {
+            type: "tween",
+            duration: 2, // Matches x and scale duration for continuity
+            ease: "linear",
+          },
+          opacity: { duration: 1.5 }, // Fade-in duration
         },
       },
-      exit: { x: "0vw", opacity: 0, rotate: 0 }, // Fade out and reset on exit
+      exit: { x: `${distance / 2}vw`, opacity: 0, scale: 0.5, rotate: 0 }, // Reset on exit
     },
 
+    zoomFlyForward: {
+      initial: { y: `-${distance / 2}vw`, opacity: 0, scale: 0 },
+      animate: {
+        y: [
+          `-${distance / 2}vw`,
+          `${distance / 2}vw`,
+          `-${distance / 2}vw`,
+          `${distance / 2}vw`,
+          "0vw",
+        ],
+        opacity: 1,
+        scale: 1,
+        transition: {
+          y: { type: "tween", duration: 1.5, ease: "easeInOut" },
+          scale: { type: "tween", duration: 1.5, ease: "easeInOut" }, // Sync with x
+          opacity: { duration: 1.5 }, // Matches the total duration
+        },
+      },
+      exit: { y: `${distance / 2}vw`, opacity: 0, scale: 0.5 },
+    },
     slideInRight: {
       initial: { x: `${distance}vw`, opacity: 0 },
       animate: { x: 0, opacity: 1 },
