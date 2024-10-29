@@ -1,6 +1,5 @@
 import Image from "~/buildingBlockComponents/image";
 import {
-  Transition,
   TransitionVariantType,
 } from "~/buildingBlockComponents/mainContainers";
 import { ScrollTransition } from "~/buildingBlockComponents/scrollTransition";
