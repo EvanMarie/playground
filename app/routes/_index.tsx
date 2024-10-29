@@ -91,8 +91,7 @@ export default function Index() {
           <ScrollTransition
             className="h-65svh md:h-80svh xl:h-90svh absolute left-1vh md:left-5vh -top-5vh xl:left-10vh"
             amount={0.1}
-            type="fadeSlideInBottomQuarter"
-            duration={1}
+            animation="slideInBottom"
           >
             <Image
               src="/images/little-guy.webp"
@@ -176,7 +175,7 @@ export default function Index() {
         <MediumScreensUpPodcastTitle />
         <VStackFull className="py-2vh" gap="gap-2vh px-2vh sm:px-3vh md:px-4vh">
           <ScrollTransition
-            type="fadeSlideInBottomQuarter"
+            animation="slideInBottom"
             className="max-w-[120vh]"
             amount={0.2}
           >
@@ -189,14 +188,14 @@ export default function Index() {
           </ScrollTransition>
           <ScrollTransition
             className="justify-center py-2vh"
-            type="fadeSlideInBottomQuarter"
+            animation="slideInBottomQuarter"
             amount={0.2}
           >
             <AnimatedIconsButton text="Tune In" />
           </ScrollTransition>
         </VStackFull>
         <VStackFull gap="gap-0px">
-          <ScrollTransition delay={0.7} type="rotate3D">
+          <ScrollTransition delay={0.7} animation="rotate3D">
             <ScrollingMarquee>
               <Text className="px-2vh text-lg text-cyan-300 textShadow">
                 Soft Talks with Pippin Pawsby
@@ -224,7 +223,7 @@ export default function Index() {
           <ScrollTransition
             className="w-full items-center justify-center xl:w-50vw xxl:w-60vw lg:items-center xl:pr-3vh "
             delay={0.3}
-            type="zoom"
+            animation="zoom"
           >
             <TestimonialCarousel testimonials={testimonials} />
           </ScrollTransition>
@@ -247,7 +246,7 @@ export default function Index() {
                 </FlexFull>
                 <ScrollTransition
                   className="h-16svh sm:h-20svh md:h-23vh lg:h-30vh absolute -bottom-4vh right-2vh sm:right-3vh md:right-5vh xl:right-10vh xxl:right-20vh"
-                  type="zoom"
+                  animation="zoom"
                   duration={1.5}
                 >
                   <Image
@@ -282,7 +281,7 @@ export default function Index() {
           <ScrollTransition
             className="h-70svh absolute -bottom-13vh -right-25vh sm:-bottom-10vh"
             amount={0.1}
-            type="fadeSlideInBottomQuarter"
+            animation="slideInBottomQuarter"
             duration={1.5}
           >
             <Image
@@ -308,10 +307,10 @@ export default function Index() {
             </FlexFull>
           </ScrollTransition>
           <VStackFull className="p-4vh max-w-80svh z-10" gap="gap-3vh">
-            <ScrollTransition type="rotate3D" className="w-full">
+            <ScrollTransition animation="rotate3D" className="w-full">
               <Input type="text" placeholder="Enter your name" />
             </ScrollTransition>
-            <ScrollTransition type="rotate3D" className="w-full">
+            <ScrollTransition animation="rotate3D" className="w-full">
               <Input type="text" placeholder="Enter your email" />
             </ScrollTransition>
             <FlexFull className="justify-end">

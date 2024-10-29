@@ -23,9 +23,10 @@ export default function MandalaImage({
   return (
     <ScrollTransition
       className={`${position} ${size}`}
-      type={transition}
+      animation={transition}
       delay={delay}
       duration={duration}
+      type="tween"
     >
       <Image
         src="/images/mandala.webp"

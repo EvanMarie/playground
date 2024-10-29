@@ -43,7 +43,6 @@ import Accordion from "~/buildingBlockComponents/accordion";
 import { FaCubesStacked } from "react-icons/fa6";
 import Icon from "~/buildingBlockComponents/icon";
 import { IoIosArrowRoundForward } from "react-icons/io";
-import { SlStar } from "react-icons/sl";
 import { PiStarBold } from "react-icons/pi";
 
 interface CustomNavLinkProps {

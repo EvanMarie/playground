@@ -32,9 +32,9 @@ export const createResponsiveVariants = (
         opacity: 1,
         scale: 1,
         transition: {
-          x: { type: "tween", duration: 1.5, ease: "easeInOut" },
-          scale: { type: "tween", duration: 1.5, ease: "easeInOut" }, // Sync with x
-          opacity: { duration: 1.5 }, // Matches the total duration
+          x: { type: "tween", duration: 2, ease: "easeInOut" },
+          scale: { type: "tween", duration: 2, ease: "easeInOut" }, // Sync with x
+          opacity: { duration: 2 }, // Matches the total duration
         },
       },
       exit: { x: `${distance / 2}vw`, opacity: 0, scale: 0.5 },
@@ -53,14 +53,14 @@ export const createResponsiveVariants = (
         scale: 1,
         rotate: 360, // Smooth continuous rotation over the animation
         transition: {
-          x: { type: "tween", duration: 2, ease: "easeInOut" }, // Slightly longer duration for smoothness
-          scale: { type: "tween", duration: 2, ease: "easeInOut" },
+          x: { type: "tween", duration: 2.5, ease: "easeInOut" }, // Slightly longer duration for smoothness
+          scale: { type: "tween", duration: 2.5, ease: "easeInOut" },
           rotate: {
             type: "tween",
-            duration: 2, // Matches x and scale duration for continuity
+            duration: 2.5, // Matches x and scale duration for continuity
             ease: "linear",
           },
-          opacity: { duration: 1.5 }, // Fade-in duration
+          opacity: { duration: 2.5 }, // Fade-in duration
         },
       },
       exit: { x: `${distance / 2}vw`, opacity: 0, scale: 0.5, rotate: 0 }, // Reset on exit
