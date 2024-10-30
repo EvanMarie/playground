@@ -7,17 +7,23 @@ export default function SnapScrollSlideInContainer({
   sliderClassName,
   sliderBgColor = "bg-teal-100",
   slideDirection = "right",
+  id,
 }: {
   children: React.ReactNode;
   outerClassName?: string;
   sliderClassName?: string;
   sliderBgColor?: string;
   slideDirection?: "right" | "left";
+  id?: string;
 }) {
   const slideInFrom =
     slideDirection === "right" ? "slideInRight" : "slideInLeft";
   return (
-    <MainPanel height="h-100svh" className={`snap-start ${outerClassName}`}>
+    <MainPanel
+      height="h-100svh"
+      className={`snap-start ${outerClassName}`}
+      id={id}
+    >
       <ScrollTransition
         className={`w-full h-full ${sliderBgColor} ${sliderClassName}`}
         animation={slideInFrom}

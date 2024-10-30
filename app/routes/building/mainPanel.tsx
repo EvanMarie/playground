@@ -7,6 +7,7 @@ export default function MainPanel({
   bgImage,
   textColor,
   className,
+  id,
 }: {
   children: React.ReactNode;
   height?: string;
@@ -14,10 +15,12 @@ export default function MainPanel({
   bgImage?: string;
   textColor?: string;
   className?: string;
+  id?: string;
 }) {
   return (
     <FlexFull
       className={`${height} ${bgImage} z-0 justify-center rounded-none`}
+      id={id}
     >
       <FlexFull
         className={`${height} ${bg} ${textColor} ${className} justify-center rounded-none`}
