@@ -1,6 +1,5 @@
 import { Transition } from "~/buildingBlockComponents/mainContainers";
-import StaggeredTextLines from "../building/staggeredTextLines";
-import StaggeredLinks from "../building/staggeredLinks";
+import StaggeredLinks from "~/routes/building/staggeredLinks";
 
 export default function StaggerMenu() {
   return (

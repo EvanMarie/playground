@@ -1,7 +1,7 @@
 import { Box, Flex, FlexFull } from "~/buildingBlockComponents/mainContainers";
 import Image from "~/buildingBlockComponents/image";
 import { ScrollTransition } from "~/buildingBlockComponents/scrollTransition";
-import ImageWithTextOverlay from "../building/imageWithTextOverlay";
+import ImageWithTextOverlay from "~/routes/building/imageWithTextOverlay";
 
 export default function SmallPodCastTitle() {
   return (

@@ -4,7 +4,7 @@ import {
   VStack,
 } from "~/buildingBlockComponents/mainContainers";
 import TextWithImageBackground from "~/buildingBlockComponents/textWithImageBackground";
-import WordByWordStagger from "../building/wordByWordStagger";
+import WordByWordStagger from "~/routes/building/wordByWordStagger";
 
 export default function HeroHeading() {
   const textStyle = "text-25vw md:text-20vw xl:text-33vh";

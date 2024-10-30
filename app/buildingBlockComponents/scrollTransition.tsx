@@ -9,6 +9,12 @@ const distanceMap = {
   lg: "20",
   xl: "30",
   xxl: "40",
+  "3xl": "50",
+  "4xl": "60",
+  "5xl": "70",
+  "6xl": "80",
+  "7xl": "90",
+  "8xl": "100",
 };
 
 const getSizeValue = (size: keyof typeof distanceMap) => distanceMap[size];

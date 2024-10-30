@@ -6,9 +6,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import Portal from "~/buildingBlockComponents/portal";
 import useEscapeKey from "~/utils/useEscapeKey";
 import { CloseIcon } from "styles";
-import StaggeredLinks from "../building/staggeredLinks";
 import { ScrollTransition } from "~/buildingBlockComponents/scrollTransition";
 import Image from "~/buildingBlockComponents/image";
+import StaggeredLinks from "~/routes/building/staggeredLinks";
 
 export default function PippinMenuDrawer() {
   const [isOpen, setIsOpen] = useState(false);

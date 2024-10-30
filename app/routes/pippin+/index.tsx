@@ -1,42 +1,39 @@
 import type { MetaFunction } from "@remix-run/node";
-import MainPanel from "./components/building/mainPanel";
-import MainIndexContainer from "./components/building/mainIndexContainer";
 import Transition, {
-  Box,
   Flex,
   FlexFull,
-  HStackFull,
   VStackFull,
   Wrap,
 } from "~/buildingBlockComponents/mainContainers";
-import Icon from "~/buildingBlockComponents/icon";
-import { IoMenuOutline } from "react-icons/io5";
-import HeroHeading from "./components/design-demos/heroHeading";
-import StaggerMenu from "./components/design-demos/staggerMenu";
+import HeroHeading from "./design-demos/heroHeading";
+import StaggerMenu from "./design-demos/staggerMenu";
 import Text from "~/buildingBlockComponents/text";
-import MandalaImage from "./components/design-demos/mandalaImage";
+import MandalaImage from "./design-demos/mandalaImage";
 import Image from "~/buildingBlockComponents/image";
-import StaggeredTextLines from "./components/building/staggeredTextLines";
-import AnimatedIconsButton from "./components/design-demos/animatedIconsButton";
+import AnimatedIconsButton from "./design-demos/animatedIconsButton";
 import {
   demoCourses,
   episodes,
   testimonials,
   upcomingEvents,
-} from "./components/design-demos/demo-data";
-import CourseCard from "./components/building/courseCard";
-import SmallPodCastTitle from "./components/design-demos/smallPodcastTitle";
+} from "./design-demos/demo-data";
+import SmallPodCastTitle from "./design-demos/smallPodcastTitle";
 import { ScrollTransition } from "~/buildingBlockComponents/scrollTransition";
-import MediumScreensUpPodcastTitle from "./components/building/mediumScreensUpPodcastTitle";
-import ScrollingMarquee from "./components/building/scrollingMarquee";
-import EpisodeCard from "./components/building/episodeCard";
-import TestimonialCarousel from "./components/building/testimonialCarousel";
-import EventCard from "./components/building/eventCard";
+
 import Divider from "~/buildingBlockComponents/divider";
 import Input from "~/buildingBlockComponents/input";
-import FloatingUpAndOutImages from "./components/building/floatingUpImages";
-import BottomScrollTrigger from "./components/building/bottomScrollTrigger";
-import PippinMenuDrawer from "./components/design-demos/menuDrawer";
+import MainIndexContainer from "../building/mainIndexContainer";
+import PippinMenuDrawer from "./design-demos/menuDrawer";
+import MainPanel from "../building/mainPanel";
+import StaggeredTextLines from "../building/staggeredTextLines";
+import CourseCard from "../building/courseCard";
+import MediumScreensUpPodcastTitle from "../building/mediumScreensUpPodcastTitle";
+import ScrollingMarquee from "../building/scrollingMarquee";
+import EpisodeCard from "../building/episodeCard";
+import TestimonialCarousel from "../building/testimonialCarousel";
+import EventCard from "../building/eventCard";
+import BottomScrollTrigger from "../building/bottomScrollTrigger";
+import FloatingUpAndOutImages from "../building/floatingUpImages";
 
 export const meta: MetaFunction = () => {
   return [

@@ -4,10 +4,9 @@ import {
   HStackFull,
   VStackFull,
 } from "~/buildingBlockComponents/mainContainers";
-import { EpisodeType } from "../design-demos/demo-data";
-import AnimatedIconButton from "~/buildingBlockComponents/animatedIconButton";
-import AnimatedIconsButton from "../design-demos/animatedIconsButton";
 import { ScrollTransition } from "~/buildingBlockComponents/scrollTransition";
+import { EpisodeType } from "../pippin+/design-demos/demo-data";
+import AnimatedIconsButton from "../pippin+/design-demos/animatedIconsButton";
 
 export default function EpisodeCard({
   episode,

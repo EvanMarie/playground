@@ -6,8 +6,8 @@ import Transition, {
   VStackFull,
 } from "~/buildingBlockComponents/mainContainers";
 import Text from "~/buildingBlockComponents/text";
-import AnimatedIconsButton from "../design-demos/animatedIconsButton";
 import { ScrollTransition } from "~/buildingBlockComponents/scrollTransition";
+import AnimatedIconsButton from "../pippin+/design-demos/animatedIconsButton";
 
 export type CourseData = {
   courseName: string;

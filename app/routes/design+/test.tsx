@@ -4,11 +4,11 @@ import {
   FlexFull,
   VStackFull,
 } from "~/buildingBlockComponents/mainContainers";
-import MainPanel from "../pippin+/components/building/mainPanel";
 import {
   createResponsiveVariants,
   ScrollTransition,
 } from "~/buildingBlockComponents/scrollTransition";
+import MainPanel from "../building/mainPanel";
 
 export default function Test() {
   const scrollTransitionVariants = createResponsiveVariants("md"); // Set a default size, e.g., "md"
