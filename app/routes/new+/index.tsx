@@ -11,7 +11,7 @@ export default function New() {
     const isCurrent = currentHash === id.substring(1);
 
     return (
-      <NavLink to={id}>
+      <NavLink to={id} className="p-0.4vh">
         <motion.div
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
@@ -19,14 +19,14 @@ export default function New() {
             isCurrent
               ? "bg-rose-300 w-2vh h-2vh"
               : "bg-slate-300 w-1.5vh h-1.5vh"
-          } rounded-full`}
+          } rounded-full border-900-sm shadowNarrowTight`}
         ></motion.div>
       </NavLink>
     );
   }
   return (
     <>
-      <Flex className="flex-col gap-2vh h-fit fixed right-0.5vh top-1/2 z-10 items-center">
+      <Flex className="flex-col gap-2vh h-fit fixed right-0.5vh top-1/3 z-10 items-center">
         <NavButton id="#one" />
         <NavButton id="#two" />
         <NavButton id="#three" />
