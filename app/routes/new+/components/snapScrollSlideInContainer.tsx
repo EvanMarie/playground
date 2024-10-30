@@ -5,7 +5,7 @@ export default function SnapScrollSlideInContainer({
   children,
   outerClassName,
   sliderClassName,
-  sliderBgColor = "bg-teal-100",
+  sliderBgColor = "bg-slate-500 bg-gradient-to-br from-slate-600 via-slate-700/80 to-slate-600",
   slideDirection = "right",
   id,
 }: {

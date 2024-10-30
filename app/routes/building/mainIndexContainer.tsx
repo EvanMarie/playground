@@ -12,7 +12,11 @@ export default function MainIndexContainer({
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   return (
     <>
-      <ScrollProgressBar containerRef={scrollContainerRef} centered />
+      <ScrollProgressBar
+        containerRef={scrollContainerRef}
+        centered
+        color="bg-rose-300"
+      />
 
       <FlexFull
         ref={scrollContainerRef}
