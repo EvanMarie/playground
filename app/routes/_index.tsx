@@ -37,6 +37,7 @@ export default function Index() {
             link="/pippin"
             image="https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/landing/pippin-pawsby.webp"
           />
+          <DemoCard link="/new" image="" />
         </Wrap>
       </FlexFull>
     </>
