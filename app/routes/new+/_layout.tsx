@@ -3,7 +3,7 @@ import { FlexFull } from "~/buildingBlockComponents/mainContainers";
 
 export default function NewLayout() {
   return (
-    <FlexFull className="bg-sky-800 ">
+    <FlexFull className="bg-sky-800 rounded-t-none">
       <Outlet />
     </FlexFull>
   );

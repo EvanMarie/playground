@@ -25,7 +25,7 @@ export default function SnapScrollSlideInContainer({
       id={id}
     >
       <ScrollTransition
-        className={`w-full h-full ${sliderBgColor} ${sliderClassName}`}
+        className={`w-full h-full rounded-none ${sliderBgColor} ${sliderClassName}`}
         animation={slideInFrom}
         size="7xl"
         amount={0.01}
