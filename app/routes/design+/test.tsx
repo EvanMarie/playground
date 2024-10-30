@@ -4,7 +4,7 @@ import {
   FlexFull,
   VStackFull,
 } from "~/buildingBlockComponents/mainContainers";
-import MainPanel from "../components/building/mainPanel";
+import MainPanel from "../pippin+/components/building/mainPanel";
 import {
   createResponsiveVariants,
   ScrollTransition,
