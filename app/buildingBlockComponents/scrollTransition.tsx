@@ -238,10 +238,14 @@ export const createResponsiveVariants = (
   };
 };
 
+export type ScrollTransitionAnimation = keyof ReturnType<
+  typeof createResponsiveVariants
+>;
+
 interface ScrollTransitionProps {
   children?: ReactNode;
   className?: string;
-  animation?: keyof ReturnType<typeof createResponsiveVariants>;
+  animation?: ScrollTransitionAnimation;
   delay?: number;
   duration?: number;
   ease?: string;

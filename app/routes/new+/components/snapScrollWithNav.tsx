@@ -143,9 +143,7 @@ export default function SnapScrollWithNav({
                 flexDirection="direction"
                 height="h-100svh"
                 key={panel.id}
-                slideDirection={
-                  panel.slideDirection as "left" | "right" | "up" | "down"
-                }
+                transition={panel.slideDirection}
                 id={panel.id}
                 ref={(el) => (sectionRefs.current[panel.id as SectionId] = el)}
                 className="snap-start"

@@ -1,6 +1,9 @@
 // SnapScrollSlideInContainer.tsx
 import React, { forwardRef, Ref } from "react";
-import { ScrollTransition } from "~/buildingBlockComponents/scrollTransition";
+import {
+  ScrollTransition,
+  ScrollTransitionAnimation,
+} from "~/buildingBlockComponents/scrollTransition";
 import MainPanel from "~/routes/building/mainPanel";
 
 interface SnapScrollSlideInContainerProps {
@@ -8,7 +11,7 @@ interface SnapScrollSlideInContainerProps {
   outerClassName?: string;
   sliderClassName?: string;
   sliderBgColor?: string;
-  slideDirection?: "right" | "left" | "up" | "down";
+  transition?: ScrollTransitionAnimation;
   id?: string;
   className?: string;
   height?: string;
@@ -27,7 +30,7 @@ const SnapScrollSlideInContainer = forwardRef<
       outerClassName = "",
       sliderClassName = "",
       sliderBgColor = "bg-slate-500 bg-gradient-to-br from-slate-600 via-slate-700/80 to-slate-600",
-      slideDirection = "right",
+      transition = "right",
       flexDirection = "flex-col",
       width = "w-full",
       id,
@@ -35,15 +38,6 @@ const SnapScrollSlideInContainer = forwardRef<
     },
     ref: Ref<HTMLDivElement>
   ) => {
-    const slideInFrom =
-      slideDirection === "right"
-        ? "slideInRight"
-        : slideDirection === "left"
-        ? "slideInLeft"
-        : slideDirection === "up"
-        ? "slideInUp"
-        : "slideInDown";
-
     return (
       <MainPanel
         ref={ref} // Forwarding the ref here
@@ -54,7 +48,7 @@ const SnapScrollSlideInContainer = forwardRef<
       >
         <ScrollTransition
           className={`w-100vw h-full rounded-none ${sliderBgColor} ${sliderClassName} `}
-          animation={slideInFrom}
+          animation={transition}
           size="7xl"
           amount={0.01}
           delay={0.3}
