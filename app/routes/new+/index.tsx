@@ -1,20 +1,15 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Flex } from "~/buildingBlockComponents/mainContainers";
 import MainIndexContainer from "../building/mainIndexContainer";
 import { motion } from "framer-motion";
-import { NavLink, useLocation } from "@remix-run/react";
+import { useLocation } from "@remix-run/react";
 import SnapScrollSlideInContainer from "./components/snapScrollSlideInContainer";
+
+type SectionId = "one" | "two" | "three" | "four" | "five" | "six";
 
 export default function New() {
   // Define refs for each section
-  const sectionRefs = useRef<{
-    one: HTMLDivElement | null;
-    two: HTMLDivElement | null;
-    three: HTMLDivElement | null;
-    four: HTMLDivElement | null;
-    five: HTMLDivElement | null;
-    six: HTMLDivElement | null;
-  }>({
+  const sectionRefs = useRef<Record<SectionId, HTMLDivElement | null>>({
     one: null,
     two: null,
     three: null,
@@ -24,6 +19,15 @@ export default function New() {
   });
 
   const location = useLocation();
+  const [currentHash, setCurrentHash] = useState(location.hash || "#one");
+
+  // Create a ref to hold the latest currentHash
+  const currentHashRef = useRef(currentHash);
+
+  // Update the ref whenever currentHash changes
+  useEffect(() => {
+    currentHashRef.current = currentHash;
+  }, [currentHash]);
 
   useEffect(() => {
     const sections = Object.values(sectionRefs.current).filter(
@@ -36,16 +40,17 @@ export default function New() {
       threshold: 0.6, // 60% of the section is visible
     };
 
-    const observerCallback: IntersectionObserverCallback = (
-      entries,
-      observer
+    const observerCallback = (
+      entries: IntersectionObserverEntry[],
+      observer: IntersectionObserver
     ) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const id = entry.target.id;
-          // Avoid updating if the hash is already correct
-          if (location.hash !== `#${id}`) {
+          const id = entry.target.id as SectionId;
+          // Use the ref to get the latest hash
+          if (currentHashRef.current !== `#${id}`) {
             window.history.replaceState(null, "", `#${id}`);
+            setCurrentHash(`#${id}`);
           }
         }
       });
@@ -64,82 +69,98 @@ export default function New() {
     return () => {
       observer.disconnect();
     };
+  }, []); // Run only once on mount
+
+  useEffect(() => {
+    // Update currentHash when location.hash changes
+    setCurrentHash(location.hash || "#one");
   }, [location.hash]);
 
-  function NavButton({ id }: { id: string }) {
-    const currentHash = location.hash ? location.hash.substring(1) : "";
-    const isCurrent = currentHash === id.substring(1);
+  function NavButton({ id, emoji }: { id: string; emoji: string }) {
+    const isCurrent = currentHash === id;
+
+    const handleClick = () => {
+      const section = document.querySelector(id);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+        window.history.pushState(null, "", id); // Update the hash without triggering a full navigation
+      }
+    };
 
     return (
-      <NavLink to={id} className="p-0.4vh">
-        <motion.div
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          className={`${
-            isCurrent
-              ? "bg-rose-300 w-2vh h-2vh"
-              : "bg-slate-300 w-1.5vh h-1.5vh"
-          } rounded-full border-900-sm shadowNarrowTight`}
-        ></motion.div>
-      </NavLink>
+      <motion.div
+        onClick={handleClick}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        className={`text-lg flex justify-center items-center ${
+          isCurrent
+            ? "bg-rose-300 w-5.5vh h-5.5vh"
+            : "bg-slate-300 w-4.5vh h-4.5vh"
+        } rounded-full border-900-sm shadowNarrowTight cursor-pointer`}
+      >
+        {emoji}
+      </motion.div>
     );
   }
 
+  const panels = [
+    {
+      id: "one",
+      title: "One",
+      emoji: "👋",
+      slideDirection: "right",
+    },
+    {
+      id: "two",
+      title: "Two",
+      emoji: "💜",
+      slideDirection: "left",
+    },
+    {
+      id: "three",
+      title: "Three",
+      emoji: "🚀",
+      slideDirection: "right",
+    },
+    {
+      id: "four",
+      title: "Four",
+      emoji: "🎉",
+      slideDirection: "left",
+    },
+    {
+      id: "five",
+      title: "Five",
+      emoji: "🔥",
+      slideDirection: "right",
+    },
+    {
+      id: "six",
+      title: "Six",
+      emoji: "🌈",
+      slideDirection: "left",
+    },
+  ];
+
   return (
     <>
-      <Flex className="flex-col gap-2vh h-fit fixed right-0.5vh top-1/3 z-10 items-center">
-        <NavButton id="#one" />
-        <NavButton id="#two" />
-        <NavButton id="#three" />
-        <NavButton id="#four" />
-        <NavButton id="#five" />
-        <NavButton id="#six" />
+      <Flex className="flex-col gap-2vh h-fit fixed right-0.5vh top-1/2 z-10 items-center">
+        {panels.map((panel) => (
+          <NavButton key={panel.id} id={`#${panel.id}`} emoji={panel.emoji} />
+        ))}
       </Flex>
       <MainIndexContainer className="snap-y snap-mandatory">
-        <SnapScrollSlideInContainer
-          ref={(el) => (sectionRefs.current.one = el)}
-          id="one"
-        >
-          <h2 className="text-rose-100 textShadow">One</h2>
-        </SnapScrollSlideInContainer>
-
-        <SnapScrollSlideInContainer
-          slideDirection="left"
-          ref={(el) => (sectionRefs.current.two = el)}
-          id="two"
-        >
-          <h2 className="text-rose-100 textShadow">Two</h2>
-        </SnapScrollSlideInContainer>
-
-        <SnapScrollSlideInContainer
-          ref={(el) => (sectionRefs.current.three = el)}
-          id="three"
-        >
-          <h2 className="text-rose-100 textShadow">Three</h2>
-        </SnapScrollSlideInContainer>
-
-        <SnapScrollSlideInContainer
-          slideDirection="left"
-          ref={(el) => (sectionRefs.current.four = el)}
-          id="four"
-        >
-          <h2 className="text-rose-100 textShadow">Four</h2>
-        </SnapScrollSlideInContainer>
-
-        <SnapScrollSlideInContainer
-          ref={(el) => (sectionRefs.current.five = el)}
-          id="five"
-        >
-          <h2 className="text-rose-100 textShadow">Five</h2>
-        </SnapScrollSlideInContainer>
-
-        <SnapScrollSlideInContainer
-          slideDirection="left"
-          ref={(el) => (sectionRefs.current.six = el)}
-          id="six"
-        >
-          <h2 className="text-rose-100 textShadow">Six</h2>
-        </SnapScrollSlideInContainer>
+        {panels.map((panel) => (
+          <SnapScrollSlideInContainer
+            key={panel.id}
+            slideDirection={panel.slideDirection as "left" | "right"}
+            id={panel.id}
+            ref={(el) => (sectionRefs.current[panel.id as SectionId] = el)}
+            className="snap-start" // Ensure snapping works correctly
+          >
+            <h2 className="text-rose-100 textShadow">{panel.title}</h2>
+          </SnapScrollSlideInContainer>
+        ))}
       </MainIndexContainer>
     </>
   );

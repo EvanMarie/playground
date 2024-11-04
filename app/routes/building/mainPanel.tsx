@@ -1,7 +1,7 @@
+// MainPanel.tsx
 import React, { forwardRef, Ref } from "react";
 import { FlexFull, VStackFull } from "~/buildingBlockComponents/mainContainers";
 
-// Define the props interface
 interface MainPanelProps {
   children: React.ReactNode;
   height?: string;
@@ -12,7 +12,6 @@ interface MainPanelProps {
   id?: string;
 }
 
-// Use forwardRef to allow parent components to pass refs
 const MainPanel = forwardRef<HTMLDivElement, MainPanelProps>(
   (
     {
@@ -28,7 +27,7 @@ const MainPanel = forwardRef<HTMLDivElement, MainPanelProps>(
   ) => {
     return (
       <FlexFull
-        ref={ref} // Forward the ref to the outer FlexFull
+        ref={ref} // Forwarding the ref here
         className={`${height} ${bgImage} z-0 justify-center rounded-none`}
         id={id}
       >
@@ -42,7 +41,6 @@ const MainPanel = forwardRef<HTMLDivElement, MainPanelProps>(
   }
 );
 
-// Optional: Set a display name for better debugging in React DevTools
 MainPanel.displayName = "MainPanel";
 
 export default MainPanel;

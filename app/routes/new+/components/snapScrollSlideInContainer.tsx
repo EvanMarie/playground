@@ -1,8 +1,8 @@
+// SnapScrollSlideInContainer.tsx
 import React, { forwardRef, Ref } from "react";
 import { ScrollTransition } from "~/buildingBlockComponents/scrollTransition";
 import MainPanel from "~/routes/building/mainPanel";
 
-// Define the props interface
 interface SnapScrollSlideInContainerProps {
   children: React.ReactNode;
   outerClassName?: string;
@@ -10,9 +10,9 @@ interface SnapScrollSlideInContainerProps {
   sliderBgColor?: string;
   slideDirection?: "right" | "left";
   id?: string;
+  className?: string;
 }
 
-// Use forwardRef to allow parent components to pass refs
 const SnapScrollSlideInContainer = forwardRef<
   HTMLDivElement,
   SnapScrollSlideInContainerProps
@@ -25,6 +25,7 @@ const SnapScrollSlideInContainer = forwardRef<
       sliderBgColor = "bg-slate-500 bg-gradient-to-br from-slate-600 via-slate-700/80 to-slate-600",
       slideDirection = "right",
       id,
+      className,
     },
     ref: Ref<HTMLDivElement>
   ) => {
@@ -33,9 +34,9 @@ const SnapScrollSlideInContainer = forwardRef<
 
     return (
       <MainPanel
-        ref={ref} // Forward the ref to MainPanel
+        ref={ref} // Forwarding the ref here
         height="h-100svh"
-        className={`snap-start ${outerClassName}`}
+        className={`snap-start ${outerClassName} ${className}`}
         id={id}
       >
         <ScrollTransition
@@ -54,7 +55,6 @@ const SnapScrollSlideInContainer = forwardRef<
   }
 );
 
-// Optional: Set a display name for better debugging
 SnapScrollSlideInContainer.displayName = "SnapScrollSlideInContainer";
 
 export default SnapScrollSlideInContainer;
