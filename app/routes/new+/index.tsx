@@ -1,55 +1,80 @@
-import { VStackFull } from "~/buildingBlockComponents/mainContainers";
-import SnapScrollWithNav from "./components/snapScrollWithNav";
+import {
+  CenterFull,
+  VStackFull,
+} from "~/buildingBlockComponents/mainContainers";
+import SnapScrollWithNav, {
+  SnapScrollPanelProps,
+} from "./components/snapScrollWithNav";
 import Image from "~/buildingBlockComponents/image";
+import PanelOne from "./components/panelOne";
 
 export default function New() {
-  const panels = [
+  const panels: SnapScrollPanelProps[] = [
     {
       id: "one",
-      title: "One",
-      emoji: "👋",
+      buttonContent: "👋",
       slideDirection: "right",
-      content: (
-        <VStackFull>
-          <h2>One</h2>
-          {/* <Image src="/images/clouds.webp" alt="cloud" /> */}
-        </VStackFull>
-      ),
+      content: <PanelOne />,
     },
     {
       id: "two",
-      title: "Two",
-      emoji: "💜",
+      buttonContent: "💜",
       slideDirection: "left",
-      content: <h2>Two</h2>,
+      content: (
+        <CenterFull>
+          <VStackFull>
+            <h2>Two</h2>
+          </VStackFull>
+        </CenterFull>
+      ),
     },
     {
       id: "three",
-      title: "Three",
-      emoji: "🚀",
+      buttonContent: "🚀",
       slideDirection: "right",
-      content: <h2>Three</h2>,
+      content: (
+        <CenterFull>
+          <VStackFull>
+            <h2>Three</h2>
+          </VStackFull>
+        </CenterFull>
+      ),
     },
     {
       id: "four",
-      title: "Four",
-      emoji: "🎉",
+      buttonContent: "🎉",
       slideDirection: "left",
-      content: <h2>Four</h2>,
+      content: (
+        <CenterFull>
+          <VStackFull>
+            <h2>Four</h2>
+          </VStackFull>
+        </CenterFull>
+      ),
     },
     {
       id: "five",
-      title: "Five",
-      emoji: "🔥",
+      buttonContent: "🔥",
       slideDirection: "right",
-      content: <h2>Five</h2>,
+      content: (
+        <CenterFull>
+          <VStackFull>
+            <h2>Five</h2>
+          </VStackFull>
+        </CenterFull>
+      ),
     },
     {
       id: "six",
-      title: "Six",
-      emoji: "🌈",
+      buttonContent: "🌈",
       slideDirection: "left",
-      content: <h2>Six</h2>,
+      content: (
+        <CenterFull>
+          <VStackFull>
+            <h2>Six</h2>
+          </VStackFull>
+        </CenterFull>
+      ),
     },
   ];
 

@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 export interface SnapScrollPanelProps {
   id: string;
-  emoji: string;
+  buttonContent: string;
   content: React.ReactNode;
   slideDirection: string;
 }
@@ -113,7 +113,11 @@ export default function SnapScrollWithNav({
       <FlexFull className={bgOverlay}>
         <Flex className="flex-col gap-4vh h-fit fixed right-0.5vh top-1/4 z-10 items-center">
           {panels.map((panel) => (
-            <NavButton key={panel.id} id={`#${panel.id}`} emoji={panel.emoji} />
+            <NavButton
+              key={panel.id}
+              id={`#${panel.id}`}
+              emoji={panel.buttonContent}
+            />
           ))}
         </Flex>
         <FlexFull>
