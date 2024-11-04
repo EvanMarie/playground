@@ -6,12 +6,18 @@ export default function MainIndexContainer({
   children,
   className,
   height = "h-100svh",
+  overflow = "overflow-y-auto overflow-x-hidden",
+  direction = "flex-col",
 }: {
   children: React.ReactNode;
   className?: string;
   height?: string;
+  overflow?: string;
+  direction?: string;
 }) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const containerClass =
+    direction === "flex-col" ? "flex-col h-fit" : "flex-row w-fit";
   return (
     <>
       <ScrollProgressBar
@@ -22,9 +28,9 @@ export default function MainIndexContainer({
 
       <FlexFull
         ref={scrollContainerRef}
-        className={`fixed inset-0 ${height} overflow-y-auto overflow-x-hidden hide-scrollbar z-0 rounded-none ${className}`}
+        className={`fixed inset-0 ${height} ${overflow} hide-scrollbar z-0 rounded-none ${className}`}
       >
-        <VStackFull className="h-fit">{children}</VStackFull>
+        <FlexFull className={`${containerClass}`}>{children}</FlexFull>
       </FlexFull>
     </>
   );

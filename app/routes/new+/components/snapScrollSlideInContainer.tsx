@@ -8,10 +8,12 @@ interface SnapScrollSlideInContainerProps {
   outerClassName?: string;
   sliderClassName?: string;
   sliderBgColor?: string;
-  slideDirection?: "right" | "left";
+  slideDirection?: "right" | "left" | "up" | "down";
   id?: string;
   className?: string;
   height?: string;
+  flexDirection?: string;
+  width?: string;
 }
 
 const SnapScrollSlideInContainer = forwardRef<
@@ -26,23 +28,32 @@ const SnapScrollSlideInContainer = forwardRef<
       sliderClassName = "",
       sliderBgColor = "bg-slate-500 bg-gradient-to-br from-slate-600 via-slate-700/80 to-slate-600",
       slideDirection = "right",
+      flexDirection = "flex-col",
+      width = "w-full",
       id,
       className,
     },
     ref: Ref<HTMLDivElement>
   ) => {
     const slideInFrom =
-      slideDirection === "right" ? "slideInRight" : "slideInLeft";
+      slideDirection === "right"
+        ? "slideInRight"
+        : slideDirection === "left"
+        ? "slideInLeft"
+        : slideDirection === "up"
+        ? "slideInUp"
+        : "slideInDown";
 
     return (
       <MainPanel
         ref={ref} // Forwarding the ref here
         height={height}
-        className={`snap-start ${outerClassName} ${className}`}
+        className={`snap-start ${outerClassName} ${className} ${width}`}
         id={id}
+        direction={flexDirection}
       >
         <ScrollTransition
-          className={`w-full h-full rounded-none ${sliderBgColor} ${sliderClassName}`}
+          className={`w-100vw h-full rounded-none ${sliderBgColor} ${sliderClassName} `}
           animation={slideInFrom}
           size="7xl"
           amount={0.01}

@@ -16,10 +16,12 @@ export default function SnapScrollWithNav({
   panels,
   bgImage = "bg-[url('/images/clouds.webp')] bg-cover bg-center",
   bgOverlay = "bg-cyan-800/40",
+  direction = "horizontal",
 }: {
   panels: SnapScrollPanelProps[];
   bgImage?: string;
   bgOverlay?: string;
+  direction?: "vertical" | "horizontal";
 }) {
   const sectionRefs = useRef<Record<string, HTMLDivElement | null>>({});
   type SectionId = keyof typeof sectionRefs.current;
@@ -79,7 +81,7 @@ export default function SnapScrollWithNav({
 
   useEffect(() => {
     // Update currentHash when location.hash changes
-    setCurrentHash(location.hash || "#one");
+    setCurrentHash(location.hash);
   }, [location.hash]);
 
   function NavButton({ id, emoji }: { id: string; emoji: string }) {
@@ -108,6 +110,14 @@ export default function SnapScrollWithNav({
       </motion.div>
     );
   }
+
+  const directionStyle = direction === "vertical" ? "snap-y" : "snap-x";
+  const overflow =
+    direction === "vertical"
+      ? "overflow-y-auto overflow-x-hidden"
+      : "overflow-x-auto overflow-y-hidden";
+  const flexDirection = direction === "vertical" ? "flex-col" : "flex-row";
+
   return (
     <FlexFull className={`${bgImage} rounded-t-none`}>
       <FlexFull className={bgOverlay}>
@@ -122,14 +132,20 @@ export default function SnapScrollWithNav({
         </Flex>
         <FlexFull>
           <MainIndexContainer
-            className={`snap-y snap-mandatory`}
+            className={`${directionStyle} snap-mandatory`}
             height="h-100svh"
+            overflow={overflow}
+            direction={flexDirection}
           >
             {panels.map((panel) => (
               <SnapScrollSlideInContainer
+                width="w-100vw"
+                flexDirection="direction"
                 height="h-100svh"
                 key={panel.id}
-                slideDirection={panel.slideDirection as "left" | "right"}
+                slideDirection={
+                  panel.slideDirection as "left" | "right" | "up" | "down"
+                }
                 id={panel.id}
                 ref={(el) => (sectionRefs.current[panel.id as SectionId] = el)}
                 className="snap-start"

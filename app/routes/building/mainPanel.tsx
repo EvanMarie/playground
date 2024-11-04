@@ -9,6 +9,7 @@ interface MainPanelProps {
   bgImage?: string;
   textColor?: string;
   className?: string;
+  direction?: string;
   id?: string;
 }
 
@@ -21,6 +22,7 @@ const MainPanel = forwardRef<HTMLDivElement, MainPanelProps>(
       bgImage = "",
       textColor = "",
       className = "",
+      direction = "flex-col",
       id,
     },
     ref: Ref<HTMLDivElement>
@@ -34,7 +36,7 @@ const MainPanel = forwardRef<HTMLDivElement, MainPanelProps>(
         <FlexFull
           className={`${height} ${bg} ${textColor} ${className} justify-center rounded-none`}
         >
-          <VStackFull>{children}</VStackFull>
+          <FlexFull className={direction}>{children}</FlexFull>
         </FlexFull>
       </FlexFull>
     );

@@ -1,7 +1,3 @@
-import {
-  CenterFull,
-  VStackFull,
-} from "~/buildingBlockComponents/mainContainers";
 import SnapScrollWithNav, {
   SnapScrollPanelProps,
 } from "./components/snapScrollWithNav";
@@ -20,37 +16,43 @@ export default function New() {
     {
       id: "one",
       buttonContent: "👋",
-      slideDirection: "right",
+      // slideDirection: "right",
+      slideDirection: "rotate3d",
       content: <PanelOne />,
     },
     {
       id: "two",
       buttonContent: "💜",
-      slideDirection: "left",
+      // slideDirection: "left",
+      slideDirection: "rotate3d",
       content: <PanelTwo />,
     },
     {
       id: "three",
       buttonContent: "🚀",
-      slideDirection: "right",
+      // slideDirection: "right",
+      slideDirection: "rotate3d",
       content: <PanelThree />,
     },
     {
       id: "four",
       buttonContent: "🎉",
-      slideDirection: "left",
+      // slideDirection: "left",
+      slideDirection: "rotate3d",
       content: <PanelFour />,
     },
     {
       id: "five",
       buttonContent: "🔥",
-      slideDirection: "right",
+      // slideDirection: "right",
+      slideDirection: "rotate3d",
       content: <PanelFive />,
     },
     {
       id: "six",
       buttonContent: "🌈",
-      slideDirection: "left",
+      // slideDirection: "left",
+      slideDirection: "rotate3d",
       content: <PanelSix />,
     },
   ];
