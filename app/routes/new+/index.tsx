@@ -109,36 +109,42 @@ export default function New() {
       title: "One",
       emoji: "👋",
       slideDirection: "right",
+      content: <h2>One</h2>,
     },
     {
       id: "two",
       title: "Two",
       emoji: "💜",
       slideDirection: "left",
+      content: <h2>Two</h2>,
     },
     {
       id: "three",
       title: "Three",
       emoji: "🚀",
       slideDirection: "right",
+      content: <h2>Three</h2>,
     },
     {
       id: "four",
       title: "Four",
       emoji: "🎉",
       slideDirection: "left",
+      content: <h2>Four</h2>,
     },
     {
       id: "five",
       title: "Five",
       emoji: "🔥",
       slideDirection: "right",
+      content: <h2>Five</h2>,
     },
     {
       id: "six",
       title: "Six",
       emoji: "🌈",
       slideDirection: "left",
+      content: <h2>Six</h2>,
     },
   ];
 
@@ -156,9 +162,9 @@ export default function New() {
             slideDirection={panel.slideDirection as "left" | "right"}
             id={panel.id}
             ref={(el) => (sectionRefs.current[panel.id as SectionId] = el)}
-            className="snap-start" // Ensure snapping works correctly
+            className="snap-start"
           >
-            <h2 className="text-rose-100 textShadow">{panel.title}</h2>
+            {panel.content}
           </SnapScrollSlideInContainer>
         ))}
       </MainIndexContainer>
