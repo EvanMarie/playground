@@ -14,10 +14,12 @@ export interface SnapScrollPanelProps {
 
 export default function SnapScrollWithNav({
   panels,
-  bgImage = "bg-url('/images/clouds.webp') bg-cover bg-center",
+  bgImage = "bg-[url('/images/clouds.webp')] bg-cover bg-center",
+  bgOverlay = "bg-cyan-800/40",
 }: {
   panels: SnapScrollPanelProps[];
   bgImage?: string;
+  bgOverlay?: string;
 }) {
   const sectionRefs = useRef<Record<string, HTMLDivElement | null>>({});
   type SectionId = keyof typeof sectionRefs.current;
@@ -108,29 +110,31 @@ export default function SnapScrollWithNav({
   }
   return (
     <FlexFull className={`${bgImage} rounded-t-none`}>
-      <Flex className="flex-col gap-4vh h-fit fixed right-0.5vh top-1/4 z-10 items-center">
-        {panels.map((panel) => (
-          <NavButton key={panel.id} id={`#${panel.id}`} emoji={panel.emoji} />
-        ))}
-      </Flex>
-      <FlexFull>
-        <MainIndexContainer
-          className={`snap-y snap-mandatory`}
-          height="h-100svh"
-        >
+      <FlexFull className={bgOverlay}>
+        <Flex className="flex-col gap-4vh h-fit fixed right-0.5vh top-1/4 z-10 items-center">
           {panels.map((panel) => (
-            <SnapScrollSlideInContainer
-              height="h-100svh"
-              key={panel.id}
-              slideDirection={panel.slideDirection as "left" | "right"}
-              id={panel.id}
-              ref={(el) => (sectionRefs.current[panel.id as SectionId] = el)}
-              className="snap-start"
-            >
-              {panel.content}
-            </SnapScrollSlideInContainer>
+            <NavButton key={panel.id} id={`#${panel.id}`} emoji={panel.emoji} />
           ))}
-        </MainIndexContainer>
+        </Flex>
+        <FlexFull>
+          <MainIndexContainer
+            className={`snap-y snap-mandatory`}
+            height="h-100svh"
+          >
+            {panels.map((panel) => (
+              <SnapScrollSlideInContainer
+                height="h-100svh"
+                key={panel.id}
+                slideDirection={panel.slideDirection as "left" | "right"}
+                id={panel.id}
+                ref={(el) => (sectionRefs.current[panel.id as SectionId] = el)}
+                className="snap-start"
+              >
+                {panel.content}
+              </SnapScrollSlideInContainer>
+            ))}
+          </MainIndexContainer>
+        </FlexFull>
       </FlexFull>
     </FlexFull>
   );
