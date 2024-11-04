@@ -6,7 +6,14 @@ import SnapScrollWithNav, {
   SnapScrollPanelProps,
 } from "./components/snapScrollWithNav";
 import Image from "~/buildingBlockComponents/image";
-import PanelOne from "./components/panelOne";
+import {
+  PanelFive,
+  PanelFour,
+  PanelOne,
+  PanelSix,
+  PanelThree,
+  PanelTwo,
+} from "./components/panels";
 
 export default function New() {
   const panels: SnapScrollPanelProps[] = [
@@ -20,61 +27,31 @@ export default function New() {
       id: "two",
       buttonContent: "💜",
       slideDirection: "left",
-      content: (
-        <CenterFull>
-          <VStackFull>
-            <h2>Two</h2>
-          </VStackFull>
-        </CenterFull>
-      ),
+      content: <PanelTwo />,
     },
     {
       id: "three",
       buttonContent: "🚀",
       slideDirection: "right",
-      content: (
-        <CenterFull>
-          <VStackFull>
-            <h2>Three</h2>
-          </VStackFull>
-        </CenterFull>
-      ),
+      content: <PanelThree />,
     },
     {
       id: "four",
       buttonContent: "🎉",
       slideDirection: "left",
-      content: (
-        <CenterFull>
-          <VStackFull>
-            <h2>Four</h2>
-          </VStackFull>
-        </CenterFull>
-      ),
+      content: <PanelFour />,
     },
     {
       id: "five",
       buttonContent: "🔥",
       slideDirection: "right",
-      content: (
-        <CenterFull>
-          <VStackFull>
-            <h2>Five</h2>
-          </VStackFull>
-        </CenterFull>
-      ),
+      content: <PanelFive />,
     },
     {
       id: "six",
       buttonContent: "🌈",
       slideDirection: "left",
-      content: (
-        <CenterFull>
-          <VStackFull>
-            <h2>Six</h2>
-          </VStackFull>
-        </CenterFull>
-      ),
+      content: <PanelSix />,
     },
   ];
 
