@@ -155,9 +155,10 @@ export default function New() {
           <NavButton key={panel.id} id={`#${panel.id}`} emoji={panel.emoji} />
         ))}
       </Flex>
-      <MainIndexContainer className="snap-y snap-mandatory">
+      <MainIndexContainer className="snap-y snap-mandatory" height="h-100svh">
         {panels.map((panel) => (
           <SnapScrollSlideInContainer
+            height="h-100svh"
             key={panel.id}
             slideDirection={panel.slideDirection as "left" | "right"}
             id={panel.id}

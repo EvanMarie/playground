@@ -5,9 +5,11 @@ import ScrollProgressBar from "~/buildingBlockComponents/scrollProgressBar";
 export default function MainIndexContainer({
   children,
   className,
+  height = "h-100svh",
 }: {
   children: React.ReactNode;
   className?: string;
+  height?: string;
 }) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   return (
@@ -20,7 +22,7 @@ export default function MainIndexContainer({
 
       <FlexFull
         ref={scrollContainerRef}
-        className={`fixed inset-0 h-100svh overflow-y-auto overflow-x-hidden hide-scrollbar z-0 rounded-none ${className}`}
+        className={`fixed inset-0 ${height} overflow-y-auto overflow-x-hidden hide-scrollbar z-0 rounded-none ${className}`}
       >
         <VStackFull className="h-fit">{children}</VStackFull>
       </FlexFull>

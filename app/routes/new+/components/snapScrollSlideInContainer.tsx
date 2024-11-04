@@ -11,6 +11,7 @@ interface SnapScrollSlideInContainerProps {
   slideDirection?: "right" | "left";
   id?: string;
   className?: string;
+  height?: string;
 }
 
 const SnapScrollSlideInContainer = forwardRef<
@@ -20,6 +21,7 @@ const SnapScrollSlideInContainer = forwardRef<
   (
     {
       children,
+      height = "h-100svh",
       outerClassName = "",
       sliderClassName = "",
       sliderBgColor = "bg-slate-500 bg-gradient-to-br from-slate-600 via-slate-700/80 to-slate-600",
@@ -35,7 +37,7 @@ const SnapScrollSlideInContainer = forwardRef<
     return (
       <MainPanel
         ref={ref} // Forwarding the ref here
-        height="h-100svh"
+        height={height}
         className={`snap-start ${outerClassName} ${className}`}
         id={id}
       >
