@@ -1,6 +1,6 @@
 import { useLocation } from "@remix-run/react";
 import { useEffect, useRef, useState } from "react";
-import { Flex } from "~/buildingBlockComponents/mainContainers";
+import { Flex, FlexFull } from "~/buildingBlockComponents/mainContainers";
 import MainIndexContainer from "~/routes/building/mainIndexContainer";
 import SnapScrollSlideInContainer from "./snapScrollSlideInContainer";
 import { motion } from "framer-motion";
@@ -14,8 +14,10 @@ export interface SnapScrollPanelProps {
 
 export default function SnapScrollWithNav({
   panels,
+  bgImage = "bg-url('/images/clouds.webp') bg-cover bg-center",
 }: {
   panels: SnapScrollPanelProps[];
+  bgImage?: string;
 }) {
   const sectionRefs = useRef<Record<string, HTMLDivElement | null>>({});
   type SectionId = keyof typeof sectionRefs.current;
@@ -111,20 +113,25 @@ export default function SnapScrollWithNav({
           <NavButton key={panel.id} id={`#${panel.id}`} emoji={panel.emoji} />
         ))}
       </Flex>
-      <MainIndexContainer className="snap-y snap-mandatory" height="h-100svh">
-        {panels.map((panel) => (
-          <SnapScrollSlideInContainer
-            height="h-100svh"
-            key={panel.id}
-            slideDirection={panel.slideDirection as "left" | "right"}
-            id={panel.id}
-            ref={(el) => (sectionRefs.current[panel.id as SectionId] = el)}
-            className="snap-start"
-          >
-            {panel.content}
-          </SnapScrollSlideInContainer>
-        ))}
-      </MainIndexContainer>
+      <FlexFull>
+        <MainIndexContainer
+          className={`snap-y snap-mandatory ${bgImage}`}
+          height="h-100svh"
+        >
+          {panels.map((panel) => (
+            <SnapScrollSlideInContainer
+              height="h-100svh"
+              key={panel.id}
+              slideDirection={panel.slideDirection as "left" | "right"}
+              id={panel.id}
+              ref={(el) => (sectionRefs.current[panel.id as SectionId] = el)}
+              className="snap-start"
+            >
+              {panel.content}
+            </SnapScrollSlideInContainer>
+          ))}
+        </MainIndexContainer>
+      </FlexFull>
     </>
   );
 }
