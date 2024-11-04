@@ -6,16 +6,16 @@ const sampleLineGraphData = [
     name: "Line 1",
     data: [
       { xValue: 0, yValue: 0 },
-      { xValue: 1, yValue: 1 },
-      { xValue: 2, yValue: 2 },
-      { xValue: 3, yValue: 3 },
-      { xValue: 4, yValue: 4 },
-      { xValue: 5, yValue: 5 },
-      { xValue: 6, yValue: 6 },
-      { xValue: 7, yValue: 7 },
-      { xValue: 8, yValue: 8 },
-      { xValue: 9, yValue: 9 },
-      { xValue: 10, yValue: 10 },
+      { xValue: 1, yValue: 10 },
+      { xValue: 2, yValue: 20 },
+      { xValue: 3, yValue: 15 },
+      { xValue: 4, yValue: 40 },
+      { xValue: 5, yValue: 15 },
+      { xValue: 6, yValue: 60 },
+      { xValue: 7, yValue: 20 },
+      { xValue: 8, yValue: 80 },
+      { xValue: 9, yValue: 120 },
+      { xValue: 10, yValue: 100 },
     ],
   },
   {
@@ -61,15 +61,9 @@ const MultiLineGraphProps = {
 
 function App() {
   return (
-    <div
-      style={{
-        padding: "2vh 2vw",
-        backgroundColor: "#eaeaea",
-        minHeight: "100vh",
-      }}
-    >
+    <>
       <AnimatedLineGraph {...MultiLineGraphProps} />
-    </div>
+    </>
   );
 }
 

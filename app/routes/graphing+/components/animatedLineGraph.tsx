@@ -1,5 +1,5 @@
 // AnimatedLineGraph.tsx
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
 // Type Definitions
@@ -63,7 +63,14 @@ const Axes: React.FC<{
     (_, i) => height - padding - (i * (height - 2 * padding)) / yTickCount
   );
 
-  const tickLength = Math.min(width, height) * 0.005; // Responsive tick length
+  // Define tick lengths using vh units
+  const tickLength = 1; // 1vh
+
+  // Define font sizes using vh units
+  const labelFontSize = 1.5; // 1.5vh
+
+  // Define axis label font size
+  const axisLabelFontSize = 2; // 2vh
 
   return (
     <g>
@@ -73,7 +80,7 @@ const Axes: React.FC<{
         y1={height - padding}
         x2={width - padding}
         y2={height - padding}
-        stroke="black"
+        stroke="white"
       />
       {/* Y Axis */}
       <line
@@ -81,7 +88,7 @@ const Axes: React.FC<{
         y1={padding}
         x2={padding}
         y2={height - padding}
-        stroke="black"
+        stroke="white"
       />
 
       {/* X Ticks and Labels */}
@@ -91,15 +98,15 @@ const Axes: React.FC<{
             x1={x}
             y1={height - padding}
             x2={x}
-            y2={height - padding + tickLength * 5}
-            stroke="black"
+            y2={height - padding + tickLength}
+            stroke="white"
           />
           <text
             x={x}
-            y={height - padding + tickLength * 15}
+            y={height - padding + tickLength + 1} // Adjust spacing below ticks
             textAnchor="middle"
-            fontSize={`${1.5}vw`}
-            fill="black"
+            fontSize={`${labelFontSize}vh`}
+            fill="white"
           >
             {idx}
           </text>
@@ -112,16 +119,16 @@ const Axes: React.FC<{
           <line
             x1={padding}
             y1={y}
-            x2={padding - tickLength * 5}
+            x2={padding - tickLength}
             y2={y}
-            stroke="black"
+            stroke="white"
           />
           <text
-            x={padding - tickLength * 15}
-            y={y + tickLength * 5}
+            x={padding - tickLength - 1} // Adjust spacing to the left of ticks
+            y={y + tickLength / 2} // Vertically center the text
             textAnchor="end"
-            fontSize={`${1.5}vw`}
-            fill="black"
+            fontSize={`${labelFontSize}vh`}
+            fill="white"
           >
             {idx}
           </text>
@@ -131,22 +138,22 @@ const Axes: React.FC<{
       {/* X Label */}
       <text
         x={width / 2}
-        y={height - padding + tickLength * 30}
+        y={height - padding + tickLength * 4} // Adjust spacing below ticks
         textAnchor="middle"
-        fontSize={`${2}vw`}
-        fill="black"
+        fontSize={`${axisLabelFontSize}vh`}
+        fill="white"
       >
         {xLabel}
       </text>
 
       {/* Y Label */}
       <text
-        x={padding - tickLength * 30}
+        x={padding - tickLength * 8} // Adjust spacing to the left of Y axis
         y={height / 2}
         textAnchor="middle"
-        fontSize={`${2}vw`}
-        fill="black"
-        transform={`rotate(-90, ${padding - tickLength * 30}, ${height / 2})`}
+        fontSize={`${axisLabelFontSize}vh`}
+        fill="white"
+        transform={`rotate(-90, ${padding - tickLength * 8}, ${height / 2})`}
       >
         {yLabel}
       </text>
@@ -158,7 +165,7 @@ const Axes: React.FC<{
 const AnimatedLine: React.FC<{
   path: string;
   stroke: string;
-  strokeWidth: number;
+  strokeWidth: number | string;
 }> = ({ path, stroke, strokeWidth }) => {
   return (
     <motion.path
@@ -188,9 +195,19 @@ const AnimatedLineGraph: React.FC<AnimatedLineGraphProps> = ({
     width: number;
     height: number;
   }>({
-    width: 800, // Default width (you can adjust as needed)
-    height: 600, // Default height (you can adjust as needed)
+    width: 800, // Default width (will be updated on client)
+    height: 600, // Default height (will be updated on client)
   });
+
+  // State for hovered data point
+  const [hoveredPoint, setHoveredPoint] = useState<{
+    x: number;
+    y: number;
+    data: LineGraphDataPoint;
+  } | null>(null);
+
+  // Ref for the container to calculate tooltip position
+  const containerRef = useRef<HTMLDivElement>(null);
 
   // Update dimensions on client side after component mounts
   useEffect(() => {
@@ -209,7 +226,9 @@ const AnimatedLineGraph: React.FC<AnimatedLineGraphProps> = ({
     }
   }, []);
 
-  const padding = dimensions.width * 0.05; // 5% padding
+  // Define padding using vh units (since heights and distances use vh)
+  const paddingVh = 5; // 5vh padding
+  const padding = paddingVh; // Using only vh for padding
 
   // Scales
   const xScale = getXScale(data, dimensions.width, padding);
@@ -232,31 +251,61 @@ const AnimatedLineGraph: React.FC<AnimatedLineGraphProps> = ({
     return { path, color };
   });
 
+  // Generate data points for all lines
+  const dataPoints = data.flatMap((line, lineIdx) =>
+    line.data.map((point, pointIdx) => {
+      const x = xScale(Number(point.xValue));
+      const y = yScale(Number(point.yValue));
+      const color = paths[lineIdx].color;
+      return { x, y, data: point, color };
+    })
+  );
+
+  // Function to handle mouse events on data points
+  const handleMouseEnter = (
+    event: React.MouseEvent<SVGCircleElement, MouseEvent>,
+    point: { x: number; y: number; data: LineGraphDataPoint }
+  ) => {
+    const containerRect = containerRef.current?.getBoundingClientRect();
+    if (containerRect) {
+      setHoveredPoint({
+        x: point.x + containerRect.left,
+        y: point.y + containerRect.top,
+        data: point.data,
+      });
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredPoint(null);
+  };
+
   return (
     <div
+      ref={containerRef}
       style={{
-        width: "80vw",
-        height: "60vh",
+        width: "98vw", // Width in vw
+        height: "70vh", // Height in vh
         margin: "0 auto",
         position: "relative",
-        backgroundColor: "#f9f9f9",
-        border: "1px solid #ddd",
-        borderRadius: "8px",
-        padding: `${2}vh ${2}vw`,
+        backgroundColor: "#222d40",
+        border: "0.2vh solid gray",
+        borderRadius: "1vh",
+        padding: `${2}vh ${2}vw`, // Padding: 2vh top/bottom, 2vw left/right
         boxSizing: "border-box",
       }}
     >
       {title && (
-        <h2
+        <p
           style={{
             textAlign: "center",
-            fontSize: "2.5vw",
+            fontSize: "2vh", // Font size in vh
             marginBottom: "2vh",
-            color: "#333",
+            color: "white",
           }}
         >
           {title}
-        </h2>
+        </p>
       )}
       <svg width="100%" height="100%">
         {/* Axes */}
@@ -277,7 +326,25 @@ const AnimatedLineGraph: React.FC<AnimatedLineGraphProps> = ({
               key={`line-${idx}`}
               path={line.path}
               stroke={line.color}
-              strokeWidth={2}
+              strokeWidth={"0.3vh"} // Stroke width remains in pixels for clarity
+            />
+          ))}
+        </g>
+
+        {/* Data Points */}
+        <g>
+          {dataPoints.map((point, idx) => (
+            <circle
+              key={`point-${idx}`}
+              cx={point.x}
+              cy={point.y}
+              r={4} // Radius remains in pixels for clarity
+              fill={point.color}
+              stroke="#fff"
+              strokeWidth={1}
+              onMouseEnter={(e) => handleMouseEnter(e, point)}
+              onMouseLeave={handleMouseLeave}
+              style={{ cursor: "pointer" }}
             />
           ))}
         </g>
@@ -287,11 +354,11 @@ const AnimatedLineGraph: React.FC<AnimatedLineGraphProps> = ({
       <div
         style={{
           position: "absolute",
-          top: `${2}vh`,
-          right: `${2}vw`,
+          top: `${2}vh`, // Top position in vh
+          right: `${2}vw`, // Right position in vw
           display: "flex",
           flexDirection: "column",
-          gap: "1vh",
+          gap: "1vh", // Gap between legend items in vh
         }}
       >
         {data.map((line, idx) => (
@@ -302,19 +369,46 @@ const AnimatedLineGraph: React.FC<AnimatedLineGraphProps> = ({
             <span
               style={{
                 display: "inline-block",
-                width: "15px",
-                height: "15px",
+                width: "1.5vh", // Width in vh
+                height: "1.5vh", // Height in vh
                 backgroundColor: paths[idx].color,
-                marginRight: "5px",
-                borderRadius: "3px",
+                marginRight: "0.5vh", // Margin right in vh
+                borderRadius: "1vh",
               }}
             ></span>
-            <span style={{ fontSize: "1.5vw", color: "#333" }}>
+            <span style={{ fontSize: "1.5vh", color: "#333" }}>
               {line.name || `Line ${idx + 1}`}
             </span>
           </div>
         ))}
       </div>
+
+      {/* Tooltip */}
+      {hoveredPoint && (
+        <div
+          style={{
+            position: "absolute",
+            top: `${(hoveredPoint.y / window.innerHeight) * 100 - 5}vh`, // Position tooltip slightly above the point
+            left: `${(hoveredPoint.x / window.innerWidth) * 100 + 1}vw`, // Position tooltip to the right of the point
+            backgroundColor: "rgba(0, 0, 0, 0.7)",
+            color: "#fff",
+            padding: "0.5vh 1vh", // Padding: 0.5vh top/bottom, 1vh left/right
+            borderRadius: "0.5vh",
+            pointerEvents: "none",
+            fontSize: "1.2vh", // Font size in vh
+            whiteSpace: "nowrap",
+            transform: "translate(-50%, -100%)",
+            zIndex: 10,
+          }}
+        >
+          <div>
+            <strong>X:</strong> {hoveredPoint.data.xValue}
+          </div>
+          <div>
+            <strong>Y:</strong> {hoveredPoint.data.yValue}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
