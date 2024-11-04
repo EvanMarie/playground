@@ -107,7 +107,7 @@ export default function SnapScrollWithNav({
     );
   }
   return (
-    <>
+    <FlexFull className={`${bgImage} rounded-t-none`}>
       <Flex className="flex-col gap-4vh h-fit fixed right-0.5vh top-1/4 z-10 items-center">
         {panels.map((panel) => (
           <NavButton key={panel.id} id={`#${panel.id}`} emoji={panel.emoji} />
@@ -115,7 +115,7 @@ export default function SnapScrollWithNav({
       </Flex>
       <FlexFull>
         <MainIndexContainer
-          className={`snap-y snap-mandatory ${bgImage}`}
+          className={`snap-y snap-mandatory`}
           height="h-100svh"
         >
           {panels.map((panel) => (
@@ -132,6 +132,6 @@ export default function SnapScrollWithNav({
           ))}
         </MainIndexContainer>
       </FlexFull>
-    </>
+    </FlexFull>
   );
 }

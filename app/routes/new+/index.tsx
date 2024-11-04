@@ -1,12 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Flex } from "~/buildingBlockComponents/mainContainers";
-import MainIndexContainer from "../building/mainIndexContainer";
-import { motion } from "framer-motion";
-import { useLocation } from "@remix-run/react";
-import SnapScrollSlideInContainer from "./components/snapScrollSlideInContainer";
+import { VStackFull } from "~/buildingBlockComponents/mainContainers";
 import SnapScrollWithNav from "./components/snapScrollWithNav";
-
-type SectionId = "one" | "two" | "three" | "four" | "five" | "six";
+import Image from "~/buildingBlockComponents/image";
 
 export default function New() {
   const panels = [
@@ -15,7 +9,12 @@ export default function New() {
       title: "One",
       emoji: "👋",
       slideDirection: "right",
-      content: <h2>One</h2>,
+      content: (
+        <VStackFull>
+          <h2>One</h2>
+          {/* <Image src="/images/clouds.webp" alt="cloud" /> */}
+        </VStackFull>
+      ),
     },
     {
       id: "two",
