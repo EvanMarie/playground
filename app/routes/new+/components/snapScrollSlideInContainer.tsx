@@ -49,7 +49,7 @@ const SnapScrollSlideInContainer = forwardRef<
         <ScrollTransition
           className={`w-100vw h-full rounded-none ${sliderBgColor} ${sliderClassName} `}
           animation={transition}
-          size="7xl"
+          size="6xl"
           amount={0.01}
           delay={0.3}
           once={false}

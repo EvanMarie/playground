@@ -4,19 +4,21 @@ import { Flex, FlexFull } from "~/buildingBlockComponents/mainContainers";
 import MainIndexContainer from "~/routes/building/mainIndexContainer";
 import SnapScrollSlideInContainer from "./snapScrollSlideInContainer";
 import { motion } from "framer-motion";
+import Icon from "~/buildingBlockComponents/icon";
 
 export interface SnapScrollPanelProps {
   id: string;
-  buttonContent: string;
+  inactiveButtonContent: string | React.ReactNode;
+  activeButtonContent: string | React.ReactNode;
   content: React.ReactNode;
-  slideDirection: string;
+  transition: string;
 }
 
 export default function SnapScrollWithNav({
   panels,
   bgImage = "bg-[url('/images/clouds.webp')] bg-cover bg-center",
   bgOverlay = "bg-cyan-800/40",
-  direction = "horizontal",
+  direction = "vertical",
 }: {
   panels: SnapScrollPanelProps[];
   bgImage?: string;
@@ -84,7 +86,17 @@ export default function SnapScrollWithNav({
     setCurrentHash(location.hash);
   }, [location.hash]);
 
-  function NavButton({ id, emoji }: { id: string; emoji: string }) {
+  function NavButton({
+    id,
+    emoji,
+    activeIcon,
+    inactiveIcon,
+  }: {
+    id: string;
+    emoji?: string;
+    activeIcon?: React.ReactNode;
+    inactiveIcon?: React.ReactNode;
+  }) {
     const isCurrent = currentHash === id;
 
     const handleClick = () => {
@@ -104,9 +116,9 @@ export default function SnapScrollWithNav({
           isCurrent
             ? "bg-rose-300 w-5.5vh h-5.5vh"
             : "bg-slate-300 w-4.5vh h-4.5vh"
-        } rounded-full border-900-sm shadowNarrowTight cursor-pointer`}
+        } rounded-full border-900-sm shadowNarrowTight cursor-pointer text-col-900 transition-300`}
       >
-        {emoji}
+        {emoji || isCurrent ? activeIcon : inactiveIcon}
       </motion.div>
     );
   }
@@ -126,7 +138,21 @@ export default function SnapScrollWithNav({
             <NavButton
               key={panel.id}
               id={`#${panel.id}`}
-              emoji={panel.buttonContent}
+              inactiveIcon={
+                typeof panel.inactiveButtonContent === "string"
+                  ? undefined
+                  : panel.inactiveButtonContent
+              }
+              activeIcon={
+                typeof panel.activeButtonContent === "string"
+                  ? undefined
+                  : panel.activeButtonContent
+              }
+              emoji={
+                typeof panel.activeButtonContent === "string"
+                  ? panel.activeButtonContent
+                  : undefined
+              }
             />
           ))}
         </Flex>
@@ -143,7 +169,7 @@ export default function SnapScrollWithNav({
                 flexDirection="direction"
                 height="h-100svh"
                 key={panel.id}
-                transition={panel.slideDirection}
+                transition={panel.transition}
                 id={panel.id}
                 ref={(el) => (sectionRefs.current[panel.id as SectionId] = el)}
                 className="snap-start"
