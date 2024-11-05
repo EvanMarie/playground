@@ -8,10 +8,15 @@ import { ScrollTransition } from "~/buildingBlockComponents/scrollTransition";
 import HorizontalScrollContainer from "./horizontalScrollContainer";
 import PopUpContent from "./popupContent";
 import FlipInRows from "./flipInRows";
-import EmergingImage from "./emergingImage";
+import PanelShiftReveal from "./panelShiftReveal";
 
 export function PanelOne() {
-  return <EmergingImage />;
+  return (
+    <PanelShiftReveal
+      sectionClassName="border-fuchsia-300 border-[0.2vh]"
+      duration={0.5}
+    />
+  );
 }
 
 export function PanelTwo() {

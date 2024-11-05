@@ -7,7 +7,14 @@ import Text from "~/buildingBlockComponents/text";
 // Type definitions for division settings
 interface DivisionSettings {
   numDivisions: number;
-  transitions: Array<"fadeOut" | "slideOutDown" | "slideOutUp" | "rotate3D">;
+  transitions: Array<
+    | "fadeOut"
+    | "slideOutDown"
+    | "slideOutUp"
+    | "rotate3D"
+    | "zoomOut"
+    | "zoomIn"
+  >;
   delays: number[];
   widths: string[];
   heights: string[];
@@ -15,18 +22,22 @@ interface DivisionSettings {
 
 interface EmergingImageProps {
   bgImage?: string;
-  numDivisions?: 1 | 2 | 2.2 | 3 | 3.2 | 4 | 6 | 8 | 9 | 12;
+  numDivisions?: 1 | 2 | 2.2 | 3 | 3.2 | 4 | 6 | 8 | 9 | 12 | 9.2;
   coverBg?: string;
   delay?: number;
   imageOverlay?: string;
+  sectionClassName?: string;
+  duration?: number;
 }
 
-export default function EmergingImage({
+export default function PanelShiftReveal({
   bgImage,
-  numDivisions = 6,
-  delay = 2,
-  coverBg = "bg-slate-900/80",
+  numDivisions = 9.2,
+  delay = 1,
+  coverBg = "bg-slate-900/80 backdrop-blur-md",
   imageOverlay = "bg-slate-900/20 backdrop-blur-[0.3vh]",
+  sectionClassName = "",
+  duration = 0.8,
 }: EmergingImageProps) {
   const divisionSettings = [
     {
@@ -40,36 +51,36 @@ export default function EmergingImage({
       numDivisions: 2,
       transitions: ["slideOutDown", "slideOutUp"],
       delays: [0.5, 0.8],
-      widths: ["w-50vw", "w-50vw"],
-      heights: ["h-100svh", "h-100svh"],
+      widths: Array(2).fill("w-50vw"),
+      heights: Array(2).fill("h-100svh"),
     },
     {
       numDivisions: 2.2,
       transitions: ["slideOutDown", "slideOutUp"],
       delays: [0.5, 0.7, 0.3],
-      widths: ["w-100vw", "w-100vw"],
-      heights: ["h-50svh", "h-50svh"],
+      widths: Array(2).fill("w-100vw"),
+      heights: Array(2).fill("h-50svh"),
     },
     {
       numDivisions: 3,
       delays: [0.2, 0.4, 0.6],
       transitions: ["rotate3D", "rotate3D", "rotate3D"],
       widths: ["w-50vw", "w-50vw", "w-100vw"],
-      heights: ["h-50svh", "h-50svh", "h-50svh"],
+      heights: Array(3).fill("h-50svh"),
     },
     {
       numDivisions: 3.2,
       delays: [0.2, 0.4, 0.6],
       transitions: ["rotate3D", "rotate3D", "rotate3D"],
-      widths: ["w-100vw", "w-50vw", "<w-15></w-15>0vw"],
-      heights: ["h-50svh", "h-50svh", "h-50svh"],
+      widths: ["w-100vw", "w-50vw", "w-50vw"],
+      heights: Array(3).fill("h-50svh"),
     },
     {
       numDivisions: 4,
       delays: [0.2, 0.4, 0.6, 0.8],
       transitions: ["rotate3D", "fadeOut", "rotate3D", "fadeOut"],
-      widths: ["w-50vw", "w-50vw", "w-50vw", "w-50vw"],
-      heights: ["h-50svh", "h-50svh", "h-50svh", "h-50svh"],
+      widths: Array(4).fill("w-50vw"),
+      heights: Array(4).fill("h-50svh"),
     },
     {
       numDivisions: 6,
@@ -82,22 +93,8 @@ export default function EmergingImage({
         "rotate3D",
         "fadeOut",
       ],
-      widths: [
-        "w-33.3vw",
-        "w-33.3vw",
-        "w-33.3vw",
-        "w-33.3vw",
-        "w-33.3vw",
-        "w-33.3vw",
-      ],
-      heights: [
-        "h-50svh",
-        "h-50svh",
-        "h-50svh",
-        "h-50svh",
-        "h-50svh",
-        "h-50svh",
-      ],
+      widths: Array(6).fill("w-33.3vw"),
+      heights: Array(6).fill("h-50svh"),
     },
     {
       numDivisions: 8,
@@ -112,26 +109,8 @@ export default function EmergingImage({
         "rotate3D",
         "fadeOut",
       ],
-      widths: [
-        "w-25vw",
-        "w-25vw",
-        "w-25vw",
-        "w-25vw",
-        "w-25vw",
-        "w-25vw",
-        "w-25vw",
-        "w-25vw",
-      ],
-      heights: [
-        "h-50svh",
-        "h-50svh",
-        "h-50svh",
-        "h-50svh",
-        "h-50svh",
-        "h-50svh",
-        "h-50svh",
-        "h-50svh",
-      ],
+      widths: Array(8).fill("w-25vw"),
+      heights: Array(8).fill("h-50svh"),
     },
     {
       numDivisions: 9,
@@ -147,28 +126,67 @@ export default function EmergingImage({
         "fadeOut",
         "rotate3D",
       ],
+      widths: Array(9).fill("w-33.3vw"),
+      heights: Array(9).fill("h-33.3svh"),
+    },
+    {
+      numDivisions: 12,
+      delays: [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3],
+      transitions: [
+        "rotate3D",
+        "fadeOut",
+        "rotate3D",
+        "fadeOut",
+        "rotate3D",
+        "fadeOut",
+        "rotate3D",
+        "fadeOut",
+        "rotate3D",
+        "fadeOut",
+        "rotate3D",
+        "fadeOut",
+      ],
+      widths: Array(12).fill("w-25vw"),
+      heights: Array(12).fill("h-33.4svh"),
+    },
+    // 9 uneven divisions with 3 rows and 4 rows
+    {
+      numDivisions: 9.2,
+      delays: [0.1, 0.3, 0.6, 0.7, 0.9, 0.5, 0.4, 0.7, 0.2],
+      // transitions: [
+      //   "zoomOut",
+      //   "zoomOut",
+      //   "zoomOut",
+      //   "zoomOut",
+      //   "zoomOut",
+      //   "zoomOut",
+      //   "zoomOut",
+      //   "zoomOut",
+      //   "zoomOut",
+      // ],
+      transitions: [
+        "zoomIn",
+        "zoomIn",
+        "zoomIn",
+        "zoomIn",
+        "zoomIn",
+        "zoomIn",
+        "zoomIn",
+        "zoomIn",
+        "zoomIn",
+      ],
       widths: [
-        "w-33.3vw",
-        "w-33.3vw",
-        "w-33.3vw",
-        "w-33.3vw",
-        "w-33.3vw",
-        "w-33.3vw",
-        "w-33.3vw",
-        "w-33.3vw",
-        "w-33.3vw",
+        "w-20vw",
+        "w-40vw",
+        "w-40vw",
+        "w-40vw",
+        "w-15vw",
+        "w-45vw",
+        "w-30vw",
+        "w-45vw",
+        "w-25vw",
       ],
-      heights: [
-        "h-50svh",
-        "h-50svh",
-        "h-50svh",
-        "h-50svh",
-        "h-50svh",
-        "h-50svh",
-        "h-50svh",
-        "h-50svh",
-        "h-50svh",
-      ],
+      heights: Array(9).fill("h-34svh"),
     },
   ];
 
@@ -188,6 +206,8 @@ export default function EmergingImage({
     slideOutDown: { y: "100vh", opacity: 0 },
     slideOutUp: { y: "-100vh", opacity: 0 },
     rotate3D: { rotateY: 180, opacity: 0 },
+    zoomOut: { scale: 0, opacity: 0 },
+    zoomIn: { scale: 3, opacity: 0 },
   };
 
   return (
@@ -209,13 +229,13 @@ export default function EmergingImage({
         {divisions.widths.map((width, index) => (
           <motion.div
             key={index}
-            className={`${width} ${divisions.heights[index]} ${coverBg} z-15 rounded-none`}
+            className={`${width} ${divisions.heights[index]} ${coverBg} z-15 rounded-none ${sectionClassName}`}
             initial="initial" // Start fully opaque
             animate={divisions.transitions[index]}
             variants={animationVariants}
             transition={{
               delay: divisions.delays[index] + delay,
-              duration: 0.8,
+              duration: duration,
               ease: "easeInOut",
             }}
           >
