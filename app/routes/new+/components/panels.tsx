@@ -7,6 +7,7 @@ import {
 import { ScrollTransition } from "~/buildingBlockComponents/scrollTransition";
 import HorizontalScrollContainer from "./horizontalScrollContainer";
 import PopUpContent from "./popupContent";
+import SlideInRows from "./slideInRows";
 
 export function PanelOne() {
   return (
@@ -82,13 +83,26 @@ export function PanelTwo() {
 }
 
 export function PanelThree() {
+  const contents = [
+    <Center className="w-full h-full bg-blue-500">1</Center>,
+    <Center className="w-full h-full bg-blue-500">2</Center>,
+    <Center className="w-full h-full bg-blue-500">3</Center>,
+    <Center className="w-full h-full bg-blue-500">4</Center>,
+    <Center className="w-full h-full bg-blue-500">5</Center>,
+    <Center className="w-full h-full bg-blue-500">6</Center>,
+    <Center className="w-full h-full bg-blue-500">7</Center>,
+    <Center className="w-full h-full bg-blue-500">8</Center>,
+    <Center className="w-full h-full bg-blue-500">9</Center>,
+    <Center className="w-full h-full bg-blue-500">10</Center>,
+    <Center className="w-full h-full bg-blue-500">11</Center>,
+    <Center className="w-full h-full bg-blue-500">12</Center>,
+    <Center className="w-full h-full bg-blue-500">13</Center>,
+    <Center className="w-full h-full bg-blue-500">14</Center>,
+    <Center className="w-full h-full bg-blue-500">15</Center>,
+  ];
   return (
     <CenterFull>
-      <VStackFull>
-        <ScrollTransition animation="rotate3D" delay={0.6} once={false}>
-          <h2>Three</h2>
-        </ScrollTransition>
-      </VStackFull>
+      <SlideInRows content={contents} />
     </CenterFull>
   );
 }
