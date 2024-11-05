@@ -19,7 +19,7 @@ export default function UnfoldingContent({
         {contents.map((content, index) => (
           <FlexFull
             key={index}
-            className={`flex-shrink-0 ${contentWidth} ${contentHeight} bg-gray-800/40`}
+            className={`flex-shrink-0 ${contentWidth} ${contentHeight} `}
           >
             {content}
           </FlexFull>

@@ -15,12 +15,14 @@ export function PanelOne() {
         <ScrollTransition animation="rotate3D" delay={0.6} once={false}>
           <UnfoldingContent
             contents={[
-              <Center className="w-full h-full bg-blue-500">One</Center>,
-              <Center className="w-full h-full bg-blue-500">Two</Center>,
-              <Center className="w-full h-full bg-blue-500">Three</Center>,
-              <Center className="w-full h-full bg-blue-500">Four</Center>,
-              <Center className="w-full h-full bg-blue-500">Five</Center>,
-              <Center className="w-full h-full bg-blue-500">Six</Center>,
+              <Center className="w-full h-full m-1vh bg-blue-500">One</Center>,
+              <Center className="w-full h-full bg-blue-500 m-1vh">Two</Center>,
+              <Center className="w-full h-full bg-blue-500 m-1vh">
+                Three
+              </Center>,
+              <Center className="w-full h-full bg-blue-500 m-1vh">Four</Center>,
+              <Center className="w-full h-full bg-blue-500 m-1vh">Five</Center>,
+              <Center className="w-full h-full bg-blue-500 m-1vh">Six</Center>,
             ]}
           />
         </ScrollTransition>
