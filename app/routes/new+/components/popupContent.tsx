@@ -72,7 +72,8 @@ export default function PopUpContent({
             key={index}
             custom={index}
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
+            viewport={{ once: true }}
             variants={itemVariants}
             style={{
               width: contentWidth,
