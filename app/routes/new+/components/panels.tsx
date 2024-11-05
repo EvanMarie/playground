@@ -15,14 +15,21 @@ export function PanelOne() {
         <ScrollTransition animation="rotate3D" delay={0.6} once={false}>
           <UnfoldingContent
             contents={[
-              <Center className="w-full h-full m-1vh bg-blue-500">One</Center>,
-              <Center className="w-full h-full bg-blue-500 m-1vh">Two</Center>,
-              <Center className="w-full h-full bg-blue-500 m-1vh">
-                Three
-              </Center>,
-              <Center className="w-full h-full bg-blue-500 m-1vh">Four</Center>,
-              <Center className="w-full h-full bg-blue-500 m-1vh">Five</Center>,
-              <Center className="w-full h-full bg-blue-500 m-1vh">Six</Center>,
+              <Center className="w-full h-full bg-blue-500">1</Center>,
+              <Center className="w-full h-full bg-blue-500">2</Center>,
+              <Center className="w-full h-full bg-blue-500">3</Center>,
+              <Center className="w-full h-full bg-blue-500">4</Center>,
+              <Center className="w-full h-full bg-blue-500">5</Center>,
+              <Center className="w-full h-full bg-blue-500">6</Center>,
+              <Center className="w-full h-full bg-blue-500">7</Center>,
+              <Center className="w-full h-full bg-blue-500">8</Center>,
+              <Center className="w-full h-full bg-blue-500">9</Center>,
+              <Center className="w-full h-full bg-blue-500">10</Center>,
+              <Center className="w-full h-full bg-blue-500">11</Center>,
+              <Center className="w-full h-full bg-blue-500">12</Center>,
+              <Center className="w-full h-full bg-blue-500">13</Center>,
+              <Center className="w-full h-full bg-blue-500">14</Center>,
+              <Center className="w-full h-full bg-blue-500">15</Center>,
             ]}
           />
         </ScrollTransition>
