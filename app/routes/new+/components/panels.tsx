@@ -1,15 +1,49 @@
 import {
+  Box,
+  Center,
   CenterFull,
   VStackFull,
 } from "~/buildingBlockComponents/mainContainers";
 import { ScrollTransition } from "~/buildingBlockComponents/scrollTransition";
+import HorizontalScrollContainer from "./horizontalScrollContainer";
 
 export function PanelOne() {
   return (
     <CenterFull>
       <VStackFull>
         <ScrollTransition animation="rotate3D" delay={0.6} once={false}>
-          <h2>One</h2>
+          <HorizontalScrollContainer>
+            <Box className="p-1vh">
+              <Center className="w-40vw h-80vh bg-blue-500 flex-shrink-0">
+                1
+              </Center>
+            </Box>
+            <Box className="p-1vh">
+              <Center className="w-40vw h-80vh bg-blue-500 flex-shrink-0">
+                2
+              </Center>
+            </Box>
+            <Box className="p-1vh">
+              <Center className="w-40vw h-80vh bg-blue-500 flex-shrink-0">
+                3
+              </Center>
+            </Box>
+            <Box className="p-1vh">
+              <Center className="w-40vw h-80vh bg-blue-500 flex-shrink-0">
+                4
+              </Center>
+            </Box>
+            <Box className="p-1vh">
+              <Center className="w-40vw h-80vh bg-blue-500  flex-shrink-0">
+                5
+              </Center>
+            </Box>
+            <Box className="p-1vh">
+              <Center className="w-40vw h-80vh bg-blue-500  flex-shrink-0">
+                6
+              </Center>
+            </Box>
+          </HorizontalScrollContainer>
         </ScrollTransition>
       </VStackFull>
     </CenterFull>
