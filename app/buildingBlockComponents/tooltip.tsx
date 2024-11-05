@@ -103,7 +103,7 @@ export default function Tooltip({
             className={`absolute ${placementStyles} py-[0.1vh]`}
             onMouseLeave={() => setHovered(false)}
           >
-            <Transition className="rounded-sm">
+            <Transition className="rounded-sm" delay={0}>
               <div
                 className={`text-sm-tight justify-center py-[0.3vh] px-[0.8vh] shadowNarrowNormal whitespace-nowrap rounded-sm ${border} ${w} ${bg} ${color}`}
                 style={{ zIndex: 100 }}

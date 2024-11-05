@@ -115,26 +115,20 @@ export default function SnapScrollWithNav({
       }
     };
     return (
-      // <Transition
-      //   delay={0.1 + index * 0.15}
-      //   type="slideInRightQuarter"
-      //   className="overflow-visible"
-      // >
       <Tooltip label={tooltipLabel} placement="left">
         <motion.button
           onClick={handleClick}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          className={`text-lg flex justify-center items-center z-20 ${
+          className={`flex justify-center items-center z-20 ${
             isCurrent
-              ? "bg-fuchsia-300 w-5.5vh h-5.5vh"
-              : "bg-slate-300 w-4.5vh h-4.5vh hover:bg-fuchsia-200 transition-300"
+              ? "bg-fuchsia-300 w-4.5vh h-4.5vh md:w-5.5vh md:h-5.5vh text-2.7vh md:text-xxl"
+              : "bg-slate-300 w-4vh h-4vh md:w-4.5vh md:h-4.5vh hover:bg-fuchsia-200 transition-300 text-2.3vh md:text-lg"
           } rounded-full border-900-sm shadowNarrowTight cursor-pointer text-col-900 transition-300`}
         >
           {emoji || isCurrent ? activeIcon : inactiveIcon}
         </motion.button>
       </Tooltip>
-      // </Transition>
     );
   }
 
@@ -148,7 +142,7 @@ export default function SnapScrollWithNav({
   return (
     <FlexFull className={`${bgImage} rounded-t-none`}>
       <FlexFull className={bgOverlay}>
-        <Flex className="flex-col gap-4vh h-fit fixed right-0.5vh top-1/4 z-10 items-center overflow-visible">
+        <Flex className="md:flex-col gap-4vh h-fit fixed bottom-0.5vh w-full justify-evenly md:w-fit md:right-0.5vh md:top-1/4 z-10 items-center overflow-visible">
           {panels.map((panel, index) => (
             <NavButton
               index={index}

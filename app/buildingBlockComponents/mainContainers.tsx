@@ -932,10 +932,10 @@ export const Transition = forwardRef<HTMLDivElement, TransitionProps>(
     {
       children,
       type = "fade",
-      delay = 1,
+      delay = 0.3,
       className = "",
       style = {},
-      duration = 0.5,
+      duration = 0.3,
       onClick,
       ...otherProps
     },
