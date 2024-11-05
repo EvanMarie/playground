@@ -6,8 +6,30 @@ import {
 } from "~/buildingBlockComponents/mainContainers";
 import { ScrollTransition } from "~/buildingBlockComponents/scrollTransition";
 import HorizontalScrollContainer from "./horizontalScrollContainer";
+import UnfoldingContent from "./unfoldingContent";
 
 export function PanelOne() {
+  return (
+    <CenterFull>
+      <VStackFull>
+        <ScrollTransition animation="rotate3D" delay={0.6} once={false}>
+          <UnfoldingContent
+            contents={[
+              <Center className="w-full h-full bg-blue-500">One</Center>,
+              <Center className="w-full h-full bg-blue-500">Two</Center>,
+              <Center className="w-full h-full bg-blue-500">Three</Center>,
+              <Center className="w-full h-full bg-blue-500">Four</Center>,
+              <Center className="w-full h-full bg-blue-500">Five</Center>,
+              <Center className="w-full h-full bg-blue-500">Six</Center>,
+            ]}
+          />
+        </ScrollTransition>
+      </VStackFull>
+    </CenterFull>
+  );
+}
+
+export function PanelTwo() {
   return (
     <CenterFull>
       <VStackFull>
@@ -44,18 +66,6 @@ export function PanelOne() {
               </Center>
             </Box>
           </HorizontalScrollContainer>
-        </ScrollTransition>
-      </VStackFull>
-    </CenterFull>
-  );
-}
-
-export function PanelTwo() {
-  return (
-    <CenterFull>
-      <VStackFull>
-        <ScrollTransition animation="rotate3D" delay={0.6} once={false}>
-          <h2>Two</h2>
         </ScrollTransition>
       </VStackFull>
     </CenterFull>

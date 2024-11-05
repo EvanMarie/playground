@@ -5,6 +5,7 @@ import {
 } from "~/buildingBlockComponents/mainContainers";
 import { motion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 export default function HorizontalScrollContainer({
   children,
@@ -81,14 +82,14 @@ export default function HorizontalScrollContainer({
             disabled={isAtStart}
             className={isAtStart ? "opacity-50 cursor-not-allowed" : ""}
           >
-            Left
+            <FaChevronLeft />
           </motion.button>
           <motion.button
             onClick={handleScrollRight}
             disabled={isAtEnd}
             className={isAtEnd ? "opacity-50 cursor-not-allowed" : ""}
           >
-            Right
+            <FaChevronRight />
           </motion.button>
         </HStack>
       </FlexFull>
