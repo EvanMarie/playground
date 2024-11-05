@@ -56,10 +56,23 @@ export default function HorizontalScrollContainer({
       scrollContainerRef.current.addEventListener("scroll", handleScroll);
       handleScroll(); // Initial check
     }
+
+    // Add event listener for keydown to handle left and right arrow keys
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "ArrowLeft") {
+        handleScrollLeft();
+      } else if (event.key === "ArrowRight") {
+        handleScrollRight();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+
+    // Clean up both scroll and keydown listeners
     return () => {
       if (scrollContainerRef.current) {
         scrollContainerRef.current.removeEventListener("scroll", handleScroll);
       }
+      window.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
 

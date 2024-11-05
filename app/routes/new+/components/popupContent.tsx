@@ -1,10 +1,8 @@
-import Transition, {
-  Flex,
-  Wrap,
-} from "~/buildingBlockComponents/mainContainers";
+import { Flex, Wrap } from "~/buildingBlockComponents/mainContainers";
+import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
-export default function UnfoldingContent({
+export default function PopUpContent({
   contents,
   height = "100svh",
   width = "100vw",
@@ -47,6 +45,22 @@ export default function UnfoldingContent({
   const contentWidth = `${(containerWidth / cols).toFixed(2)}px`;
   const contentHeight = `${(containerHeight / rows).toFixed(2)}px`;
 
+  // Animation variants for staggering and zooming in
+  const itemVariants = {
+    hidden: { opacity: 0, scale: 0, x: 0, y: 0 },
+    visible: (index: number) => ({
+      opacity: 1,
+      scale: 1,
+      x: 0,
+      y: 0,
+      transition: {
+        delay: 0.1 + index * 0.1,
+        type: "spring",
+        stiffness: 70,
+      },
+    }),
+  };
+
   return (
     <Flex className="bg-gray-800/40" style={{ width, height }}>
       <Wrap
@@ -54,9 +68,12 @@ export default function UnfoldingContent({
         style={{ display: "flex", flexWrap: "wrap" }}
       >
         {contents.map((content, index) => (
-          <Transition
-            delay={0.7 + index * 0.1}
+          <motion.div
             key={index}
+            custom={index}
+            initial="hidden"
+            animate="visible"
+            variants={itemVariants}
             style={{
               width: contentWidth,
               height: contentHeight,
@@ -65,10 +82,10 @@ export default function UnfoldingContent({
               maxHeight: contentHeight,
               minHeight: contentHeight,
             }}
-            className={`flex-shrink-0 ${contentPadding}`}
+            className={`flex-shrink-0 flex ${contentPadding}`}
           >
             {content}
-          </Transition>
+          </motion.div>
         ))}
       </Wrap>
     </Flex>

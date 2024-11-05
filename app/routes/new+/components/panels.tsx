@@ -6,14 +6,14 @@ import {
 } from "~/buildingBlockComponents/mainContainers";
 import { ScrollTransition } from "~/buildingBlockComponents/scrollTransition";
 import HorizontalScrollContainer from "./horizontalScrollContainer";
-import UnfoldingContent from "./unfoldingContent";
+import PopUpContent from "./popupContent";
 
 export function PanelOne() {
   return (
     <CenterFull>
       <VStackFull>
         <ScrollTransition animation="rotate3D" delay={0.6} once={false}>
-          <UnfoldingContent
+          <PopUpContent
             contents={[
               <Center className="w-full h-full bg-blue-500">1</Center>,
               <Center className="w-full h-full bg-blue-500">2</Center>,
