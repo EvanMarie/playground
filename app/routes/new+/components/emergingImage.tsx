@@ -1,14 +1,32 @@
-import { delay } from "framer-motion";
+import { motion, Variants } from "framer-motion";
+import { ReactNode } from "react";
 import Image from "~/buildingBlockComponents/image";
-import { FlexFull } from "~/buildingBlockComponents/mainContainers";
+import { FlexFull, Wrap } from "~/buildingBlockComponents/mainContainers";
+import Text from "~/buildingBlockComponents/text";
+
+// Type definitions for division settings
+interface DivisionSettings {
+  numDivisions: number;
+  transitions: Array<"fadeOut" | "slideOutDown" | "slideOutUp" | "rotate3D">;
+  delays: number[];
+  widths: string[];
+  heights: string[];
+  contents?: ReactNode[];
+}
+
+interface EmergingImageProps {
+  bgImage: string;
+  numDivisions?: 1 | 2 | 2.2 | 3 | 3.2 | 4 | 6 | 8 | 9 | 12;
+  coverBg?: string;
+  delay?: number;
+}
 
 export default function EmergingImage({
   bgImage,
   numDivisions = 6,
-}: {
-  bgImage: string;
-  numDivisions: 1 | 2 | 2.2 | 3 | 3.2 | 4 | 6 | 8 | 9 | 12;
-}) {
+  //   coverBg = "bg-indigo-900 bg-gradient-to-b from-indigo-800/40 via-indigo-700/40 to-indigo-800/40",
+  coverBg = "bg-red-400",
+}: EmergingImageProps) {
   const divisionSettings = [
     {
       numDivisions: 1,
@@ -48,14 +66,21 @@ export default function EmergingImage({
     {
       numDivisions: 4,
       delays: [0.2, 0.4, 0.6, 0.8],
-      transitions: ["rotate3D", "fade", "rotate3D", "fade"],
+      transitions: ["rotate3D", "fadeOut", "rotate3D", "fadeOut"],
       widths: ["w-50vw", "w-50vw", "w-50vw", "w-50vw"],
       heights: ["h-50svh", "h-50svh", "h-50svh", "h-50svh"],
     },
     {
       numDivisions: 6,
       delays: [0.2, 0.3, 0.4, 0.5, 0.6, 0.7],
-      transitions: ["rotate3D", "fade", "rotate3D", "fade", "rotate3D", "fade"],
+      transitions: [
+        "rotate3D",
+        "fadeOut",
+        "rotate3D",
+        "fadeOut",
+        "rotate3D",
+        "fadeOut",
+      ],
       widths: [
         "w-33.3vw",
         "w-33.3vw",
@@ -78,13 +103,13 @@ export default function EmergingImage({
       delays: [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9],
       transitions: [
         "rotate3D",
-        "fade",
+        "fadeOut",
         "rotate3D",
-        "fade",
+        "fadeOut",
         "rotate3D",
-        "fade",
+        "fadeOut",
         "rotate3D",
-        "fade",
+        "fadeOut",
       ],
       widths: [
         "w-25vw",
@@ -112,13 +137,13 @@ export default function EmergingImage({
       delays: [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
       transitions: [
         "rotate3D",
-        "fade",
+        "fadeOut",
         "rotate3D",
-        "fade",
+        "fadeOut",
         "rotate3D",
-        "fade",
+        "fadeOut",
         "rotate3D",
-        "fade",
+        "fadeOut",
         "rotate3D",
       ],
       widths: [
@@ -145,13 +170,54 @@ export default function EmergingImage({
       ],
     },
   ];
+
+  // Find the settings that match the specified number of divisions
+  const divisions = divisionSettings.find(
+    (division) => division.numDivisions === numDivisions
+  );
+
+  if (!divisions) {
+    return null; // Return null if no matching settings are found
+  }
+
+  // Framer Motion variants for animation types
+  const animationVariants: Variants = {
+    initial: { opacity: 1 }, // Start with full opacity
+    fadeOut: { opacity: 0 },
+    slideOutDown: { y: "100vh", opacity: 0 },
+    slideOutUp: { y: "-100vh", opacity: 0 },
+    rotate3D: { rotateY: 180, opacity: 0 },
+  };
+
   return (
-    <FlexFull className="h-100svh w-100vw relative">
+    <FlexFull className="h-100svh w-100vw relative overflow-hidden">
+      {/* Background Image */}
       <Image
         src={bgImage}
-        className="absolute z-5 inset-0"
-        alt="beautiful image"
+        className="absolute z-5 inset-0 object-cover w-full h-full"
+        alt="background image"
       />
+      <FlexFull className="absolute inset-0 justify-center items-center">
+        <h1 className="text-slate-950 textGlowSm">THIS IS THE TEXT</h1>
+      </FlexFull>
+      <Wrap className="w-full h-full flex flex-wrap absolute inset-0">
+        {divisions.widths.map((width, index) => (
+          <motion.div
+            key={index}
+            className={`${width} ${divisions.heights[index]} ${coverBg} z-15 rounded-none`}
+            initial="initial" // Start fully opaque
+            animate={divisions.transitions[index]}
+            variants={animationVariants}
+            transition={{
+              delay: divisions.delays[index],
+              duration: 0.8,
+              ease: "easeInOut",
+            }}
+          >
+            <Text className="text-transparent">.</Text>
+          </motion.div>
+        ))}
+      </Wrap>
     </FlexFull>
   );
 }
