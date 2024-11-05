@@ -8,12 +8,14 @@ export default function MainIndexContainer({
   height = "h-100svh",
   overflow = "overflow-y-auto overflow-x-hidden",
   direction = "flex-col",
+  scrollbarColor = "bg-rose-300",
 }: {
   children: React.ReactNode;
   className?: string;
   height?: string;
   overflow?: string;
   direction?: string;
+  scrollbarColor?: string;
 }) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const containerClass =
@@ -23,7 +25,7 @@ export default function MainIndexContainer({
       <ScrollProgressBar
         containerRef={scrollContainerRef}
         centered
-        color="bg-rose-300"
+        color={scrollbarColor}
       />
 
       <FlexFull

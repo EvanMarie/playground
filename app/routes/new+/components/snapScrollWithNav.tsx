@@ -1,10 +1,13 @@
 import { useLocation } from "@remix-run/react";
 import { useEffect, useRef, useState } from "react";
-import { Flex, FlexFull } from "~/buildingBlockComponents/mainContainers";
+import Transition, {
+  Flex,
+  FlexFull,
+} from "~/buildingBlockComponents/mainContainers";
 import MainIndexContainer from "~/routes/building/mainIndexContainer";
 import SnapScrollSlideInContainer from "./snapScrollSlideInContainer";
 import { motion } from "framer-motion";
-import Icon from "~/buildingBlockComponents/icon";
+import Tooltip from "~/buildingBlockComponents/tooltip";
 
 export interface SnapScrollPanelProps {
   id: string;
@@ -12,6 +15,7 @@ export interface SnapScrollPanelProps {
   activeButtonContent: string | React.ReactNode;
   content: React.ReactNode;
   transition: string;
+  name?: string;
 }
 
 export default function SnapScrollWithNav({
@@ -88,14 +92,18 @@ export default function SnapScrollWithNav({
 
   function NavButton({
     id,
+    index,
     emoji,
     activeIcon,
     inactiveIcon,
+    tooltipLabel,
   }: {
     id: string;
+    index: number;
     emoji?: string;
     activeIcon?: React.ReactNode;
     inactiveIcon?: React.ReactNode;
+    tooltipLabel?: string;
   }) {
     const isCurrent = currentHash === id;
 
@@ -106,20 +114,27 @@ export default function SnapScrollWithNav({
         window.history.pushState(null, "", id); // Update the hash without triggering a full navigation
       }
     };
-
     return (
-      <motion.div
-        onClick={handleClick}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        className={`text-lg flex justify-center items-center ${
-          isCurrent
-            ? "bg-rose-300 w-5.5vh h-5.5vh"
-            : "bg-slate-300 w-4.5vh h-4.5vh"
-        } rounded-full border-900-sm shadowNarrowTight cursor-pointer text-col-900 transition-300`}
-      >
-        {emoji || isCurrent ? activeIcon : inactiveIcon}
-      </motion.div>
+      // <Transition
+      //   delay={0.1 + index * 0.15}
+      //   type="slideInRightQuarter"
+      //   className="overflow-visible"
+      // >
+      <Tooltip label={tooltipLabel} placement="left">
+        <motion.button
+          onClick={handleClick}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          className={`text-lg flex justify-center items-center z-20 ${
+            isCurrent
+              ? "bg-fuchsia-300 w-5.5vh h-5.5vh"
+              : "bg-slate-300 w-4.5vh h-4.5vh hover:bg-fuchsia-200 transition-300"
+          } rounded-full border-900-sm shadowNarrowTight cursor-pointer text-col-900 transition-300`}
+        >
+          {emoji || isCurrent ? activeIcon : inactiveIcon}
+        </motion.button>
+      </Tooltip>
+      // </Transition>
     );
   }
 
@@ -133,9 +148,11 @@ export default function SnapScrollWithNav({
   return (
     <FlexFull className={`${bgImage} rounded-t-none`}>
       <FlexFull className={bgOverlay}>
-        <Flex className="flex-col gap-4vh h-fit fixed right-0.5vh top-1/4 z-10 items-center">
-          {panels.map((panel) => (
+        <Flex className="flex-col gap-4vh h-fit fixed right-0.5vh top-1/4 z-10 items-center overflow-visible">
+          {panels.map((panel, index) => (
             <NavButton
+              index={index}
+              tooltipLabel={panel.name}
               key={panel.id}
               id={`#${panel.id}`}
               inactiveIcon={
@@ -162,6 +179,7 @@ export default function SnapScrollWithNav({
             height="h-100svh"
             overflow={overflow}
             direction={flexDirection}
+            scrollbarColor="bg-fuchsia-300"
           >
             {panels.map((panel) => (
               <SnapScrollSlideInContainer
