@@ -6,7 +6,7 @@ export default function PopUpContent({
   contents,
   height = "100svh",
   width = "100vw",
-  contentPadding = "p-1vh",
+  contentPadding = "p-1.5vh",
 }: {
   contents: React.ReactNode[];
   height?: string;
