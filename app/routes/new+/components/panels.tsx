@@ -7,7 +7,7 @@ import {
 import { ScrollTransition } from "~/buildingBlockComponents/scrollTransition";
 import HorizontalScrollContainer from "./horizontalScrollContainer";
 import PopUpContent from "./popupContent";
-import SlideInRows from "./slideInRows";
+import FlipInRows from "./flipInRows";
 
 export function PanelOne() {
   return (
@@ -102,7 +102,7 @@ export function PanelThree() {
   ];
   return (
     <CenterFull>
-      <SlideInRows content={contents} />
+      <FlipInRows content={contents} />
     </CenterFull>
   );
 }
