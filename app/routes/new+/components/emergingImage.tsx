@@ -11,21 +11,22 @@ interface DivisionSettings {
   delays: number[];
   widths: string[];
   heights: string[];
-  contents?: ReactNode[];
 }
 
 interface EmergingImageProps {
-  bgImage: string;
+  bgImage?: string;
   numDivisions?: 1 | 2 | 2.2 | 3 | 3.2 | 4 | 6 | 8 | 9 | 12;
   coverBg?: string;
   delay?: number;
+  imageOverlay?: string;
 }
 
 export default function EmergingImage({
   bgImage,
   numDivisions = 6,
-  //   coverBg = "bg-indigo-900 bg-gradient-to-b from-indigo-800/40 via-indigo-700/40 to-indigo-800/40",
-  coverBg = "bg-red-400",
+  delay = 2,
+  coverBg = "bg-slate-900/80",
+  imageOverlay = "bg-slate-900/20 backdrop-blur-[0.3vh]",
 }: EmergingImageProps) {
   const divisionSettings = [
     {
@@ -192,12 +193,16 @@ export default function EmergingImage({
   return (
     <FlexFull className="h-100svh w-100vw relative overflow-hidden">
       {/* Background Image */}
-      <Image
-        src={bgImage}
-        className="absolute z-5 inset-0 object-cover w-full h-full"
-        alt="background image"
-      />
-      <FlexFull className="absolute inset-0 justify-center items-center">
+      {bgImage && (
+        <Image
+          src={bgImage}
+          className="absolute z-5 inset-0 object-cover w-full h-full"
+          alt="background image"
+        />
+      )}
+      <FlexFull
+        className={`absolute inset-0 justify-center items-center ${imageOverlay}`}
+      >
         <h1 className="text-slate-950 textGlowSm">THIS IS THE TEXT</h1>
       </FlexFull>
       <Wrap className="w-full h-full flex flex-wrap absolute inset-0">
@@ -209,7 +214,7 @@ export default function EmergingImage({
             animate={divisions.transitions[index]}
             variants={animationVariants}
             transition={{
-              delay: divisions.delays[index],
+              delay: divisions.delays[index] + delay,
               duration: 0.8,
               ease: "easeInOut",
             }}

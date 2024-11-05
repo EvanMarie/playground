@@ -20,8 +20,8 @@ export interface SnapScrollPanelProps {
 
 export default function SnapScrollWithNav({
   panels,
-  bgImage = "bg-[url('/images/clouds.webp')] bg-cover bg-center",
-  bgOverlay = "bg-cyan-800/40",
+  bgImage = "bg-[url('/images/geometric.webp')] bg-cover bg-center",
+  bgOverlay = "bg-slate-800/30",
   direction = "vertical",
 }: {
   panels: SnapScrollPanelProps[];

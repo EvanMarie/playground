@@ -29,8 +29,9 @@ const SnapScrollSlideInContainer = forwardRef<
       height = "h-100svh",
       outerClassName = "",
       sliderClassName = "",
-      sliderBgColor = "bg-slate-500 bg-gradient-to-br from-slate-600 via-slate-700/80 to-slate-600",
-      transition = "right",
+      // sliderBgColor = "bg-slate-500/50 bg-gradient-to-br from-slate-600 via-slate-700/80 to-slate-600",
+      sliderBgColor = "bg-slate-800/70",
+      transition = "fade",
       flexDirection = "flex-col",
       width = "w-full",
       id,
@@ -40,7 +41,7 @@ const SnapScrollSlideInContainer = forwardRef<
   ) => {
     return (
       <MainPanel
-        ref={ref} // Forwarding the ref here
+        ref={ref}
         height={height}
         className={`snap-start ${outerClassName} ${className} ${width}`}
         id={id}
@@ -51,7 +52,7 @@ const SnapScrollSlideInContainer = forwardRef<
           animation={transition}
           size="6xl"
           amount={0.01}
-          delay={0.3}
+          delay={0}
           once={false}
           type="tween"
         >
