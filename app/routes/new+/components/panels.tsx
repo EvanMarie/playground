@@ -177,7 +177,10 @@ export function PanelFour() {
 export function PanelFive() {
   return (
     <CenterFull>
-      <UnfoldingContentDetails />
+      <VStackFull>
+        <UnfoldingContentDetails />
+        <UnfoldingContentDetails />
+      </VStackFull>
     </CenterFull>
   );
 }
