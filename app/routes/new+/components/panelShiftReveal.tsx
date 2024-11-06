@@ -37,7 +37,7 @@ export default function PanelShiftReveal({
   coverBg = "bg-slate-900/80 backdrop-blur-md",
   imageOverlay = "bg-slate-900/20 backdrop-blur-[0.3vh]",
   sectionClassName = "",
-  duration = 0.8,
+  duration = 1.5,
 }: EmergingImageProps) {
   const divisionSettings = [
     {
@@ -131,7 +131,7 @@ export default function PanelShiftReveal({
     },
     {
       numDivisions: 12,
-      delays: [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3],
+      delays: [0.3, 1.6, 0.5, 0.7, 0.8, 0.7, 1.5, 1, 1.2, 1.3, 1.4, 1.2],
       transitions: [
         "rotate3D",
         "fadeOut",
@@ -152,7 +152,7 @@ export default function PanelShiftReveal({
     // 9 uneven divisions with 3 rows and 4 rows
     {
       numDivisions: 9.2,
-      delays: [0.1, 0.3, 0.6, 0.7, 0.9, 0.5, 0.4, 0.7, 0.2],
+      delays: [0.3, 0.5, 0.8, 1.1, 1, 0.7, 0.6, 0.9, 0.4],
       // transitions: [
       //   "zoomOut",
       //   "zoomOut",
@@ -230,7 +230,7 @@ export default function PanelShiftReveal({
           <motion.div
             key={index}
             className={`${width} ${divisions.heights[index]} ${coverBg} z-15 rounded-none ${sectionClassName}`}
-            initial="initial" // Start fully opaque
+            initial="initial"
             animate={divisions.transitions[index]}
             variants={animationVariants}
             transition={{
