@@ -9,6 +9,7 @@ import HorizontalScrollContainer from "./horizontalScrollContainer";
 import PopUpContent from "./popupContent";
 import FlipInRows from "./flipInRows";
 import PanelShiftReveal from "./panelShiftReveal";
+import UnfoldingContentDetails from "./unfoldingContentDetails";
 
 export function PanelOne() {
   return (
@@ -176,11 +177,7 @@ export function PanelFour() {
 export function PanelFive() {
   return (
     <CenterFull>
-      <VStackFull>
-        <ScrollTransition animation="rotate3D" delay={0.6} once={false}>
-          <h2>Five</h2>
-        </ScrollTransition>
-      </VStackFull>
+      <UnfoldingContentDetails />
     </CenterFull>
   );
 }
