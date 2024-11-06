@@ -14,7 +14,7 @@ export function PanelOne() {
   return (
     <PanelShiftReveal
       sectionClassName="border-fuchsia-300 border-[0.2vh] shadowNarrowLooser border-[0.2vh]"
-      duration={0.5}
+      duration={1.3}
     />
   );
 }

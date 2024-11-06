@@ -207,7 +207,7 @@ export default function PanelShiftReveal({
     slideOutUp: { y: "-100vh", opacity: 0 },
     rotate3D: { rotateY: 180, opacity: 0 },
     zoomOut: { scale: 0, opacity: 0 },
-    zoomIn: { scale: 3, opacity: 0 },
+    zoomIn: { scale: 3, opacity: 0, borderRadius: "100%" },
   };
 
   return (
@@ -229,6 +229,7 @@ export default function PanelShiftReveal({
         {divisions.widths.map((width, index) => (
           <motion.div
             key={index}
+            layout
             className={`${width} ${divisions.heights[index]} ${coverBg} z-15 rounded-none ${sectionClassName}`}
             initial="initial"
             animate={divisions.transitions[index]}
