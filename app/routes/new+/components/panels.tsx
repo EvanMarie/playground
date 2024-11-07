@@ -177,9 +177,10 @@ export function PanelFour() {
 export function PanelFive() {
   return (
     <CenterFull>
-      <VStackFull>
-        <UnfoldingContentDetails />
-        <UnfoldingContentDetails />
+      <VStackFull gap="gap-1vh">
+        <UnfoldingContentDetails initialDelay={0.3} />
+        <UnfoldingContentDetails initialDelay={0.9} />
+        <UnfoldingContentDetails initialDelay={1.5} />
       </VStackFull>
     </CenterFull>
   );
