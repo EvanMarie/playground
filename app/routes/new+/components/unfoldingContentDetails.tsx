@@ -5,7 +5,7 @@ import Transition, {
 } from "~/buildingBlockComponents/mainContainers";
 import { ScrollTransition } from "~/buildingBlockComponents/scrollTransition";
 
-export default function UnfoldingContentDetails({initial}) {
+export default function UnfoldingContentDetails({ initial }) {
   return (
     <ScrollTransition
       className="w-full p-0.5vh"
@@ -30,7 +30,7 @@ export default function UnfoldingContentDetails({initial}) {
             once={false}
             duration={1}
           >
-            That
+            <FlexFull className="bg-slate-900/30">That</FlexFull>
           </ScrollTransition>
         </FlexFull>
         <ScrollTransition
@@ -43,7 +43,7 @@ export default function UnfoldingContentDetails({initial}) {
           duration={1}
         >
           {" "}
-          <FlexFull className="p-1vh">That</FlexFull>{" "}
+          <FlexFull className="p-1vh bg-slate-700/30">That</FlexFull>{" "}
         </ScrollTransition>
       </VStackFull>
     </ScrollTransition>
