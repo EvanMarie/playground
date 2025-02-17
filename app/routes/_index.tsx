@@ -32,12 +32,19 @@ export default function Index() {
         ref={scrollContainerRef} // Update here if it's not used this way
         className="bg-col-700 fixed inset-0 h-100svh overflow-y-auto overflow-x-hidden hide-scrollbar z-0 rounded-none"
       >
-        <Wrap className="h-fit p-1vh justify-evenly">
+        <Wrap className="h-fit p-1vh justify-evenly gap-1vh">
           <DemoCard
             link="/pippin"
             image="https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/landing/pippin-pawsby.webp"
           />
-          <DemoCard link="/new" image="" />
+          <DemoCard
+            link="/lumi-ideas"
+            image="https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/githubprofileevan/learn-with-lumi-meta-square.png"
+          />
+          <DemoCard
+            link="/pdf-work"
+            image="http://images.unsplash.com/photo-1519681393784-d120267933ba"
+          />
         </Wrap>
       </FlexFull>
     </>
