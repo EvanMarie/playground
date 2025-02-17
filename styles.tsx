@@ -114,3 +114,6 @@ export const themeColors = {
   980: "rgba(2, 22, 51, 0.8)",
   990: "rgba(2, 22, 51, 0.9)",
 };
+
+export const smallButtonIconSizes = "text-sm md:text-md xl:text-lg";
+export const smallButtonPadding = "p-0.3vh md:p-0.4vh";

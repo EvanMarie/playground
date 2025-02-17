@@ -1,7 +1,10 @@
-import { FlexFull } from "~/buildingBlockComponents/mainContainers";
-
-import MainPageContentContainer from "../building/mainPageContainer";
+import { CenterFull } from "~/buildingBlockComponents/mainContainers";
+import DownloadCourseCertificatePDF from "../building/pdf/downloadCourseCertificatePDF";
 
 export default function PdfWork() {
-  return <>Index</>;
+  return (
+    <CenterFull>
+      <DownloadCourseCertificatePDF />
+    </CenterFull>
+  );
 }
