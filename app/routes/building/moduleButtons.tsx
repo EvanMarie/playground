@@ -78,7 +78,7 @@ export default function ModuleIconButton({
   return link ? (
     <NavLink
       to={link}
-      className="no-link-emoji focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded-full z-5 pointer-events-auto flex flex-shrink-0"
+      className="no-link-emoji focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded-full z-5 pointer-events-auto flex flex-shrink-0 overflow-visible "
       target={target}
       prefetch="intent"
       tabIndex={1}
@@ -87,7 +87,11 @@ export default function ModuleIconButton({
         label={!disabled ? tooltipLabel : null}
         placement={tooltipPlacement}
       >
-        <Transition delay={delay} type={animation}>
+        <Transition
+          delay={delay}
+          type={animation}
+          className="overflow-visible "
+        >
           <motion.div
             onClick={onClick}
             className={`flex items-center justify-center pointer-events-auto ${
