@@ -15,6 +15,7 @@ import { ModuleTextButton } from "~/routes/building/moduleButtons";
 import ModuleIconButton from "~/routes/building/moduleButtons";
 import ScrollProgressContainer from "~/routes/building/scrollProgressContainer";
 import MinGradeMaxGrade from "./minMaxGrade";
+import ContentParser from "./htmlRender";
 
 export default function OnboardingCourseExpandedModal({
   isOpen,
@@ -118,7 +119,14 @@ export default function OnboardingCourseExpandedModal({
               )}
               <ModalImage />
               <VStackFull className="bg-col-100 bg-gradient-to-bl from-col-340 via-col-330 to-col-340 p-1vh sm:p-2vh md:p-3vh md:w-90% border-950-md shadowNarrowNormal">
-                <RenderParagraphs textItem={description} />
+                <VStackFull>
+                  <RenderParagraphs textItem={description} />
+                </VStackFull>
+                {overview && (
+                  <VStackFull className="html-course-content">
+                    <ContentParser content={overview || ""} />
+                  </VStackFull>
+                )}
 
                 <CenterFull className="pt-2vh">
                   <ModuleTextButton

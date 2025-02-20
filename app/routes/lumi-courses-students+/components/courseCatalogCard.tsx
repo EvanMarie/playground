@@ -18,6 +18,7 @@ export default function CourseCatalogueCard({
   courseLink,
   minGrade,
   maxGrade,
+  overview,
 }: CourseForCarousel) {
   const isSingleGrade = minGrade === maxGrade;
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -61,6 +62,7 @@ export default function CourseCatalogueCard({
         image={imageLink}
         title={title}
         description={description}
+        overview={overview}
         minGrade={minGrade}
         maxGrade={maxGrade}
         isShoppingCart={false}

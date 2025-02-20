@@ -1816,6 +1816,7 @@ export default {
           overflow: "hidden",
           borderFadius: "none",
           maxHeight: "100svh",
+          scrollBehavior: "smooth",
         },
         body: {
           color: theme("colors.col.100"),
@@ -2185,6 +2186,11 @@ export default {
         },
         li: {
           listStyleType: "none",
+        },
+        ".scroll-y-container": {
+          overflowY: "auto !important",
+          overflowX: "hidden !important",
+          pointerEvents: "auto !important",
         },
       });
     }),

@@ -1,11 +1,14 @@
 import {
   FlexFull,
+  HStackFull,
   VStackFull,
   WrapFull,
 } from "~/buildingBlockComponents/mainContainers";
 import Text from "~/buildingBlockComponents/text";
 import MainPageContentContainer from "~/routes/building/mainPageContainer";
 import CourseCatalogueCard from "./courseCatalogCard";
+import { NavLink } from "@remix-run/react";
+import CourseCatalogWrap from "./courseCatalogWrap";
 
 export interface CourseForCarousel {
   id: string;
@@ -18,6 +21,7 @@ export interface CourseForCarousel {
   imageLink: string;
   courseLink: string;
   code: string;
+  overview?: string;
 }
 
 export const currentCourses: CourseForCarousel[] = [
@@ -35,6 +39,12 @@ export const currentCourses: CourseForCarousel[] = [
     courseLink: "",
     imageLink:
       "https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/learnWithLumi/course-thumbnails/micro-courses/vocab-micro-level-1.webp?quality=50",
+    overview: `
+    <h2>Overview</h2>
+      <p>
+        This is the overview for the course.
+      </p>
+    `,
   },
   // Vocabulary Builder Level Two
   {
@@ -50,6 +60,12 @@ export const currentCourses: CourseForCarousel[] = [
     courseLink: "",
     imageLink:
       "https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/learnWithLumi/course-thumbnails/micro-courses/vocab-micro-level-2.webp?quality=50",
+    overview: `
+    <h2>Overview</h2>
+      <p>
+        This is the overview for the course.
+      </p>
+    `,
   },
   // Vocabulary Builder Level Three
   {
@@ -65,6 +81,12 @@ export const currentCourses: CourseForCarousel[] = [
     courseLink: "",
     imageLink:
       "https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/learnWithLumi/course-thumbnails/micro-courses/vocab-micro-level-3.webp?quality=50",
+    overview: `
+    <h2>Overview</h2>
+      <p>
+        This is the overview for the course.
+      </p>
+    `,
   },
   // Vocabulary Builder Level Four
   {
@@ -80,6 +102,12 @@ export const currentCourses: CourseForCarousel[] = [
     courseLink: "",
     imageLink:
       "https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/learnWithLumi/course-thumbnails/micro-courses/vocab-micro-level-4.webp?quality=50",
+    overview: `
+    <h2>Overview</h2>
+      <p>
+        This is the overview for the course.
+      </p>
+    `,
   },
   // Vocabulary Builder Level Five
   {
@@ -95,6 +123,12 @@ export const currentCourses: CourseForCarousel[] = [
     courseLink: "",
     imageLink:
       "https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/learnWithLumi/course-thumbnails/micro-courses/vocab-micro-level-5.webp?quality=50",
+    overview: `
+    <h2>Overview</h2>
+      <p>
+        This is the overview for the course.
+      </p>
+    `,
   },
   // Crash Course Study Skills
   {
@@ -110,6 +144,12 @@ export const currentCourses: CourseForCarousel[] = [
     courseLink: "",
     imageLink:
       "https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/learnWithLumi/course-thumbnails/micro-courses/cc-study-skills.webp?quality=50",
+    overview: `
+    <h2>Overview</h2>
+      <p>
+        This is the overview for the course.
+      </p>
+    `,
   },
   // The Legacy of Martin Luther King Jr.
   {
@@ -125,6 +165,12 @@ export const currentCourses: CourseForCarousel[] = [
     courseLink: "",
     imageLink:
       "https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/learnWithLumi/course-thumbnails/micro-courses/mlk-mini-course.webp?quality=50",
+    overview: `
+    <h2>Overview</h2>
+      <p>
+        This is the overview for the course.
+      </p>
+    `,
   },
   // The Legacy of Martin Luther King Jr. Level Two
   {
@@ -140,6 +186,12 @@ export const currentCourses: CourseForCarousel[] = [
     courseLink: "",
     imageLink:
       "https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/learnWithLumi/course-thumbnails/micro-courses/mlk-mini-course.webp?quality=50",
+    overview: `
+    <h2>Overview</h2>
+      <p>
+        This is the overview for the course.
+      </p>
+    `,
   },
   // The Life and Teachings of the Buddha
   {
@@ -155,6 +207,12 @@ export const currentCourses: CourseForCarousel[] = [
     courseLink: "",
     imageLink:
       "https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/learnWithLumi/course-thumbnails/micro-courses/buddha-mini-course.webp?quality=50",
+    overview: `
+    <h2>Overview</h2>
+      <p>
+        This is the overview for the course.
+      </p>
+    `,
   },
   // The Life and Teachings of the Buddha Level Two
   {
@@ -170,6 +228,12 @@ export const currentCourses: CourseForCarousel[] = [
     courseLink: "",
     imageLink:
       "https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/learnWithLumi/course-thumbnails/micro-courses/buddha-mini-course.webp?quality=50",
+    overview: `
+    <h2>Overview</h2>
+      <p>
+        This is the overview for the course.
+      </p>
+    `,
   },
   // Mastering Dependent and Independent Clauses
   {
@@ -185,6 +249,12 @@ export const currentCourses: CourseForCarousel[] = [
     courseLink: "",
     imageLink:
       "https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/learnWithLumi/course-thumbnails/micro-courses/bookstack.webp?quality=50",
+    overview: `
+    <h2>Overview</h2>
+      <p>
+        This is the overview for the course.
+      </p>
+    `,
   },
   // Understanding Linking Verbs
   {
@@ -200,6 +270,12 @@ export const currentCourses: CourseForCarousel[] = [
     courseLink: "",
     imageLink:
       "https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/learnWithLumi/course-thumbnails/micro-courses/bookstack.webp?quality=50",
+    overview: `
+    <h2>Overview</h2>
+      <p>
+        This is the overview for the course.
+      </p>
+    `,
   },
   // Lumi's Swirling and Glowing Night
   {
@@ -215,6 +291,12 @@ export const currentCourses: CourseForCarousel[] = [
     courseLink: "",
     imageLink:
       "https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/learnWithLumi/course-thumbnails/micro-courses/lumi-starry-night.webp?quality=50",
+    overview: `
+    <h2>Overview</h2>
+      <p>
+        This is the overview for the course.
+      </p>
+    `,
   },
   // Element Adventures
   {
@@ -230,6 +312,12 @@ export const currentCourses: CourseForCarousel[] = [
     courseLink: "",
     imageLink:
       "https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/learnWithLumi/course-thumbnails/micro-courses/kids-chemistry.webp?quality=50",
+    overview: `
+    <h2>Overview</h2>
+      <p>
+        This is the overview for the course.
+      </p>
+    `,
   },
   // Be a Prompt Engineering Master
   {
@@ -245,6 +333,12 @@ export const currentCourses: CourseForCarousel[] = [
     courseLink: "",
     imageLink:
       "https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/learnWithLumi/course-thumbnails/micro-courses/prompt-engineering.webp?quality=50",
+    overview: `
+    <h2>Overview</h2>
+      <p>
+        This is the overview for the course.
+      </p>
+    `,
   },
   // Python for Beginners
   {
@@ -260,6 +354,12 @@ export const currentCourses: CourseForCarousel[] = [
     courseLink: "",
     imageLink:
       "https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/learnWithLumi/course-thumbnails/micro-courses/python-beginners.webp?quality=50",
+    overview: `
+    <h2>Overview</h2>
+      <p>
+        This is the overview for the course.
+      </p>
+    `,
   },
 ];
 
@@ -272,6 +372,13 @@ export default function CourseCatalogue() {
     isAdmin ? "h-92svh md:h-91.5svh" : "h-93svh md:h-91svh"
   }`;
 
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <MainPageContentContainer
       noDots
@@ -281,17 +388,54 @@ export default function CourseCatalogue() {
       maxWidth="max-w-100vw"
       scrollProgressColor="bg-col-200"
     >
-      <FlexFull className="h-full border-900-md">
-        <WrapFull
-          className={`p-1vh h-fit py-6vh justify-evenly gap-1vh md:gap-x-1.5vh xl:gap-x-2vh gap-y-2vh ${
-            !isAdmin && "pb-10vh"
-          }`}
-        >
+      <VStackFull className={`${!isAdmin && "pb-10vh"} relative`}>
+        <HStackFull className="text-col-700 text-xs justify-between px-1vh sticky top-0 z-20 bg-white">
+          <button
+            onClick={() => scrollToSection("beta")}
+            className="hover:text-col-900"
+          >
+            free beta
+          </button>
+          <button
+            onClick={() => scrollToSection("elementary")}
+            className="hover:text-col-900"
+          >
+            elementary
+          </button>
+          <button
+            onClick={() => scrollToSection("middle")}
+            className="hover:text-col-900"
+          >
+            middle school
+          </button>
+          <button
+            onClick={() => scrollToSection("high")}
+            className="hover:text-col-900"
+          >
+            high school
+          </button>
+        </HStackFull>
+        <CourseCatalogWrap id="beta" title="free beta">
           {currentCourses.map((course) => (
             <CourseCatalogueCard key={course.id} {...course} />
           ))}
-        </WrapFull>
-      </FlexFull>
+        </CourseCatalogWrap>
+        <CourseCatalogWrap id="elementary" title="elementary">
+          {currentCourses.map((course) => (
+            <CourseCatalogueCard key={course.id} {...course} />
+          ))}
+        </CourseCatalogWrap>
+        <CourseCatalogWrap id="middle" title="middle school">
+          {currentCourses.map((course) => (
+            <CourseCatalogueCard key={course.id} {...course} />
+          ))}
+        </CourseCatalogWrap>
+        <CourseCatalogWrap id="high" title="high school">
+          {currentCourses.map((course) => (
+            <CourseCatalogueCard key={course.id} {...course} />
+          ))}
+        </CourseCatalogWrap>
+      </VStackFull>
     </MainPageContentContainer>
   );
 }
